@@ -1,0 +1,167 @@
+<test>
+    <testName>test</testName>
+    <protocol>https</protocol>
+    <atsdURL>hbs.axibase.com</atsdURL>
+    <port>9443</port>
+    <TCPport>9081</TCPport>
+    <queries>
+        <query>
+            <testID>Select-all-columns--query-with-series-tags</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime > now - 5 * minute
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN now - 1 * hour AND now
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Mathematical-Functions</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= now - 5 * minute
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= current_day
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime > now - 1*hour
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>JOIN</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime > now - 1 * hour
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Filter-Series-with-String-Operators-->'val2'</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value, tags.tag2
+                FROM "m-metric1"
+                WHERE datetime >= "2016-06-19T11:00:00.000Z"
+                AND tags.tag2 > 'val2'
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(1 minute)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-06-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
+                AND entity = 'nurswghbs001'
+                GROUP BY entity, PERIOD(1 minute, LINEAR)
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime >= "2016-06-18T12:00:00.000Z" AND datetime < "2016-06-18T12:00:30.000Z"
+                WITH ROW_NUMBER(entity ORDER BY time) <= 1
+                ORDER BY entity, time
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Select-All-Series-Tags</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value, tags.*
+                FROM 'm-metric1'
+                WHERE datetime >= "2016-06-19T11:00:00.000Z" and datetime < "2016-06-19T12:00:00.000Z"
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Thomas's-query-quick-version</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'yyyy-MM-dd') as 'date',
+                tags.city, tags.state, tags.region, sum(value),
+                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+                GROUP BY entity, tags, datetime
+                WITH row_number(entity, tags ORDER BY datetime desc) <= 1
+                ORDER BY sum(value) desc
+                ]]>
+            </queryText>
+            <loops>1</loops>
+        </query>
+        <query>
+            <testID>Thomas's-query-long-version</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'yyyy-MM-dd') as 'date',
+                tags.city, tags.state, tags.region, sum(value),
+                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+                GROUP BY entity, tags, datetime
+                WITH row_number(entity, tags ORDER BY datetime desc) <= 1
+                ORDER BY sum(value) desc
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>1</loops>
+        </query>
+    </queries>
+</test>
