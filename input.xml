@@ -1,5 +1,4 @@
 <test>
-    <testName>test</testName>
     <protocol>https</protocol>
     <atsdURL>hbs.axibase.com</atsdURL>
     <port>9443</port>
