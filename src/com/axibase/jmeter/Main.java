@@ -290,8 +290,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException{
-        if (args.length != 3) {
-            System.out.println("Need 3 args -- input filepath, login and password!");
+        if (args.length != 2) {
+            System.out.println("Need 2 args -- input filepath, credentials filepath!");
             return;
         }
 
@@ -302,16 +302,18 @@ public class Main {
         doc.getDocumentElement().normalize();
 
         NodeList nList = doc.getElementsByTagName("query");
-        String testName = doc.getElementsByTagName("testName").item(0).getTextContent();
         String atsdURL = doc.getElementsByTagName("atsdURL").item(0).getTextContent();
         String port = doc.getElementsByTagName("port").item(0).getTextContent();
         String TCPport = doc.getElementsByTagName("TCPport").item(0).getTextContent();
         String protocol = doc.getElementsByTagName("protocol").item(0).getTextContent();
-        String username = args[1];
-        String password = args[2];
+
+        FileInputStream credentialsFile = new FileInputStream(args[1]);
+        BufferedReader br = new BufferedReader(new InputStreamReader(credentialsFile));
+        String username = br.readLine();
+        String password = br.readLine();
 
         String rawFile = formJMX(atsdURL, port, TCPport, protocol, username, password, nList);
-        File file = new File(testName + ".jmx");
+        File file = new File("test.jmx");
 
         if (file.exists()) {
             file.delete();
