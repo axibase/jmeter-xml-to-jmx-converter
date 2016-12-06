@@ -143,7 +143,7 @@
                 ORDER BY sum(value) desc
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Thomas's-query-long-version</testID>
@@ -160,7 +160,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>verification-of-population-table</testID>
@@ -177,7 +177,7 @@
                 ORDER BY sum(value) desc
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>verification-of-region-table</testID>
@@ -194,7 +194,7 @@
                 ORDER BY value desc
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>The-least-deadliest-week-by-city</testID>
@@ -212,7 +212,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>The-most-deadliest-week-by-city</testID>
@@ -230,7 +230,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>The-most-deadliest-week-due-to-pneumonia-and-influenza-by-city</testID>
@@ -248,7 +248,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>The-deadliest-influenza-weeks</testID>
@@ -270,7 +270,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>all-instances-when-a-city-failed-to-report-pneumonia_and_influenza_deaths</testID>
@@ -285,7 +285,7 @@
                 AND pni.value IS NULL
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-by-all-deaths-in-the-current-year</testID>
@@ -304,7 +304,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
@@ -323,7 +323,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI</testID>
@@ -344,7 +344,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-the-last-12-months</testID>
@@ -365,7 +365,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-entire-period-since-1970</testID>
@@ -386,7 +386,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Number-of-PNI-deaths-per-month-in-Midwest</testID>
@@ -404,7 +404,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Total-PNI-deaths-in-January-for-region-3</testID>
@@ -422,7 +422,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-3-deadliest-Januaries-in-the-region</testID>
@@ -441,7 +441,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>The-deadliest-PNI-month-by-region</testID>
@@ -457,7 +457,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Latest-weekly-PNI-readings-for-Boston</testID>
@@ -470,7 +470,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-using-JOIN</testID>
@@ -484,7 +484,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-specific-tags</testID>
@@ -497,7 +497,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-region-code-translated-to-region-name-using-a-Replacement-Table</testID>
@@ -511,7 +511,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-total-for-all-cities-in-a-given-region</testID>
@@ -526,7 +526,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Monthly-totals-for-all-cities-in-region-for-a-given-time-range</testID>
@@ -541,7 +541,88 @@
                 ORDER BY datetime DESC
                 ]]>
             </queryText>
-            <loops>1</loops>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Cities-with-the-highest-mortality-rate</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tags.city as 'city', tags.state as 'state',
+                ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
+                sum(value) as 'all_deaths',
+                cast(LOOKUP('city-size', concat(tags.city, ',', tags.state))) AS 'population',
+                sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+                AND datetime >= '2015-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
+                GROUP BY tags
+                ORDER BY mortality_rate DESC
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>Mortality-rates-in-New-York-(fixed-pop-size,-provisional)</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state',
+                ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+                sum(t24.value) as '1-24_deaths',
+                sum(t44.value) as '24-44_deaths',
+                sum(t64.value) as '44-64_deaths',
+                sum(t64o.value) as '64+_deaths',
+                sum(tot.value) as 'all_deaths',
+                cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
+                sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
+                sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
+                sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
+                FROM cdc.all_deaths tot
+                JOIN cdc._1_24_years t24
+                JOIN cdc._25_44_years t44
+                JOIN cdc._54_64_years t64
+                JOIN cdc._65_years t64o
+                WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+                AND tot.datetime >= '1970-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+                and tot.tags.city = 'New York'
+                GROUP BY tot.tags, tot.period(1 year)
+                HAVING sum(tot.value) > 0
+                ORDER BY tot.tags.city, tot.datetime
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
+        <query>
+            <testID>2016-mortality-rates</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.tags.city as 'city', tot.tags.state as 'state',
+                ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+                sum(t24.value) as '1-24_deaths',
+                sum(t44.value) as '24-44_deaths',
+                sum(t64.value) as '44-64_deaths',
+                sum(t64o.value) as '64+_deaths',
+                sum(tot.value) as 'all_deaths',
+                cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
+                sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
+                sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
+                sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
+                FROM cdc.all_deaths tot
+                JOIN cdc._1_24_years t24
+                JOIN cdc._25_44_years t44
+                JOIN cdc._54_64_years t64
+                JOIN cdc._65_years t64o
+                WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+                AND tot.datetime >= '2015-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+                GROUP BY tot.tags, tot.period(1 year)
+                HAVING sum(tot.value) > 0
+                ORDER BY 'total_mortality_rate' desc
+                ]]>
+            </queryText>
+            <loops>5</loops>
         </query>
     </queries>
 </test>
