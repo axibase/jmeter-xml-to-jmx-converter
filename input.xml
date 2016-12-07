@@ -211,7 +211,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL AND value > 0
                 WITH row_number(tags ORDER BY value, time DESC) <= 1
                 ORDER BY 'date' DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -229,7 +229,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 WITH row_number(tags ORDER BY value desc, time desc) <= 1
                 ORDER BY value desc
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -247,7 +247,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 WITH row_number(tags ORDER BY value desc, time desc) <= 1
                 ORDER BY value desc
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -269,7 +269,7 @@
                 AND pni.value > 1
                 WITH row_number(tot.tags ORDER BY pni.value/tot.value DESC, tot.time DESC) <= 1
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, pni.value DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -285,7 +285,7 @@
                 WHERE tot.entity = 'mr8w-325u'
                 AND tot.tags.city = 'Baton Rouge'
                 AND pni.value IS NULL
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -304,7 +304,7 @@
                 GROUP BY tags
                 ORDER BY 'all_deaths' DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -323,7 +323,7 @@
                 GROUP BY tags
                 ORDER BY 'pneumonia_influenza_deaths' DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -344,7 +344,7 @@
                 AND tot.datetime > current_year AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -365,7 +365,7 @@
                 AND tot.datetime > now-1*YEAR AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -386,7 +386,7 @@
                 AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -404,7 +404,7 @@
                 AND datetime > now-5*year AND datetime < '2016-10-01T00:00:00Z'
                 GROUP BY tags.region, period(1 MONTH)
                 ORDER BY datetime desc, tags.region
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -422,7 +422,7 @@
                 AND date_format(time, 'MMM') = 'Jan'
                 GROUP BY tags.region, period(1 MONTH)
                 ORDER BY datetime, tags.region
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -441,7 +441,7 @@
                 GROUP BY tags.region, period(1 MONTH)
                 ORDER BY sum(value) desc
                 LIMIT 3
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -457,7 +457,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 GROUP BY tags.region, date_format(time, 'MMM')
                 ORDER BY sum(value) DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -471,7 +471,7 @@
                 WHERE tags.city = 'Boston'
                 ORDER BY datetime DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -486,7 +486,7 @@
                 WHERE pni.tags.city = 'Boston'
                 ORDER BY pni.datetime DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -500,7 +500,7 @@
                 WHERE tags.city = 'Boston'
                 ORDER BY datetime DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -515,7 +515,7 @@
                 WHERE tags.city = 'Boston'
                 ORDER BY datetime DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -531,7 +531,7 @@
                 GROUP BY tags.region, datetime
                 ORDER BY datetime DESC
                 LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -547,7 +547,7 @@
                 AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
                 GROUP BY tags.region, period(1 MONTH)
                 ORDER BY datetime DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -566,7 +566,7 @@
                 AND datetime >= '2015-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
                 GROUP BY tags
                 ORDER BY mortality_rate DESC
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -599,7 +599,7 @@
                 GROUP BY tot.tags, tot.period(1 year)
                 HAVING sum(tot.value) > 0
                 ORDER BY tot.tags.city, tot.datetime
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -631,7 +631,7 @@
                 GROUP BY tot.tags, tot.period(1 year)
                 HAVING sum(tot.value) > 0
                 ORDER BY 'total_mortality_rate' desc
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
@@ -667,7 +667,7 @@
                 HAVING sum(tot.value) > 0
                 WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)
                 ORDER BY tot.tags.city, tot.datetime
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>5</loops>
