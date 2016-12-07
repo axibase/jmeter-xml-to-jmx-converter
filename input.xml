@@ -15,7 +15,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>ORDER-BY--Time</testID>
@@ -27,7 +27,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Mathematical-Functions</testID>
@@ -42,7 +42,7 @@
                 ORDER BY SQRT(value) DESC
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Aggregate--Average-Value</testID>
@@ -53,7 +53,7 @@
                 WHERE datetime >= current_day
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>GROUP-BY--Query-with-ORDER-BY</testID>
@@ -66,7 +66,7 @@
                 ORDER BY avg(value) DESC
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>JOIN</testID>
@@ -78,7 +78,7 @@
                 WHERE t1.datetime > now - 1 * hour
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Filter-Series-with-String-Operators-->'val2'</testID>
@@ -90,7 +90,7 @@
                 AND tags.tag2 > 'val2'
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods</testID>
@@ -103,7 +103,7 @@
                 GROUP BY entity, PERIOD(1 minute, LINEAR)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
@@ -116,7 +116,7 @@
                 ORDER BY entity, time
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Select-All-Series-Tags</testID>
@@ -127,7 +127,7 @@
                 WHERE datetime >= "2016-06-19T11:00:00.000Z" and datetime < "2016-06-19T12:00:00.000Z"
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Thomas's-query-1</testID>
@@ -144,7 +144,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>verification-of-population-table</testID>
@@ -162,7 +162,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>verification-of-region-table</testID>
@@ -180,7 +180,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>The-least-deadliest-week-by-city</testID>
@@ -198,7 +198,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>The-most-deadliest-week-by-city</testID>
@@ -216,7 +216,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>The-most-deadliest-week-due-to-pneumonia-and-influenza-by-city</testID>
@@ -234,7 +234,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>The-deadliest-influenza-weeks</testID>
@@ -256,7 +256,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>all-instances-when-a-city-failed-to-report-pneumonia_and_influenza_deaths</testID>
@@ -272,7 +272,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>Top-10-cities-by-all-deaths-in-the-current-year</testID>
@@ -291,7 +291,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
@@ -310,7 +310,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI</testID>
@@ -331,7 +331,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-the-last-12-months</testID>
@@ -352,7 +352,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-entire-period-since-1970</testID>
@@ -373,7 +373,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>Number-of-PNI-deaths-per-month-in-Midwest</testID>
@@ -391,7 +391,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Total-PNI-deaths-in-January-for-region-3</testID>
@@ -409,7 +409,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-3-deadliest-Januaries-in-the-region</testID>
@@ -428,7 +428,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>The-deadliest-PNI-month-by-region</testID>
@@ -444,7 +444,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>Latest-weekly-PNI-readings-for-Boston</testID>
@@ -458,7 +458,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-using-JOIN</testID>
@@ -473,7 +473,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-specific-tags</testID>
@@ -487,7 +487,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-region-code-translated-to-region-name-using-a-Replacement-Table</testID>
@@ -502,7 +502,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-total-for-all-cities-in-a-given-region</testID>
@@ -518,7 +518,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Monthly-totals-for-all-cities-in-region-for-a-given-time-range</testID>
@@ -534,7 +534,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Cities-with-the-highest-mortality-rate</testID>
@@ -553,7 +553,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Mortality-rates-in-New-York-(fixed-pop-size,-provisional)</testID>
@@ -586,7 +586,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>2016-mortality-rates</testID>
@@ -618,7 +618,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>New-York-Mortality-Rate-history,-using-interpolated-population-size</testID>
@@ -654,7 +654,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>5</loops>
+            <loops>10</loops>
         </query>
     </queries>
 </test>
