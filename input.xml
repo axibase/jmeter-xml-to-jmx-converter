@@ -624,5 +624,40 @@
             </queryText>
             <loops>5</loops>
         </query>
+        <query>
+            <testID>New-York-Mortality-Rate-history,-using-interpolated-population-size</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state',
+                ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+                sum(t24.value) as '1-24_deaths',
+                sum(t44.value) as '24-44_deaths',
+                sum(t64.value) as '44-64_deaths',
+                sum(t64o.value) as '64+_deaths',
+                sum(tot.value) as 'all_deaths',
+                sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/avg(pop.value)*1000 AS 'other_mortality_rate',
+                sum(t24.value)/avg(pop.value)*1000 AS '1_24_mortality_rate',
+                sum(t64o.value)/avg(pop.value)*1000 AS '64_older_mortality_rate',
+                sum(tot.value)/avg(pop.value)*1000 AS 'total_mortality_rate',
+                cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS '2015 population',
+                avg(pop.value) AS 'population'
+                FROM cdc.all_deaths tot
+                JOIN cdc._1_24_years t24
+                JOIN cdc._25_44_years t44
+                JOIN cdc._54_64_years t64
+                JOIN cdc._65_years t64o
+                JOIN us.population pop
+                WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+                AND tot.datetime >= '1970-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+                AND tot.tags.city = 'New York'
+                GROUP BY tot.tags, tot.period(1 year)
+                HAVING sum(tot.value) > 0
+                WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)
+                ORDER BY tot.tags.city, tot.datetime
+                ]]>
+            </queryText>
+            <loops>5</loops>
+        </query>
     </queries>
 </test>
