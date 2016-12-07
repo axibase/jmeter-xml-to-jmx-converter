@@ -130,23 +130,7 @@
             <loops>5</loops>
         </query>
         <query>
-            <testID>Thomas's-query-quick-version</testID>
-            <queryText>
-                <![CDATA[
-                SELECT date_format(time, 'yyyy-MM-dd') as 'date',
-                tags.city, tags.state, tags.region, sum(value),
-                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
-                FROM cdc.all_deaths
-                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
-                GROUP BY entity, tags, datetime
-                WITH row_number(entity, tags ORDER BY datetime desc) <= 1
-                ORDER BY sum(value) desc
-                ]]>
-            </queryText>
-            <loops>5</loops>
-        </query>
-        <query>
-            <testID>Thomas's-query-long-version</testID>
+            <testID>Thomas's-query-1</testID>
             <queryText>
                 <![CDATA[
                 SELECT date_format(time, 'yyyy-MM-dd') as 'date',
