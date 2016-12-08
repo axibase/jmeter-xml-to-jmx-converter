@@ -229,7 +229,7 @@ public class Main {
                 "            </elementProp>\n" +
                 "            <elementProp name=\"percentiles\" elementType=\"Argument\">\n" +
                 "              <stringProp name=\"Argument.name\">percentiles</stringProp>\n" +
-                "              <stringProp name=\"Argument.value\">75;90;95;99</stringProp>\n" +
+                "              <stringProp name=\"Argument.value\">50;75;90;95;99</stringProp>\n" +
                 "              <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
                 "            </elementProp>\n" +
                 "          </collectionProp>\n" +
