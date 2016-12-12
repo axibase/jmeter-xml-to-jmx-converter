@@ -828,5 +828,15 @@
             </queryText>
             <loops>10</loops>
         </query>
+        <query>
+            <testID>Multiple-summation-bug</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value
+                FROM 'm-metric1'
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
     </queries>
 </test>
