@@ -823,6 +823,7 @@
                 FROM cdc.all_deaths tot
                 ORDER BY datetime, tags.city
                 LIMIT 10
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
