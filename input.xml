@@ -656,5 +656,176 @@
             </queryText>
             <loops>10</loops>
         </query>
+        <query>
+            <testID>Mortality-Rate-by-Age-Group-in-New-York-city-2010</testID>
+            <queryText>
+                <![CDATA[
+                SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS 'population',
+                sum(t1.value) AS 'infant_deaths',
+                sum(t24.value) AS '1-24_deaths',
+                sum(t44.value) AS '25-44_deaths',
+                sum(t64.value) AS '45-64_deaths',
+                sum(t65.value) AS '65+_deaths',
+                sum(tot.value) AS 'all_deaths',
+                sum(t1.value)/CAST(LOOKUP('new-york-city-2010-population', 'under-1'))*1000 AS 'infant_mortality_rate',
+                sum(t24.value)/CAST(LOOKUP('new-york-city-2010-population', '1-24'))*1000 AS '1-24_mortality_rate',
+                sum(t44.value)/CAST(LOOKUP('new-york-city-2010-population', '25-44'))*1000 AS '25-44_mortality_rate',
+                sum(t64.value)/CAST(LOOKUP('new-york-city-2010-population', '45-64'))*1000 AS '45-64_mortality_rate',
+                sum(t65.value)/CAST(LOOKUP('new-york-city-2010-population', '65+'))*1000 AS '65+_mortality_rate',
+                sum(tot.value)/CAST(LOOKUP('new-york-city-2010-population', 'total'))*1000 AS 'total_mortality_rate'
+                FROM cdc.all_deaths tot
+                JOIN cdc._1_year t1
+                JOIN cdc._1_24_years t24
+                JOIN cdc._25_44_years t44
+                JOIN cdc._54_64_years t64
+                JOIN cdc._65_years t65
+                WHERE tot.entity = 'mr8w-325u'
+                AND tot.datetime >= '2010-01-01T00:00:00Z' AND tot.datetime < '2011-01-01T00:00:00Z'
+                AND tot.tags.city = 'New York'
+                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Select-count--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT count(*)
+                FROM mpstat.cpu_busy
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>SELECT-entity-datetime-value--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value
+                FROM mpstat.cpu_busy
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>select-max--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT max(value)
+                FROM mpstat.cpu_busy
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>select-average--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>select-with-maths--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT time, value, value+0
+                FROM mpstat.cpu_busy
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Select-count--disk-size</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from df.disk_size
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>select-count--disk-used</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from df.disk_used
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>select-count--read-rate</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from iostat.read_rate
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>select-count--java-method-invoke-average</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from "java_method_invoke_average"
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>select-count--collectd-df-space-used</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from "collectd.df.space.used"
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>query-from-ticket-3670</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'yyyy-MM-dd') as 'date',
+                tags.city, tags.state, tags.region, sum(value),
+                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+                GROUP BY entity, tags, datetime
+                WITH row_number(entity, tags ORDER BY datetime desc) <= 1
+                ORDER BY sum(value) desc
+                LIMIT 5
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>Order-rows-by-date-and-city</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM cdc.all_deaths tot
+                ORDER BY datetime, tags.city
+                LIMIT 10
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
     </queries>
 </test>
