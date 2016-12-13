@@ -1278,5 +1278,83 @@
             </queryText>
             <loops>30</loops>
         </query>
+        <query>
+            <testID>string-functions-group-by-null</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, avg(value), ISNULL(entity.tags.environment, 'other') as environment
+                FROM mpstat.cpu_busy
+                WHERE datetime >= previous_hour
+                GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>string-functions-group-by-null-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, avg(value), ISNULL(entity.tags.environment, 'other') as environment
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
+                GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>string-functions-group-by-null-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, avg(value), ISNULL(entity.tags.environment, 'other') as environment
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
+                GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>string-functions-substring</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
+                FROM disk_used
+                WHERE datetime > current_minute
+                AND LOCATE('//', tags.file_system) != 1
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>string-functions-substring-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
+                FROM disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:01:30.000Z"
+                AND LOCATE('//', tags.file_system) != 1
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>string-functions-substring-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
+                FROM disk_used
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:01:30.000Z"
+                AND LOCATE('//', tags.file_system) != 1
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
     </queries>
 </test>
