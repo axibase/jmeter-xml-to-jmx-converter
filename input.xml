@@ -18,12 +18,62 @@
             <loops>30</loops>
         </query>
         <query>
+            <testID>Select-all-columns--query-with-series-tags-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Select-all-columns--query-with-series-tags-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
             <testID>ORDER-BY--Time</testID>
             <queryText>
                 <![CDATA[
                 SELECT datetime, value
                 FROM mpstat.cpu_busy
                 WHERE datetime BETWEEN now - 1 * hour AND now
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -45,12 +95,64 @@
             <loops>30</loops>
         </query>
         <query>
+            <testID>Mathematical-Functions-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Mathematical-Functions-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
             <testID>Aggregate--Average-Value</testID>
             <queryText>
                 <![CDATA[
                 SELECT avg(value)
                 FROM mpstat.cpu_busy
                 WHERE datetime >= current_day
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T00:00:01.000Z" AND "2016-12-01T23:59:55.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T00:00:01.000Z" AND "2016-11-01T23:59:55.000Z"
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -69,6 +171,32 @@
             <loops>30</loops>
         </query>
         <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
             <testID>JOIN</testID>
             <queryText>
                 <![CDATA[
@@ -76,6 +204,30 @@
                 FROM mpstat.cpu_busy t1
                 JOIN mpstat.cpu_idle t2
                 WHERE t1.datetime > now - 1 * hour
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>JOIN-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>JOIN-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -693,7 +845,6 @@
                 <![CDATA[
                 SELECT count(*)
                 FROM mpstat.cpu_busy
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -704,7 +855,6 @@
                 <![CDATA[
                 SELECT entity, datetime, value
                 FROM mpstat.cpu_busy
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -715,7 +865,6 @@
                 <![CDATA[
                 SELECT max(value)
                 FROM mpstat.cpu_busy
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -726,7 +875,6 @@
                 <![CDATA[
                 SELECT avg(value)
                 FROM mpstat.cpu_busy
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -737,7 +885,6 @@
                 <![CDATA[
                 SELECT time, value, value+0
                 FROM mpstat.cpu_busy
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>30</loops>
@@ -748,7 +895,6 @@
                 <![CDATA[
                 select count(*)
                 from df.disk_size
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -759,7 +905,6 @@
                 <![CDATA[
                 select count(*)
                 from df.disk_used
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -770,7 +915,6 @@
                 <![CDATA[
                 select count(*)
                 from iostat.read_rate
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -781,7 +925,6 @@
                 <![CDATA[
                 select count(*)
                 from "java_method_invoke_average"
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -792,7 +935,6 @@
                 <![CDATA[
                 select count(*)
                 from "collectd.df.space.used"
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -833,10 +975,308 @@
             <queryText>
                 <![CDATA[
                 SELECT value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value
-                FROM 'm-metric1'
+                FROM 'testmetric'
                 ]]>
             </queryText>
             <loops>10</loops>
+        </query>
+        <query>
+            <testID>String-functions</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime > now - 1*minute
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>String-functions-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:01:30.000Z"
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>String-functions-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:01:30.000Z"
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Row-memory-threshold</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, avg(value), tags
+                FROM df.disk_used
+                WHERE datetime > current_day
+                GROUP BY entity, tags, PERIOD(2 HOUR)
+                ORDER BY entity, tags.file_system, datetime
+                OPTION (ROW_MEMORY_THRESHOLD 10000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Row-memory-threshold-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, avg(value), tags
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-02T12:00:30.000Z"
+                GROUP BY entity, tags, PERIOD(2 HOUR)
+                ORDER BY entity, tags.file_system, datetime
+                OPTION (ROW_MEMORY_THRESHOLD 10000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Row-memory-threshold-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, avg(value), tags
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-02T12:00:30.000Z"
+                GROUP BY entity, tags, PERIOD(2 HOUR)
+                ORDER BY entity, tags.file_system, datetime
+                OPTION (ROW_MEMORY_THRESHOLD 10000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, tags.*, datetime, avg(value)
+                FROM df.disk_used
+                WHERE datetime > now - 1 * day
+                AND tags.file_system LIKE '/dev/*'
+                GROUP BY entity, tags, period(15 minute)
+                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, tags.*, datetime, avg(value)
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-02T12:00:30.000Z"
+                AND tags.file_system LIKE '/dev/*'
+                GROUP BY entity, tags, period(15 minute)
+                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, tags.*, datetime, avg(value)
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-02T12:00:30.000Z"
+                AND tags.file_system LIKE '/dev/*'
+                GROUP BY entity, tags, period(15 minute)
+                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>average-for-recent-hour--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, AVG(cpu_busy.value)
+                FROM cpu_busy
+                WHERE datetime > previous_month
+                GROUP BY entity
+                WITH time > last_time - 1 * HOUR
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>join--derived-series</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime > now - 1 * MINUTE
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>join--derived-series-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:01:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>join--derived-series-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:01:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>outer-join</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime > current_hour
+                AND entity = 'nurswghbs001'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>outer-join-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
+                AND entity = 'nurswghbs001'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>outer-join-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
+                AND entity = 'nurswghbs001'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-Results-by-Entity-Name</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, entity, value
+                FROM mpstat.cpu_busy
+                WHERE entity = 'nurswghbs001'
+                AND datetime > current_hour
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-Results-by-Entity-Name-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, entity, value
+                FROM mpstat.cpu_busy
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-Results-by-Entity-Name-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, entity, value
+                FROM mpstat.cpu_busy
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-by-series-tag</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value, tags.file_system
+                FROM df.disk_used_percent
+                WHERE  tags.file_system LIKE '/d*'
+                AND datetime >= now - 1 * hour
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-by-series-tag-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value, tags.file_system
+                FROM df.disk_used_percent
+                WHERE  tags.file_system LIKE '/d*'
+                AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Filter-by-series-tag-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value, tags.file_system
+                FROM df.disk_used_percent
+                WHERE  tags.file_system LIKE '/d*'
+                AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>30</loops>
         </query>
     </queries>
 </test>
