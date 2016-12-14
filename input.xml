@@ -16,6 +16,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
         </query>
         <query>
             <testID>Select-all-columns--query-with-series-tags-2</testID>
@@ -29,6 +30,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
         </query>
         <query>
             <testID>Select-all-columns--query-with-series-tags-3</testID>
@@ -42,6 +44,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
         </query>
         <query>
             <testID>ORDER-BY--Time</testID>
@@ -54,6 +57,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
         </query>
         <query>
             <testID>ORDER-BY--Time-2</testID>
@@ -66,6 +70,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
         </query>
         <query>
             <testID>ORDER-BY--Time-3</testID>
@@ -78,6 +83,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
         </query>
         <query>
             <testID>Mathematical-Functions</testID>
@@ -93,6 +99,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
         </query>
         <query>
             <testID>Mathematical-Functions-2</testID>
@@ -108,6 +115,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
         </query>
         <query>
             <testID>Mathematical-Functions-3</testID>
@@ -123,6 +131,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
         </query>
         <query>
             <testID>Aggregate--Average-Value</testID>
@@ -134,6 +143,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
             <testID>Aggregate--Average-Value-2</testID>
@@ -145,6 +155,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
             <testID>Aggregate--Average-Value-3</testID>
@@ -156,6 +167,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
             <testID>GROUP-BY--Query-with-ORDER-BY</testID>
@@ -169,6 +181,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
         </query>
         <query>
             <testID>GROUP-BY--Query-with-ORDER-BY-2</testID>
@@ -182,6 +195,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
         </query>
         <query>
             <testID>GROUP-BY--Query-with-ORDER-BY-3</testID>
@@ -195,6 +209,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
         </query>
         <query>
             <testID>JOIN</testID>
@@ -207,6 +222,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
             <testID>JOIN-2</testID>
@@ -219,6 +235,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
             <testID>JOIN-3</testID>
@@ -231,6 +248,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
             <testID>Filter-Series-with-String-Operators-->'val2'</testID>
@@ -243,6 +261,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-operators-string.md#query--val2</source>
         </query>
         <query>
             <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods</testID>
@@ -256,6 +275,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
         </query>
         <query>
             <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
@@ -269,6 +289,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number.md#first-record-in-each-partition</source>
         </query>
         <query>
             <testID>Select-All-Series-Tags</testID>
@@ -280,6 +301,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-tags.md#select-all-series-tags</source>
         </query>
         <query>
             <testID>Thomas's-query-1</testID>
@@ -890,16 +912,6 @@
             <loops>30</loops>
         </query>
         <query>
-            <testID>Select-count--disk-size</testID>
-            <queryText>
-                <![CDATA[
-                select count(*)
-                from df.disk_size
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
-        <query>
             <testID>select-count--disk-used</testID>
             <queryText>
                 <![CDATA[
@@ -956,6 +968,7 @@
                 ]]>
             </queryText>
             <loops>10</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3670</source>
         </query>
         <query>
             <testID>Order-rows-by-date-and-city</testID>
@@ -979,6 +992,7 @@
                 ]]>
             </queryText>
             <loops>10</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3711</source>
         </query>
         <query>
             <testID>String-functions</testID>
@@ -993,6 +1007,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
             <testID>String-functions-2</testID>
@@ -1007,6 +1022,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
             <testID>String-functions-3</testID>
@@ -1021,6 +1037,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
             <testID>Row-memory-threshold</testID>
@@ -1035,6 +1052,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
             <testID>Row-memory-threshold-2</testID>
@@ -1049,6 +1067,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
             <testID>Row-memory-threshold-3</testID>
@@ -1063,6 +1082,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
             <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg</testID>
@@ -1077,6 +1097,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
             <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg-2</testID>
@@ -1091,6 +1112,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
             <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg-3</testID>
@@ -1105,6 +1127,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
             <testID>average-for-recent-hour--cpu-busy</testID>
@@ -1118,6 +1141,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#last_time-syntax</source>
         </query>
         <query>
             <testID>join--derived-series</testID>
@@ -1134,6 +1158,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
             <testID>join--derived-series-2</testID>
@@ -1150,6 +1175,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
             <testID>join--derived-series-3</testID>
@@ -1166,6 +1192,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
             <testID>outer-join</testID>
@@ -1179,6 +1206,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
             <testID>outer-join-2</testID>
@@ -1192,6 +1220,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
             <testID>outer-join-3</testID>
@@ -1205,6 +1234,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
             <testID>Filter-Results-by-Entity-Name</testID>
@@ -1217,6 +1247,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
             <testID>Filter-Results-by-Entity-Name-2</testID>
@@ -1229,6 +1260,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
             <testID>Filter-Results-by-Entity-Name-3</testID>
@@ -1241,6 +1273,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
             <testID>Filter-by-series-tag</testID>
@@ -1253,6 +1286,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
             <testID>Filter-by-series-tag-2</testID>
@@ -1265,6 +1299,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
             <testID>Filter-by-series-tag-3</testID>
@@ -1277,6 +1312,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
             <testID>string-functions-group-by-null</testID>
@@ -1290,6 +1326,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
             <testID>string-functions-group-by-null-2</testID>
@@ -1303,6 +1340,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
             <testID>string-functions-group-by-null-3</testID>
@@ -1316,6 +1354,7 @@
                 ]]>
             </queryText>
             <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
             <testID>string-functions-substring</testID>
@@ -1323,38 +1362,13 @@
                 <![CDATA[
                 SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
                 FROM disk_used
-                WHERE datetime > current_minute
+                WHERE datetime BETWEEN "2016-12-01T06:59:30.000Z" AND "2016-12-01T07:00:56.000Z"
                 AND LOCATE('//', tags.file_system) != 1
                 ORDER BY datetime
                 ]]>
             </queryText>
             <loops>30</loops>
-        </query>
-        <query>
-            <testID>string-functions-substring-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
-                FROM disk_used
-                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:01:30.000Z"
-                AND LOCATE('//', tags.file_system) != 1
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-        </query>
-        <query>
-            <testID>string-functions-substring-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, datetime, value, tags.file_system, LOCATE('/', tags.file_system, 2), SUBSTR(tags.file_system, LOCATE('/', tags.file_system, 2))
-                FROM disk_used
-                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:01:30.000Z"
-                AND LOCATE('//', tags.file_system) != 1
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#substring</source>
         </query>
     </queries>
 </test>
