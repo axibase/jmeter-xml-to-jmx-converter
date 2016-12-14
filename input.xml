@@ -1370,5 +1370,56 @@
             <loops>30</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#substring</source>
         </query>
+        <query>
+            <testID>find-max-in-10-hours-periods-in-one-month--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, MAX(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= "2016-05-19T09:20:00Z" AND datetime < "2016-06-20T09:30:00Z"
+                GROUP BY entity, PERIOD(10 HOUR)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>count-records-in-10-hours-periods--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, count(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime > now - 1*month
+                GROUP BY PERIOD(10 hour)
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>count-records-in-5-hours-periods-with-interpolation--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(5 hour)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-05-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
+                GROUP BY entity, PERIOD(5 hour, PREVIOUS)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>Partition-Row Number--First-Record-in-Each-Partition--long-version</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime >= "2016-05-18T12:00:00.000Z" AND datetime < "2016-06-18T12:00:30.000Z"
+                WITH ROW_NUMBER(entity ORDER BY time) <= 1
+                ORDER BY entity, time
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number.md#first-record-in-each-partition</source>
+        </query>
     </queries>
 </test>
