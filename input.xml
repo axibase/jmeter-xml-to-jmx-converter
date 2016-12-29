@@ -27,6 +27,7 @@
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * day
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
                 ]]>
             </queryText>
@@ -82,6 +83,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime BETWEEN now - 1 * month AND now
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -109,6 +111,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 500000)
                 ]]>
             </queryText>
@@ -142,6 +145,7 @@
                 WHERE datetime >= now - 5 * day
                 AND FLOOR(value) > 10
                 ORDER BY SQRT(value) DESC
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -291,6 +295,7 @@
                 FROM mpstat.cpu_busy t1
                 JOIN mpstat.cpu_idle t2
                 WHERE t1.datetime > now - 1 * month
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -359,6 +364,7 @@
                 WHERE datetime >= '2016-05-01T09:20:00.000Z' AND datetime < '2016-07-03T09:50:00.000Z'
                 AND entity = 'nurswghbs001'
                 GROUP BY entity, PERIOD(1 second, LINEAR)
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -388,6 +394,7 @@
                 WHERE datetime >= "2016-05-01T12:00:00.000Z" AND datetime < "2016-08-31T12:00:30.000Z"
                 WITH ROW_NUMBER(entity ORDER BY time) <= 1
                 ORDER BY entity, time
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -418,6 +425,7 @@
                 GROUP BY entity, tags, datetime
                 WITH row_number(entity, tags ORDER BY datetime desc) <= 1
                 ORDER BY sum(value) desc
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -436,6 +444,7 @@
                 WITH row_number(entity, tags ORDER BY datetime desc) <= 1
                 --WITH time >= last_time - 1*week
                 ORDER BY sum(value) desc
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -454,6 +463,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 WITH row_number(tags ORDER BY value desc) <= 1
                 ORDER BY value desc
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -472,6 +482,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL AND value > 0
                 WITH row_number(tags ORDER BY value, time DESC) <= 1
                 ORDER BY 'date' DESC
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -490,6 +501,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 WITH row_number(tags ORDER BY value desc, time desc) <= 1
                 ORDER BY value desc
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -508,6 +520,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 WITH row_number(tags ORDER BY value desc, time desc) <= 1
                 ORDER BY value desc
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -530,6 +543,7 @@
                 AND pni.value > 1
                 WITH row_number(tot.tags ORDER BY pni.value/tot.value DESC, tot.time DESC) <= 1
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, pni.value DESC
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -642,6 +656,7 @@
                 AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -710,6 +725,7 @@
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 GROUP BY tags.region, date_format(time, 'MMM')
                 ORDER BY sum(value) DESC
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -1103,6 +1119,7 @@
                 WHERE datetime > now - 9*day
                 AND LOWER(tags.file_system) LIKE '/dev/*'
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1148,6 +1165,7 @@
                 WHERE datetime > current_day
                 GROUP BY entity, tags, PERIOD(2 HOUR)
                 ORDER BY entity, tags.file_system, datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
@@ -1163,6 +1181,7 @@
                 WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-02T12:00:30.000Z"
                 GROUP BY entity, tags, PERIOD(2 HOUR)
                 ORDER BY entity, tags.file_system, datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
@@ -1178,6 +1197,7 @@
                 WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-02T12:00:30.000Z"
                 GROUP BY entity, tags, PERIOD(2 HOUR)
                 ORDER BY entity, tags.file_system, datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
@@ -1209,6 +1229,7 @@
                 AND tags.file_system LIKE '/dev/*'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1288,6 +1309,7 @@
                 FROM "meminfo.memtotal" AS tot
                 JOIN "meminfo.memfree" AS fre
                 WHERE tot.datetime > now - 1 * month
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1351,6 +1373,7 @@
                 OUTER JOIN df.disk_used
                 WHERE mpstat.cpu_busy.datetime > now - 3 * day
                 AND entity = 'nurswghbs001'
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1486,6 +1509,7 @@
                 WHERE datetime >= now - 1 * month
                 GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1542,6 +1566,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime >= "2016-05-19T09:20:00Z" AND datetime < "2016-06-20T09:30:00Z"
                 GROUP BY entity, PERIOD(10 HOUR)
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
@@ -1555,6 +1580,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime >= "2016-02-19T09:20:00Z" AND datetime < "2016-06-20T09:30:00Z"
                 GROUP BY entity, PERIOD(10 HOUR)
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1569,6 +1595,7 @@
                 WHERE datetime > now - 1*month
                 GROUP BY PERIOD(10 hour)
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 900000)
                 ]]>
             </queryText>
@@ -1583,6 +1610,7 @@
                 WHERE datetime > now - 50 * day
                 GROUP BY PERIOD(10 day)
                 ORDER BY datetime
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1596,6 +1624,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime >= '2016-05-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
                 GROUP BY entity, PERIOD(5 hour, PREVIOUS)
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 900000)
                 ]]>
             </queryText>
@@ -1609,6 +1638,7 @@
                 FROM mpstat.cpu_busy
                 WHERE datetime >= '2016-04-03T09:20:00.000Z' AND datetime < '2016-07-15T09:50:00.000Z'
                 GROUP BY entity, PERIOD(5 hour, PREVIOUS)
+                LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
