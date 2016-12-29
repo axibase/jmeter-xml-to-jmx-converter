@@ -238,42 +238,6 @@ public class Main {
                 "        <stringProp name=\"QUEUE_SIZE\">1</stringProp>\n" +
                 "      </BackendListener>\n" +
                 "      <hashTree/>\n" +
-                "      <ResultCollector guiclass=\"SummaryReport\" testclass=\"ResultCollector\" testname=\"Summary Report\" enabled=\"true\">\n" +
-                "        <boolProp name=\"ResultCollector.error_logging\">false</boolProp>\n" +
-                "        <objProp>\n" +
-                "          <name>saveConfig</name>\n" +
-                "          <value class=\"SampleSaveConfiguration\">\n" +
-                "            <time>true</time>\n" +
-                "            <latency>true</latency>\n" +
-                "            <timestamp>true</timestamp>\n" +
-                "            <success>true</success>\n" +
-                "            <label>true</label>\n" +
-                "            <code>true</code>\n" +
-                "            <message>true</message>\n" +
-                "            <threadName>true</threadName>\n" +
-                "            <dataType>true</dataType>\n" +
-                "            <encoding>false</encoding>\n" +
-                "            <assertions>true</assertions>\n" +
-                "            <subresults>true</subresults>\n" +
-                "            <responseData>false</responseData>\n" +
-                "            <samplerData>false</samplerData>\n" +
-                "            <xml>false</xml>\n" +
-                "            <fieldNames>true</fieldNames>\n" +
-                "            <responseHeaders>false</responseHeaders>\n" +
-                "            <requestHeaders>false</requestHeaders>\n" +
-                "            <responseDataOnError>false</responseDataOnError>\n" +
-                "            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>\n" +
-                "            <assertionsResultsToSave>0</assertionsResultsToSave>\n" +
-                "            <bytes>true</bytes>\n" +
-                "            <sentBytes>true</sentBytes>\n" +
-                "            <threadCounts>true</threadCounts>\n" +
-                "            <idleTime>true</idleTime>\n" +
-                "            <connectTime>true</connectTime>\n" +
-                "          </value>\n" +
-                "        </objProp>\n" +
-                "        <stringProp name=\"filename\"></stringProp>\n" +
-                "      </ResultCollector>\n" +
-                "      <hashTree/>\n" +
                 "    </hashTree>\n" +
                 "  </hashTree>\n" +
                 "</jmeterTestPlan>\n");
