@@ -1641,5 +1641,45 @@
             <loops>30</loops>
         </query>
 
+        <query>
+            <testID>ticket-3721--without-like</testID>
+            <queryText>
+                <![CDATA[
+                SELECT count(*)
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u'
+                AND tags.city = 'Philadelphia'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
+        </query>
+        <query>
+            <testID>ticket-3721--with-like</testID>
+            <queryText>
+                <![CDATA[
+                SELECT count(*)
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u'
+                AND tags.city LIKE 'Philadelphia'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
+        </query>
+        <query>
+            <testID>ticket-3721--with-like-*</testID>
+            <queryText>
+                <![CDATA[
+                SELECT count(*)
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u'
+                AND tags.city LIKE 'Philadelphia*'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
+        </query>
+
     </queries>
 </test>
