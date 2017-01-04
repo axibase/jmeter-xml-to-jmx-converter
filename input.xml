@@ -880,7 +880,7 @@
                 FROM mpstat.cpu_busy
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>select-max--cpu-busy</testID>
@@ -1439,7 +1439,7 @@
                 <![CDATA[
                 SELECT datetime, value
                 FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN now - 1 * month AND now
+                WHERE datetime BETWEEN now - 20 * day AND now
                 ORDER BY datetime
                 LIMIT 100
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
