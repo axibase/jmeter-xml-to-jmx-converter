@@ -1417,5 +1417,229 @@
             <loops>10</loops>
         </query>
 
+        <query>
+            <testID>Select-all-columns--query-with-series-tags--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime > now - 5 * day
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 15000000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN now - 1 * month AND now
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>Mathematical-Functions--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= now - 5 * day
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
+        </query>
+        <query>
+            <testID>JOIN--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime > now - 1 * month
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
+        </query>
+        <query>
+            <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(1 second)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-05-01T09:20:00.000Z' AND datetime < '2016-07-03T09:50:00.000Z'
+                AND entity = 'nurswghbs001'
+                GROUP BY entity, PERIOD(1 second, LINEAR)
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
+        </query>
+        <query>
+            <testID>String-functions--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime > now - 9*day
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
+        </query>
+        <query>
+            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, tags.*, datetime, avg(value)
+                FROM df.disk_used
+                WHERE datetime > now - 1 * year
+                AND tags.file_system LIKE '/dev/*'
+                GROUP BY entity, tags, period(15 minute)
+                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
+        </query>
+        <query>
+            <testID>join--derived-series--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime > now - 1 * month
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
+        </query>
+        <query>
+            <testID>outer-join--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime > now - 3 * day
+                AND entity = 'nurswghbs001'
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
+        </query>
+        <query>
+            <testID>string-functions-group-by-null--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, avg(value), ISNULL(entity.tags.environment, 'other') as environment
+                FROM mpstat.cpu_busy
+                WHERE datetime >= now - 1 * month
+                GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
+        </query>
+        <query>
+            <testID>count-records-in-10-hours-periods--cpu-busy--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, count(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime > now - 50 * day
+                GROUP BY PERIOD(10 day)
+                ORDER BY datetime
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>count-records-in-5-hours-periods-with-interpolation--cpu-busy</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(5 hour)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-05-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
+                GROUP BY entity, PERIOD(5 hour, PREVIOUS)
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 900000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+        <query>
+            <testID>count-records-in-5-hours-periods-with-interpolation--cpu-busy--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(5 hour)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-04-03T09:20:00.000Z' AND datetime < '2016-07-15T09:50:00.000Z'
+                GROUP BY entity, PERIOD(5 hour, PREVIOUS)
+                LIMIT 100
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+        </query>
+
     </queries>
 </test>
