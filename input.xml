@@ -1493,7 +1493,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
@@ -1526,7 +1526,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
@@ -1562,7 +1562,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
@@ -1594,7 +1594,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
