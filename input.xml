@@ -303,7 +303,7 @@
                 AND pni.value IS NULL
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Top-10-cities-by-all-deaths-in-the-current-year</testID>
@@ -423,7 +423,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>30</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-specific-tags</testID>
@@ -523,7 +523,7 @@
                 FROM 'testmetric'
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>30</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3711</source>
         </query>
         <query>
@@ -871,81 +871,6 @@
             <loops>30</loops>
         </query>
         <query>
-            <testID>Select-all-columns--query-with-series-tags--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM df.disk_used
-                WHERE entity = 'nurswghbs001'
-                AND datetime > now - 5 * day
-                ORDER BY datetime
-                OPTION (ROW_MEMORY_THRESHOLD 15000000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
-        </query>
-        <query>
-            <testID>ORDER-BY--Time--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN now - 20 * day AND now
-                ORDER BY datetime
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
-        </query>
-        <query>
-            <testID>ORDER-BY--Time-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
-                ORDER BY datetime
-                OPTION (ROW_MEMORY_THRESHOLD 500000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
-        </query>
-        <query>
-            <testID>Mathematical-Functions--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
-                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
-                LN(value*2), MOD(CEIL(value)*2, 4)
-                FROM mpstat.cpu_busy
-                WHERE datetime >= now - 5 * day
-                AND FLOOR(value) > 10
-                ORDER BY SQRT(value) DESC
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
-        </query>
-        <query>
-            <testID>outer-join--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM mpstat.cpu_busy
-                OUTER JOIN df.disk_used
-                WHERE mpstat.cpu_busy.datetime > now - 3 * day
-                AND entity = 'nurswghbs001'
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
-        </query>
-        <query>
             <testID>count-records-in-5-hours-periods-with-interpolation--cpu-busy</testID>
             <queryText>
                 <![CDATA[
@@ -998,6 +923,83 @@
             <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
         </query>
 
+
+
+        <query>
+            <testID>Select-all-columns--query-with-series-tags--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime > now - 5 * day
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 15000000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN now - 20 * day AND now
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>Mathematical-Functions--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= now - 5 * day
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
+        </query>
+        <query>
+            <testID>outer-join--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime > now - 3 * day
+                AND entity = 'nurswghbs001'
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
+        </query>
         <query>
             <testID>count-records-in-10-hours-periods--cpu-busy</testID>
             <queryText>
@@ -1010,25 +1012,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
-        </query>
-        <query>
-            <testID>join--derived-series--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT tot.entity, tot.datetime,
-                tot.value/1024 "total",
-                fre.value/1024 "free",
-                (tot.value - fre.value)/1024 "used",
-                (1-fre.value/tot.value)*100 "used_%"
-                FROM "meminfo.memtotal" AS tot
-                JOIN "meminfo.memfree" AS fre
-                WHERE tot.datetime BETWEEN "2016-11-01T12:00:00.000Z" AND "2016-12-13T12:00:00.000Z"
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
+            <loops>20</loops>
         </query>
         <query>
             <testID>JOIN--long</testID>
@@ -1041,7 +1025,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
@@ -1056,7 +1040,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>string-functions-group-by-null--long</testID>
@@ -1070,24 +1054,8 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
-        </query>
-        <query>
-            <testID>String-functions--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
-                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
-                FROM df.disk_used
-                WHERE datetime BETWEEN "2016-12-01T12:00:00.000Z" AND "2016-12-14T12:00:00.000Z"
-                AND LOWER(tags.file_system) LIKE '/dev/*'
-                ORDER BY datetime
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
             <testID>query-from-ticket-3670</testID>
@@ -1105,7 +1073,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3670</source>
         </query>
         <query>
@@ -1137,7 +1105,7 @@
                 ORDER BY 'total_mortality_rate' desc
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>New-York-Mortality-Rate-history,-using-interpolated-population-size</testID>
@@ -1172,7 +1140,7 @@
                 ORDER BY tot.tags.city, tot.datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Total-PNI-deaths-in-January-for-region-3</testID>
@@ -1189,7 +1157,7 @@
                 ORDER BY datetime, tags.region
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Mortality-rates-in-New-York-(fixed-pop-size,-provisional)</testID>
@@ -1221,7 +1189,7 @@
                 ORDER BY tot.tags.city, tot.datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Top-3-deadliest-Januaries-in-the-region</testID>
@@ -1239,7 +1207,7 @@
                 LIMIT 3
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-total-for-all-cities-in-a-given-region</testID>
@@ -1254,7 +1222,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Row-memory-threshold</testID>
@@ -1268,7 +1236,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
@@ -1283,7 +1251,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
@@ -1298,7 +1266,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option</source>
         </query>
         <query>
@@ -1317,7 +1285,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Partition-Row-Number--First-Record-in-Each-Partition--long</testID>
@@ -1331,7 +1299,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number.md#first-record-in-each-partition</source>
         </query>
         <query>
@@ -1345,7 +1313,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Thomas's-query-1</testID>
@@ -1362,7 +1330,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>find-max-in-10-hours-periods-in-four-month--cpu-busy</testID>
@@ -1375,7 +1343,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Select-count--cpu-busy</testID>
@@ -1385,7 +1353,7 @@
                 FROM mpstat.cpu_busy
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>select-average--cpu-busy</testID>
@@ -1395,7 +1363,7 @@
                 FROM mpstat.cpu_busy
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
         <query>
             <testID>Aggregate--Average-Value--long</testID>
@@ -1406,7 +1374,7 @@
                 WHERE datetime >= now - 2 * year
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
@@ -1417,8 +1385,60 @@
                 FROM mpstat.cpu_busy
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>20</loops>
         </query>
+
+
+        <query>
+            <testID>join--derived-series--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime BETWEEN "2016-11-01T12:00:00.000Z" AND "2016-12-13T12:00:00.000Z"
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
+        </query>
+        <query>
+            <testID>String-functions--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:00.000Z" AND "2016-12-14T12:00:00.000Z"
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
+        </query>
+        <query>
+            <testID>Order-rows-by-date-and-city</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM cdc.all_deaths tot
+                ORDER BY datetime, tags.city
+                LIMIT 10
+                OPTION (ROW_MEMORY_THRESHOLD 300000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+
+
+
         <query>
             <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods--long</testID>
             <queryText>
@@ -1433,19 +1453,6 @@
             </queryText>
             <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
-        </query>
-        <query>
-            <testID>Order-rows-by-date-and-city</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM cdc.all_deaths tot
-                ORDER BY datetime, tags.city
-                LIMIT 10
-                OPTION (ROW_MEMORY_THRESHOLD 300000)
-                ]]>
-            </queryText>
-            <loops>10</loops>
         </query>
         <query>
             <testID>select-count--read-rate</testID>
@@ -1596,22 +1603,6 @@
             <loops>10</loops>
         </query>
         <query>
-            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, tags.*, datetime, avg(value)
-                FROM df.disk_used
-                WHERE datetime BETWEEN "2016-01-01T12:00:00.000Z" AND "2016-12-25T12:00:00.000Z"
-                AND tags.file_system LIKE '/dev/*'
-                GROUP BY entity, tags, period(15 minute)
-                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
-        </query>
-        <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-entire-period-since-1970</testID>
             <queryText>
                 <![CDATA[
@@ -1627,7 +1618,7 @@
                 AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                OPTION (ROW_MEMORY_THRESHOLD 600000)
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1649,11 +1640,26 @@
                 AND pni.value > 1
                 WITH row_number(tot.tags ORDER BY pni.value/tot.value DESC, tot.time DESC) <= 1
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, pni.value DESC
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                OPTION (ROW_MEMORY_THRESHOLD 600000)
                 ]]>
             </queryText>
             <loops>10</loops>
         </query>
-
+        <query>
+            <testID>Partition--ROW-NUMBER-with-ORDER-BY-avg--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, tags.*, datetime, avg(value)
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-01-01T12:00:00.000Z" AND "2016-12-25T12:00:00.000Z"
+                AND tags.file_system LIKE '/dev/*'
+                GROUP BY entity, tags, period(15 minute)
+                WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
+        </query>
     </queries>
 </test>
