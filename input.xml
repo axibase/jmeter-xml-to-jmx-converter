@@ -1391,6 +1391,23 @@
             </queryText>
             <loops>20</loops>
         </query>
+        <query>
+            <testID>String-functions--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
+                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
+                FROM df.disk_used
+                WHERE datetime BETWEEN "2016-12-01T12:00:00.000Z" AND "2016-12-14T12:00:00.000Z"
+                AND LOWER(tags.file_system) LIKE '/dev/*'
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
+        </query>
+
 
 
         <query>
@@ -1412,22 +1429,6 @@
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
-            <testID>String-functions--long</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) as 'entity', value,
-                SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
-                FROM df.disk_used
-                WHERE datetime BETWEEN "2016-12-01T12:00:00.000Z" AND "2016-12-14T12:00:00.000Z"
-                AND LOWER(tags.file_system) LIKE '/dev/*'
-                ORDER BY datetime
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
-                ]]>
-            </queryText>
-            <loops>60</loops>
-            <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
-        </query>
-        <query>
             <testID>Order-rows-by-date-and-city</testID>
             <queryText>
                 <![CDATA[
@@ -1438,11 +1439,8 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>20</loops>
+            <loops>10</loops>
         </query>
-
-
-
         <query>
             <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods--long</testID>
             <queryText>
