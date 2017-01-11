@@ -5,325 +5,6 @@
     <TCPport>9081</TCPport>
     <queries>
         <query>
-            <testID>Select-all-columns--query-with-series-tags</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM df.disk_used
-                WHERE entity = 'nurswghbs001'
-                AND datetime > now - 5 * minute
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
-        </query>
-        <query>
-            <testID>Select-all-columns--query-with-series-tags-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM df.disk_used
-                WHERE entity = 'nurswghbs001'
-                AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
-        </query>
-        <query>
-            <testID>Select-all-columns--query-with-series-tags-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT *
-                FROM df.disk_used
-                WHERE entity = 'nurswghbs001'
-                AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
-        </query>
-        <query>
-            <testID>ORDER-BY--Time</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN now - 1 * hour AND now
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
-        </query>
-        <query>
-            <testID>ORDER-BY--Time-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
-                ORDER BY datetime
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
-        </query>
-        <query>
-            <testID>Mathematical-Functions</testID>
-            <queryText>
-                <![CDATA[
-                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
-                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
-                LN(value*2), MOD(CEIL(value)*2, 4)
-                FROM mpstat.cpu_busy
-                WHERE datetime >= now - 5 * minute
-                AND FLOOR(value) > 10
-                ORDER BY SQRT(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
-        </query>
-        <query>
-            <testID>Mathematical-Functions-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
-                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
-                LN(value*2), MOD(CEIL(value)*2, 4)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
-                AND FLOOR(value) > 10
-                ORDER BY SQRT(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
-        </query>
-        <query>
-            <testID>Mathematical-Functions-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
-                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
-                LN(value*2), MOD(CEIL(value)*2, 4)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
-                AND FLOOR(value) > 10
-                ORDER BY SQRT(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
-        </query>
-        <query>
-            <testID>Aggregate--Average-Value</testID>
-            <queryText>
-                <![CDATA[
-                SELECT avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime >= current_day
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
-        </query>
-        <query>
-            <testID>Aggregate--Average-Value-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-12-01T00:00:01.000Z" AND "2016-12-01T23:59:55.000Z"
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
-        </query>
-        <query>
-            <testID>Aggregate--Average-Value-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-11-01T00:00:01.000Z" AND "2016-11-01T23:59:55.000Z"
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
-        </query>
-        <query>
-            <testID>GROUP-BY--Query-with-ORDER-BY</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime > now - 1*hour
-                GROUP BY entity
-                ORDER BY avg(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
-        </query>
-        <query>
-            <testID>GROUP-BY--Query-with-ORDER-BY-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
-                GROUP BY entity
-                ORDER BY avg(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
-        </query>
-        <query>
-            <testID>GROUP-BY--Query-with-ORDER-BY-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, avg(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
-                GROUP BY entity
-                ORDER BY avg(value) DESC
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
-        </query>
-        <query>
-            <testID>JOIN</testID>
-            <queryText>
-                <![CDATA[
-                SELECT t1.entity, t1.datetime, t1.value, t2.value
-                FROM mpstat.cpu_busy t1
-                JOIN mpstat.cpu_idle t2
-                WHERE t1.datetime > now - 1 * hour
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
-        </query>
-        <query>
-            <testID>JOIN-2</testID>
-            <queryText>
-                <![CDATA[
-                SELECT t1.entity, t1.datetime, t1.value, t2.value
-                FROM mpstat.cpu_busy t1
-                JOIN mpstat.cpu_idle t2
-                WHERE t1.datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
-        </query>
-        <query>
-            <testID>JOIN-3</testID>
-            <queryText>
-                <![CDATA[
-                SELECT t1.entity, t1.datetime, t1.value, t2.value
-                FROM mpstat.cpu_busy t1
-                JOIN mpstat.cpu_idle t2
-                WHERE t1.datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
-        </query>
-        <query>
-            <testID>Filter-Series-with-String-Operators-->'val2'</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value, tags.tag2
-                FROM "m-metric1"
-                WHERE datetime >= "2016-06-19T11:00:00.000Z"
-                AND tags.tag2 > 'val2'
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-operators-string.md#query--val2</source>
-        </query>
-        <query>
-            <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, date_format(PERIOD(1 minute)), COUNT(value)
-                FROM mpstat.cpu_busy
-                WHERE datetime >= '2016-06-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
-                AND entity = 'nurswghbs001'
-                GROUP BY entity, PERIOD(1 minute, LINEAR)
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
-        </query>
-        <query>
-            <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, datetime, value
-                FROM mpstat.cpu_busy
-                WHERE datetime >= "2016-06-18T12:00:00.000Z" AND datetime < "2016-06-18T12:00:30.000Z"
-                WITH ROW_NUMBER(entity ORDER BY time) <= 1
-                ORDER BY entity, time
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number.md#first-record-in-each-partition</source>
-        </query>
-        <query>
-            <testID>Select-All-Series-Tags</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity, datetime, value, tags.*
-                FROM 'm-metric1'
-                WHERE datetime >= "2016-06-19T11:00:00.000Z" and datetime < "2016-06-19T12:00:00.000Z"
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-tags.md#select-all-series-tags</source>
-        </query>
-        <query>
-            <testID>all-instances-when-a-city-failed-to-report-pneumonia_and_influenza_deaths</testID>
-            <queryText>
-                <![CDATA[
-                SELECT tot.datetime, tot.value AS 'total',
-                ISNULL(pni.value, 'N/A') AS 'pneumonia/influenza'
-                FROM cdc.all_deaths tot
-                OUTER JOIN cdc.pneumonia_and_influenza_deaths pni
-                WHERE tot.entity = 'mr8w-325u'
-                AND tot.tags.city = 'Baton Rouge'
-                AND pni.value IS NULL
-                ]]>
-            </queryText>
-            <loops>30</loops>
-        </query>
-        <query>
-            <testID>Top-10-cities-by-all-deaths-in-the-current-year</testID>
-            <queryText>
-                <![CDATA[
-                SELECT tags.city as 'city', tags.state as 'state',
-                ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-                sum(value) as 'all_deaths',
-                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
-                FROM cdc.all_deaths
-                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
-                AND datetime > current_year
-                GROUP BY tags
-                ORDER BY 'all_deaths' DESC
-                LIMIT 10
-                ]]>
-            </queryText>
-            <loops>30</loops>
-        </query>
-        <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
             <queryText>
                 <![CDATA[
@@ -339,7 +20,20 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
+        </query>
+        <query>
+            <testID>JOIN</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime > now - 1 * hour
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI</testID>
@@ -359,7 +53,334 @@
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
+        </query>
+        <query>
+            <testID>join--derived-series</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.entity, tot.datetime,
+                tot.value/1024 "total",
+                fre.value/1024 "free",
+                (tot.value - fre.value)/1024 "used",
+                (1-fre.value/tot.value)*100 "used_%"
+                FROM "meminfo.memtotal" AS tot
+                JOIN "meminfo.memfree" AS fre
+                WHERE tot.datetime > now - 1 * MINUTE
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
+        </query>
+        <query>
+            <testID>Mathematical-Functions</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= now - 5 * minute
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
+        </query>
+        <query>
+            <testID>Mathematical-Functions-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
+        </query>
+        <query>
+            <testID>Mathematical-Functions-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT value, ABS(value), CEIL(value), FLOOR(value), ROUND(value), MOD(value, 3),
+                POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
+                LN(value*2), MOD(CEIL(value)*2, 4)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
+                AND FLOOR(value) > 10
+                ORDER BY SQRT(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
+        </query>
+
+
+
+
+        <query>
+            <testID>Select-all-columns--query-with-series-tags</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime > now - 5 * minute
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>Select-all-columns--query-with-series-tags-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:05:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>Select-all-columns--query-with-series-tags-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT *
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:05:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN now - 1 * hour AND now
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>ORDER-BY--Time-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ORDER BY datetime
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/order-by-time.md#order-by-time</source>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= current_day
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T00:00:01.000Z" AND "2016-12-01T23:59:55.000Z"
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
+        </query>
+        <query>
+            <testID>Aggregate--Average-Value-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T00:00:01.000Z" AND "2016-11-01T23:59:55.000Z"
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
+        </query>
+        <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime > now - 1*hour
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
+        </query>
+        <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
+        </query>
+        <query>
+            <testID>GROUP-BY--Query-with-ORDER-BY-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, avg(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
+                GROUP BY entity
+                ORDER BY avg(value) DESC
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/group-by-query-with-order-by.md#group-by-query-with-order-by</source>
+        </query>
+        <query>
+            <testID>JOIN-2</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime BETWEEN "2016-12-01T11:00:30.000Z" AND "2016-12-01T12:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
+        </query>
+        <query>
+            <testID>JOIN-3</testID>
+            <queryText>
+                <![CDATA[
+                SELECT t1.entity, t1.datetime, t1.value, t2.value
+                FROM mpstat.cpu_busy t1
+                JOIN mpstat.cpu_idle t2
+                WHERE t1.datetime BETWEEN "2016-11-01T11:00:30.000Z" AND "2016-11-01T12:00:30.000Z"
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join.md#join</source>
+        </query>
+        <query>
+            <testID>Filter-Series-with-String-Operators-->'val2'</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value, tags.tag2
+                FROM "m-metric1"
+                WHERE datetime >= "2016-06-19T11:00:00.000Z"
+                AND tags.tag2 > 'val2'
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-operators-string.md#query--val2</source>
+        </query>
+        <query>
+            <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(1 minute)), COUNT(value)
+                FROM mpstat.cpu_busy
+                WHERE datetime >= '2016-06-03T09:20:00.000Z' AND datetime < '2016-06-03T09:50:00.000Z'
+                AND entity = 'nurswghbs001'
+                GROUP BY entity, PERIOD(1 minute, LINEAR)
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
+        </query>
+        <query>
+            <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value
+                FROM mpstat.cpu_busy
+                WHERE datetime >= "2016-06-18T12:00:00.000Z" AND datetime < "2016-06-18T12:00:30.000Z"
+                WITH ROW_NUMBER(entity ORDER BY time) <= 1
+                ORDER BY entity, time
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number.md#first-record-in-each-partition</source>
+        </query>
+        <query>
+            <testID>Select-All-Series-Tags</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value, tags.*
+                FROM 'm-metric1'
+                WHERE datetime >= "2016-06-19T11:00:00.000Z" and datetime < "2016-06-19T12:00:00.000Z"
+                ]]>
+            </queryText>
+            <loops>60</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-tags.md#select-all-series-tags</source>
+        </query>
+        <query>
+            <testID>all-instances-when-a-city-failed-to-report-pneumonia_and_influenza_deaths</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tot.datetime, tot.value AS 'total',
+                ISNULL(pni.value, 'N/A') AS 'pneumonia/influenza'
+                FROM cdc.all_deaths tot
+                OUTER JOIN cdc.pneumonia_and_influenza_deaths pni
+                WHERE tot.entity = 'mr8w-325u'
+                AND tot.tags.city = 'Baton Rouge'
+                AND pni.value IS NULL
+                ]]>
+            </queryText>
+            <loops>60</loops>
+        </query>
+        <query>
+            <testID>Top-10-cities-by-all-deaths-in-the-current-year</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tags.city as 'city', tags.state as 'state',
+                ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
+                sum(value) as 'all_deaths',
+                LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+                FROM cdc.all_deaths
+                WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+                AND datetime > current_year
+                GROUP BY tags
+                ORDER BY 'all_deaths' DESC
+                LIMIT 10
+                ]]>
+            </queryText>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-the-last-12-months</testID>
@@ -379,7 +400,7 @@
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Number-of-PNI-deaths-per-month-in-Midwest</testID>
@@ -396,7 +417,7 @@
                 ORDER BY datetime desc, tags.region
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Latest-weekly-PNI-readings-for-Boston</testID>
@@ -409,7 +430,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-using-JOIN</testID>
@@ -423,7 +444,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-specific-tags</testID>
@@ -436,7 +457,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Latest-PNI-and-total-readings-for-Boston-with-region-code-translated-to-region-name-using-a-Replacement-Table</testID>
@@ -450,7 +471,7 @@
                 LIMIT 10
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Monthly-totals-for-all-cities-in-region-for-a-given-time-range</testID>
@@ -465,7 +486,7 @@
                 ORDER BY datetime DESC
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Cities-with-the-highest-mortality-rate</testID>
@@ -483,7 +504,7 @@
                 ORDER BY mortality_rate DESC
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Mortality-Rate-by-Age-Group-in-New-York-city-2010</testID>
@@ -513,7 +534,7 @@
                 AND tot.tags.city = 'New York'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>Multiple-summation-bug</testID>
@@ -523,7 +544,7 @@
                 FROM 'testmetric'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3711</source>
         </query>
         <query>
@@ -538,7 +559,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
@@ -553,7 +574,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
@@ -568,7 +589,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
@@ -583,7 +604,7 @@
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
@@ -598,7 +619,7 @@
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
@@ -613,7 +634,7 @@
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
         <query>
@@ -627,25 +648,8 @@
                 WITH time > last_time - 1 * HOUR
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#last_time-syntax</source>
-        </query>
-        <query>
-            <testID>join--derived-series</testID>
-            <queryText>
-                <![CDATA[
-                SELECT tot.entity, tot.datetime,
-                tot.value/1024 "total",
-                fre.value/1024 "free",
-                (tot.value - fre.value)/1024 "used",
-                (1-fre.value/tot.value)*100 "used_%"
-                FROM "meminfo.memtotal" AS tot
-                JOIN "meminfo.memfree" AS fre
-                WHERE tot.datetime > now - 1 * MINUTE
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
             <testID>join--derived-series-2</testID>
@@ -661,7 +665,7 @@
                 WHERE tot.datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T12:01:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
@@ -678,7 +682,7 @@
                 WHERE tot.datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T12:01:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/join-derived-series.md#join---derived-series</source>
         </query>
         <query>
@@ -692,7 +696,7 @@
                 AND entity = 'nurswghbs001'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
@@ -706,7 +710,7 @@
                 AND entity = 'nurswghbs001'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
@@ -720,7 +724,7 @@
                 AND entity = 'nurswghbs001'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
         </query>
         <query>
@@ -733,7 +737,7 @@
                 AND datetime > current_hour
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
@@ -746,7 +750,7 @@
                 AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
@@ -759,7 +763,7 @@
                 AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-entity.md#filter-results-by-entity-name</source>
         </query>
         <query>
@@ -772,7 +776,7 @@
                 AND datetime >= now - 1 * hour
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
@@ -785,7 +789,7 @@
                 AND datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
@@ -798,7 +802,7 @@
                 AND datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/filter-by-series-tag.md#filter-by-series-tag</source>
         </query>
         <query>
@@ -812,7 +816,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
@@ -826,7 +830,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
@@ -840,7 +844,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
@@ -854,7 +858,7 @@
                 ORDER BY datetime
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#substring</source>
         </query>
         <query>
@@ -868,7 +872,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 300000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>count-records-in-5-hours-periods-with-interpolation--cpu-busy</testID>
@@ -881,7 +885,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 900000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
         </query>
         <query>
             <testID>ticket-3721--without-like</testID>
@@ -893,7 +897,7 @@
                 AND tags.city = 'Philadelphia'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
         </query>
         <query>
@@ -906,7 +910,7 @@
                 AND tags.city LIKE 'Philadelphia'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
         </query>
         <query>
@@ -919,7 +923,7 @@
                 AND tags.city LIKE 'Philadelphia*'
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3721</source>
         </query>
 
@@ -1420,7 +1424,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>30</loops>
+            <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/tree/master/api/sql#string-functions</source>
         </query>
         <query>
