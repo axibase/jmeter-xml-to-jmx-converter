@@ -61,7 +61,7 @@ public class Main {
                 "    <hashTree>\n" +
                 "      <JDBCDataSource guiclass=\"TestBeanGUI\" testclass=\"JDBCDataSource\" testname=\"JDBC Connection to ATSD Configuration\" enabled=\"true\">\n" +
                 "        <boolProp name=\"autocommit\">true</boolProp>\n" +
-                "        <stringProp name=\"checkQuery\">SELECT value FROM mpstat.cpu_busy\n LIMIT 1</stringProp>\n" +
+                "        <stringProp name=\"checkQuery\">SELECT 1</stringProp>\n" +
                 "        <stringProp name=\"connectionAge\">5000</stringProp>\n" +
                 "        <stringProp name=\"dataSource\">atsd</stringProp>\n" +
                 "        <stringProp name=\"dbUrl\">jdbc:axibase:atsd:${protocol}://${atsdURL}:${port}/api/sql;trustServerCertificate=true</stringProp>\n" +
