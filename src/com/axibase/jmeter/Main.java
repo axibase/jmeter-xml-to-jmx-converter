@@ -1,6 +1,8 @@
 package com.axibase.jmeter;
 
 import java.io.*;
+import java.net.URL;
+import java.util.Properties;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -13,8 +15,17 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class Main {
+    private static String protocol;
+    private static String atsdStoreUrl;
+    private static String atsdUrlAddress;
+    private static String port;
+    private static String TCPport;
+    private static String username;
+    private static String password;
+    private static NodeList SQLQueries;
+    private static NodeList dataQueries;
 
-    public static String formJMX (String atsdURL, String port, String TCPport, String protocol, String username, String password, NodeList tests){
+    private static String formJMX() {
 
         StringBuilder sb = new StringBuilder();
         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
@@ -29,7 +40,7 @@ public class Main {
                 "          <elementProp name=\"atsdURL\" elementType=\"Argument\">\n" +
                 "            <stringProp name=\"Argument.name\">atsdURL</stringProp>\n" +
                 "            <stringProp name=\"Argument.value\">");
-        sb.append(substituteSpecialSymbols(atsdURL));
+        sb.append(substituteSpecialSymbols(atsdUrlAddress));
         sb.append("</stringProp>\n" +
                 "            <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
                 "          </elementProp>\n" +
@@ -82,8 +93,8 @@ public class Main {
 
 
 
-        for (int temp = 0; temp < tests.getLength(); temp++) {
-            Node nNode = tests.item(temp);
+        for (int temp = 0; temp < SQLQueries.getLength(); temp++) {
+            Node nNode = SQLQueries.item(temp);
 
             sb.append(" <ThreadGroup guiclass=\"ThreadGroupGui\" testclass=\"ThreadGroup\" testname=\"Ramp-Up ");
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -179,6 +190,148 @@ public class Main {
         }
 
 
+
+        sb.append("<ConfigTestElement guiclass=\"HttpDefaultsGui\" testclass=\"ConfigTestElement\" testname=\"HTTP Request Defaults\" enabled=\"true\">\n" +
+                "        <elementProp name=\"HTTPsampler.Arguments\" elementType=\"Arguments\" guiclass=\"HTTPArgumentsPanel\" testclass=\"Arguments\" testname=\"User Defined Variables\" enabled=\"true\">\n" +
+                "          <collectionProp name=\"Arguments.arguments\"/>\n" +
+                "        </elementProp>\n" +
+                "        <stringProp name=\"HTTPSampler.domain\">${atsdURL}</stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.port\">${port}</stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.connect_timeout\"></stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.response_timeout\"></stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.protocol\">${protocol}</stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.contentEncoding\"></stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.path\"></stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.concurrentPool\">6</stringProp>\n" +
+                "      </ConfigTestElement>\n" +
+                "      <hashTree/>\n" +
+                "      <AuthManager guiclass=\"AuthPanel\" testclass=\"AuthManager\" testname=\"HTTP Authorization Manager\" enabled=\"true\">\n" +
+                "        <collectionProp name=\"AuthManager.auth_list\">\n" +
+                "          <elementProp name=\"\" elementType=\"Authorization\">\n" +
+                "            <stringProp name=\"Authorization.url\"></stringProp>\n" +
+                "            <stringProp name=\"Authorization.username\">").append(substituteSpecialSymbols(username)).append("</stringProp>\n" +
+                "            <stringProp name=\"Authorization.password\">").append(substituteSpecialSymbols(password)).append("</stringProp>\n" +
+                "            <stringProp name=\"Authorization.domain\"></stringProp>\n" +
+                "            <stringProp name=\"Authorization.realm\"></stringProp>\n" +
+                "          </elementProp>\n" +
+                "        </collectionProp>\n" +
+                "      </AuthManager>\n" +
+                "      <hashTree/>");
+
+
+        for (int temp = 0; temp < dataQueries.getLength(); temp++) {
+            Element eElement = (Element) dataQueries.item(temp);
+
+            sb.append("      <ThreadGroup guiclass=\"ThreadGroupGui\" testclass=\"ThreadGroup\" testname=\"Ramp-Up ");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
+            sb.append(" thread\" enabled=\"true\">\n" +
+                    "        <stringProp name=\"ThreadGroup.on_sample_error\">continue</stringProp>\n" +
+                    "        <elementProp name=\"ThreadGroup.main_controller\" elementType=\"LoopController\" guiclass=\"LoopControlPanel\" testclass=\"LoopController\" testname=\"Loop Controller\" enabled=\"true\">\n" +
+                    "          <boolProp name=\"LoopController.continue_forever\">false</boolProp>\n" +
+                    "          <stringProp name=\"LoopController.loops\">1</stringProp>\n" +
+                    "        </elementProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.num_threads\">1</stringProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.ramp_time\">1</stringProp>\n" +
+                    "        <longProp name=\"ThreadGroup.start_time\">1487154353000</longProp>\n" +
+                    "        <longProp name=\"ThreadGroup.end_time\">1487154353000</longProp>\n" +
+                    "        <boolProp name=\"ThreadGroup.scheduler\">false</boolProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.duration\"></stringProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.delay\"></stringProp>\n" +
+                    "      </ThreadGroup>\n" +
+                    "      <hashTree>\n" +
+                    "        <HTTPSamplerProxy guiclass=\"HttpTestSampleGui\" testclass=\"HTTPSamplerProxy\" testname=\"rampup ");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
+            sb.append("\" enabled=\"true\">\n" +
+                    "          <boolProp name=\"HTTPSampler.postBodyRaw\">true</boolProp>\n" +
+                    "          <elementProp name=\"HTTPsampler.Arguments\" elementType=\"Arguments\">\n" +
+                    "            <collectionProp name=\"Arguments.arguments\">\n" +
+                    "              <elementProp name=\"\" elementType=\"HTTPArgument\">\n" +
+                    "                <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>\n" +
+                    "                <stringProp name=\"Argument.value\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("payload").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "                <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
+                    "              </elementProp>\n" +
+                    "            </collectionProp>\n" +
+                    "          </elementProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.domain\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.port\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.connect_timeout\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.response_timeout\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.protocol\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.contentEncoding\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.path\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("path").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.method\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("method").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.follow_redirects\">true</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.auto_redirects\">false</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.use_keepalive\">true</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.DO_MULTIPART_POST\">false</boolProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.embedded_url_re\"></stringProp>\n" +
+                    "        </HTTPSamplerProxy>\n" +
+                    "        <hashTree/>\n" +
+                    "      </hashTree>\n" +
+                    "      <ThreadGroup guiclass=\"ThreadGroupGui\" testclass=\"ThreadGroup\" testname=\"Main requests ");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
+            sb.append(" thread HTTP\" enabled=\"true\">\n" +
+                    "        <stringProp name=\"ThreadGroup.on_sample_error\">continue</stringProp>\n" +
+                    "        <elementProp name=\"ThreadGroup.main_controller\" elementType=\"LoopController\" guiclass=\"LoopControlPanel\" testclass=\"LoopController\" testname=\"Loop Controller\" enabled=\"true\">\n" +
+                    "          <boolProp name=\"LoopController.continue_forever\">false</boolProp>\n" +
+                    "          <stringProp name=\"LoopController.loops\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("loops").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "        </elementProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.num_threads\">1</stringProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.ramp_time\">1</stringProp>\n" +
+                    "        <longProp name=\"ThreadGroup.start_time\">1487154353000</longProp>\n" +
+                    "        <longProp name=\"ThreadGroup.end_time\">1487154353000</longProp>\n" +
+                    "        <boolProp name=\"ThreadGroup.scheduler\">false</boolProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.duration\"></stringProp>\n" +
+                    "        <stringProp name=\"ThreadGroup.delay\"></stringProp>\n" +
+                    "      </ThreadGroup>\n" +
+                    "      <hashTree>\n" +
+                    "        <HTTPSamplerProxy guiclass=\"HttpTestSampleGui\" testclass=\"HTTPSamplerProxy\" testname=\"");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
+                    sb.append("\" enabled=\"true\">\n" +
+                    "          <boolProp name=\"HTTPSampler.postBodyRaw\">true</boolProp>\n" +
+                    "          <elementProp name=\"HTTPsampler.Arguments\" elementType=\"Arguments\">\n" +
+                    "            <collectionProp name=\"Arguments.arguments\">\n" +
+                    "              <elementProp name=\"\" elementType=\"HTTPArgument\">\n" +
+                    "                <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>\n" +
+                    "                <stringProp name=\"Argument.value\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("payload").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "                <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
+                    "              </elementProp>\n" +
+                    "            </collectionProp>\n" +
+                    "          </elementProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.domain\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.port\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.connect_timeout\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.response_timeout\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.protocol\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.contentEncoding\"></stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.path\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("path").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.method\">");
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("method").item(0).getTextContent()));
+            sb.append("</stringProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.follow_redirects\">true</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.auto_redirects\">false</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.use_keepalive\">true</boolProp>\n" +
+                    "          <boolProp name=\"HTTPSampler.DO_MULTIPART_POST\">false</boolProp>\n" +
+                    "          <stringProp name=\"HTTPSampler.embedded_url_re\"></stringProp>\n" +
+                    "        </HTTPSamplerProxy>\n" +
+                    "        <hashTree/>\n" +
+                    "      </hashTree>");
+        }
+
+
+
         sb.append("<BackendListener guiclass=\"BackendListenerGui\" testclass=\"BackendListener\" testname=\"Backend Listener\" enabled=\"true\">\n" +
                 "        <elementProp name=\"arguments\" elementType=\"Arguments\" guiclass=\"ArgumentsPanel\" testclass=\"Arguments\" enabled=\"true\">\n" +
                 "          <collectionProp name=\"Arguments.arguments\">\n" +
@@ -189,7 +342,9 @@ public class Main {
                 "            </elementProp>\n" +
                 "            <elementProp name=\"graphiteHost\" elementType=\"Argument\">\n" +
                 "              <stringProp name=\"Argument.name\">graphiteHost</stringProp>\n" +
-                "              <stringProp name=\"Argument.value\">${atsdURL}</stringProp>\n" +
+                "              <stringProp name=\"Argument.value\">");
+        sb.append(substituteSpecialSymbols(atsdStoreUrl));
+        sb.append("</stringProp>\n" +
                 "              <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
                 "            </elementProp>\n" +
                 "            <elementProp name=\"graphitePort\" elementType=\"Argument\">\n" +
@@ -210,18 +365,25 @@ public class Main {
                 "            <elementProp name=\"samplersList\" elementType=\"Argument\">\n" +
                 "              <stringProp name=\"Argument.name\">samplersList</stringProp>\n" +
                 "              <stringProp name=\"Argument.value\">");
-        String prefix = "";
 
-        for (int temp = 0; temp < tests.getLength(); temp++) {
+        String prefix = "";
+        for (int temp = 0; temp < SQLQueries.getLength(); temp++) {
             sb.append(prefix);
             prefix = ";";
 
-            Node nNode = tests.item(temp);
+            Element eElement = (Element) SQLQueries.item(temp);
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
+        }
 
-            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                Element eElement = (Element) nNode;
-                sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
-            }
+        if (SQLQueries.getLength() == 0) {
+            prefix = "";
+        }
+        for (int temp = 0; temp < dataQueries.getLength(); temp++) {
+            sb.append(prefix);
+            prefix = ";";
+
+            Element eElement = (Element) dataQueries.item(temp);
+            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
         }
 
         sb.append("</stringProp>\n" +
@@ -245,7 +407,7 @@ public class Main {
         return sb.toString();
     }
 
-    public static String substituteSpecialSymbols(String input) {
+    private static String substituteSpecialSymbols(String input) {
         return input.replace("&", "&amp;")
                 .replace("<", "&lt;")
                 .replace(">", "&gt;")
@@ -253,30 +415,45 @@ public class Main {
                 .replace("\'", "&apos;");
     }
 
-    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException{
-        if (args.length != 2) {
-            System.out.println("Need 2 args -- input filepath, credentials filepath!");
-            return;
-        }
+    private static void readProperties(String pathToFile) throws IOException {
+        Properties prop = new Properties();
+        InputStream input = new FileInputStream(pathToFile);
+        prop.load(input);
 
-        File inputFile = new File(args[0]);
+        URL atsdQueryUrl = new URL(prop.getProperty("atsd-query-url"));
+        atsdStoreUrl = prop.getProperty("atsd-store-url");
+        atsdUrlAddress = atsdQueryUrl.getHost();
+        String[] userInfo = atsdQueryUrl.getUserInfo().split(":");
+        username = userInfo[0];
+        password = userInfo[1];
+        protocol = atsdQueryUrl.getProtocol();
+        port = Integer.toString(atsdQueryUrl.getPort());
+        TCPport = prop.getProperty("atsd-store-port");
+        input.close();
+    }
+
+    private static void buildQueryLists(String pathToFile) throws IOException,
+                                                                  ParserConfigurationException, SAXException {
+        File inputFile = new File(pathToFile);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(inputFile);
         doc.getDocumentElement().normalize();
 
-        NodeList nList = doc.getElementsByTagName("query");
-        String atsdURL = doc.getElementsByTagName("atsdURL").item(0).getTextContent();
-        String port = doc.getElementsByTagName("port").item(0).getTextContent();
-        String TCPport = doc.getElementsByTagName("TCPport").item(0).getTextContent();
-        String protocol = doc.getElementsByTagName("protocol").item(0).getTextContent();
+        SQLQueries = doc.getElementsByTagName("query");
+        dataQueries = doc.getElementsByTagName("dataQuery");
+    }
 
-        FileInputStream credentialsFile = new FileInputStream(args[1]);
-        BufferedReader br = new BufferedReader(new InputStreamReader(credentialsFile));
-        String username = br.readLine();
-        String password = br.readLine();
+    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException{
+        if (args.length != 2) {
+            System.out.println("Need 2 args -- input filepath, config filepath!");
+            return;
+        }
 
-        String rawFile = formJMX(atsdURL, port, TCPport, protocol, username, password, nList);
+        buildQueryLists(args[0]);
+        readProperties(args[1]);
+
+        String rawFile = formJMX();
         File file = new File("test.jmx");
 
         if (file.exists()) {
