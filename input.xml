@@ -33,7 +33,7 @@
 
     <dataQueries>
         <dataQuery>
-            <testID>get-jmeter-ok-count-metric</testID>
+            <testID>data--jmeter-ok-count-metric</testID>
             <payload>
                 <![CDATA[
                 [{
@@ -49,7 +49,7 @@
             <loops>30</loops>
         </dataQuery>
         <dataQuery>
-            <testID>get-mpstat-cpu-busy-metric</testID>
+            <testID>data--mpstat-cpu-busy-metric</testID>
             <payload>
                 <![CDATA[
                 [{
