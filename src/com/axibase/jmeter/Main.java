@@ -217,7 +217,15 @@ public class Main {
                 "        </collectionProp>\n" +
                 "      </AuthManager>\n" +
                 "      <hashTree/>");
-
+        sb.append("<HeaderManager guiclass=\"HeaderPanel\" testclass=\"HeaderManager\" testname=\"HTTP Header Manager\" enabled=\"true\">\n" +
+                "        <collectionProp name=\"HeaderManager.headers\">\n" +
+                "          <elementProp name=\"\" elementType=\"Header\">\n" +
+                "            <stringProp name=\"Header.name\">Accept-Encoding</stringProp>\n" +
+                "            <stringProp name=\"Header.value\">gzip, deflate, br</stringProp>\n" +
+                "          </elementProp>\n" +
+                "        </collectionProp>\n" +
+                "      </HeaderManager>\n" +
+                "      <hashTree/>");
 
         for (int temp = 0; temp < dataQueries.getLength(); temp++) {
             Element eElement = (Element) dataQueries.item(temp);
