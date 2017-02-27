@@ -10,7 +10,7 @@
                 LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
                 FROM cdc.pneumonia_and_influenza_deaths
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
-                AND datetime > current_year
+                AND datetime > "2016-01-01T00:00:00.000Z"
                 GROUP BY tags
                 ORDER BY 'pneumonia_influenza_deaths' DESC
                 LIMIT 10
@@ -44,7 +44,7 @@
                 FROM cdc.all_deaths tot
                 JOIN cdc.pneumonia_and_influenza_deaths pni
                 WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
-                AND tot.datetime > current_year AND tot.value > 0
+                AND tot.datetime > "2016-01-01T00:00:00.000Z" AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
                 ]]>
@@ -370,7 +370,7 @@
                 LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
                 FROM cdc.all_deaths
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
-                AND datetime > current_year
+                AND datetime > "2016-01-01T00:00:00.000Z"
                 GROUP BY tags
                 ORDER BY 'all_deaths' DESC
                 LIMIT 10
