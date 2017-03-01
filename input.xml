@@ -637,8 +637,8 @@
             <testID>average-for-recent-hour--cpu-busy</testID>
             <queryText>
                 <![CDATA[
-                SELECT entity, AVG(cpu_busy.value)
-                FROM cpu_busy
+                SELECT entity, AVG(value)
+                FROM mpstat.cpu_busy
                 WHERE datetime > previous_month
                 GROUP BY entity
                 WITH time > last_time - 1 * HOUR
