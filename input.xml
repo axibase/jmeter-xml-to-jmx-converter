@@ -1902,5 +1902,117 @@
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
+
+        <dataQuery>
+            <testID>data--tag_expression--slow</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tagExpression": "tags.file_system = '/dev/md3' && tags.mount_point = '/home'",
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--tag_expression--fast</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tags": {
+                    "file_system": "/dev/md3",
+                    "mount_point": "/home"
+                  },
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--tag_expression--like</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tagExpression": "tags.file_system LIKE '/dev/*'",
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--tag_expression--like-slow</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--tag_expression--wildcard</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tagExpression": "tags.file_system = '/dev/*'",
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--tag_expression--wildcard-slow</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "now",
+                  "metric": "df.disk_used",
+                  "entity": "nurswghbs001",
+                  "tagExpression": "tags.file_system = '/dev/*' && tags.mount_point = '/home'",
+                  "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
     </dataQueries>
 </test>
