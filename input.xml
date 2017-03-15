@@ -689,7 +689,7 @@
                 FROM mpstat.cpu_busy
                 OUTER JOIN df.disk_used
                 WHERE mpstat.cpu_busy.datetime > current_hour
-                AND entity = 'nurswghbs001'
+                AND df.disk_used.entity = 'nurswghbs001'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -703,7 +703,7 @@
                 FROM mpstat.cpu_busy
                 OUTER JOIN df.disk_used
                 WHERE mpstat.cpu_busy.datetime BETWEEN "2016-12-01T12:00:30.000Z" AND "2016-12-01T13:00:30.000Z"
-                AND entity = 'nurswghbs001'
+                AND df.disk_used.entity = 'nurswghbs001'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -717,7 +717,7 @@
                 FROM mpstat.cpu_busy
                 OUTER JOIN df.disk_used
                 WHERE mpstat.cpu_busy.datetime BETWEEN "2016-11-01T12:00:30.000Z" AND "2016-11-01T13:00:30.000Z"
-                AND entity = 'nurswghbs001'
+                AND df.disk_used.entity = 'nurswghbs001'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -993,7 +993,7 @@
                 FROM mpstat.cpu_busy
                 OUTER JOIN df.disk_used
                 WHERE mpstat.cpu_busy.datetime > now - 3 * day
-                AND entity = 'nurswghbs001'
+                AND df.disk_used.entity = 'nurswghbs001'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
