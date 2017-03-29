@@ -1659,7 +1659,25 @@
             <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
+
+        <query>
+            <testID>slow-scan--ticket-4039</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, count(*)
+                FROM 'chg.row_number.ijzp-q8t2'
+                WHERE tags.primary_type = 'HOMICIDE'
+                AND datetime >= '2016-01-01T00:00:00.000Z'
+                --AND entity = 'ijzp-q8t2'
+                GROUP BY PERIOD(1 month)
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/4039</source>
+        </query>
     </SQLqueries>
+
+
 
     <dataQueries>
         <dataQuery>
