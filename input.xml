@@ -1675,6 +1675,20 @@
             <loops>30</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/4039</source>
         </query>
+
+        <query>
+            <testID>processing-of-or-datetime--ticket-4070</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                  FROM mpstat.cpu_busy
+                WHERE datetime BETWEEN '2017-04-01T00:00:00Z' AND '2017-04-01T00:01:00Z'
+                    OR datetime BETWEEN '2017-04-01T00:10:00Z' AND '2017-04-01T00:11:00Z'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/4070</source>
+        </query>
     </SQLqueries>
 
 
