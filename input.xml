@@ -3159,7 +3159,6 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>ps>
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--dee79515--10--2</testID>
@@ -3270,7 +3269,7 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery></dataQuery><dataQuery>
+        </dataQuery><dataQuery>
             <testID>data--chartlab--e0e0be77--1--1</testID>
             <payload>
                 <![CDATA[
