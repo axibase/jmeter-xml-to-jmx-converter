@@ -20,6 +20,269 @@
 
     <dataQueries>
         <dataQuery>
+            <testID>data--multiple-metrics-limit-1--ticket-4119--6-metrics</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_dns_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "0",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.client_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "1",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.good_requests",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "2",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_resolve_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "3",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.server_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "4",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_response_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "5",
+                    "timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>30</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--multiple-metrics-limit-1--ticket-4119--5-metrics</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_dns_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "0",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.client_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "1",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.good_requests",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "2",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_resolve_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "3",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.server_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "4",
+                    "timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>30</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--multiple-metrics-limit-1--ticket-4119--4-metrics</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_dns_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "0",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.client_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "1",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.good_requests",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "2",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_resolve_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "3",
+                    "timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>30</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--multiple-metrics-limit-1--ticket-4119--3-metrics</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.average_dns_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "0",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.client_time",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "1",
+                    "timeFormat": "milliseconds"
+                }, {
+                    "cache": false,
+                    "entity": "*",
+                    "limit": 1,
+                    "metric": "itm.rrt.good_requests",
+                    "tags": {
+                        "application": ["*"]
+                    },
+                    "startDate": "2017-04-17T12:00:00.000Z",
+                    "endDate": "2017-04-18T12:00:00.000Z",
+                    "requestId": "2",
+                    "timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>30</loops>
+        </dataQuery>
+
+
+
+        <dataQuery>
             <testID>data--jmeter-ok-count-metric--feb-2017</testID>
             <payload>
                 <![CDATA[
