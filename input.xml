@@ -331,9 +331,8 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>ps>30</loops>
-        </dataQuery>loops>
         </dataQuery>
+
         <dataQuery>
             <testID>data--chartlab--013dc374--3--1</testID>
             <payload>
@@ -7820,13 +7819,8 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>c":"so.tags.count","tags":{},"aggregate":{"types":["DELTA"],"period":{"count":1,"unit":"MONTH"}},"startDate":"2016-11-01T00:00:00.000Z","endDate":"2017-01-01T00:00:00.000Z","requestId":"9","timeFormat":"milliseconds"}]
-                ]]>
-            </payload>
-            <path>/api/v1/series/query</path>
-            <method>POST</method>
-            <loops>30</loops>
         </dataQuery>
+
         <dataQuery>
             <testID>data--chartlab--c1acecc0--2--3</testID>
             <payload>
@@ -8640,7 +8634,6 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>>
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--da03b8a5--3--1</testID>
@@ -9972,12 +9965,6 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>2016-10-21T00:00:00.000Z","requestId":"1","timeFormat":"milliseconds"}]
-                ]]>
-            </payload>
-            <path>/api/v1/series/query</path>
-            <method>POST</method>
-            <loops>30</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--f95d6995--1--1</testID>
@@ -10902,7 +10889,6 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>>
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--fedaa42e--8--1</testID>
@@ -11058,7 +11044,7 @@
             <method>POST</method>
             <loops>30</loops>
         </dataQuery>
-<dataQuery>
+        <dataQuery>
             <testID>data--chartlab--ff756c10--1--9</testID>
             <payload>
                 <![CDATA[
