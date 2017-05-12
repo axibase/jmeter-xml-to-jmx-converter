@@ -689,7 +689,7 @@
                 SELECT *
                 FROM mpstat.cpu_busy
                 OUTER JOIN df.disk_used
-                WHERE mpstat.cpu_busy.datetime > current_hour
+                WHERE mpstat.cpu_busy.datetime between "2017-05-01T12:00:30.000Z" AND "2017-05-01T13:00:30.000Z"
                 AND df.disk_used.entity = 'nurswghbs001'
                 ]]>
             </queryText>
