@@ -1231,7 +1231,7 @@
                 <![CDATA[
                 SELECT entity, datetime, avg(value), tags
                 FROM df.disk_used
-                WHERE datetime > current_day
+                WHERE datetime >= previous_day AND datetime < current_day
                 GROUP BY entity, tags, PERIOD(2 HOUR)
                 ORDER BY entity, tags.file_system, datetime
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
