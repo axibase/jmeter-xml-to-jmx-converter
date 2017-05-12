@@ -731,7 +731,7 @@
                 SELECT datetime, entity, value
                 FROM mpstat.cpu_busy
                 WHERE entity = 'nurswghbs001'
-                AND datetime > current_hour
+                AND datetime between previous_hour and current_hour
                 ]]>
             </queryText>
             <loops>60</loops>
