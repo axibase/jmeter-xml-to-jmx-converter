@@ -63,7 +63,7 @@
                 (1-fre.value/tot.value)*100 "used_%"
                 FROM "meminfo.memtotal" AS tot
                 JOIN "meminfo.memfree" AS fre
-                WHERE tot.datetime > now - 1 * MINUTE
+                WHERE tot.datetime > now - 5 * MINUTE
                 ]]>
             </queryText>
             <loops>60</loops>
