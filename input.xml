@@ -1571,16 +1571,7 @@
             </queryText>
             <loops>10</loops>
         </query>
-        <query>
-            <testID>select-count--java-method-invoke-average</testID>
-            <queryText>
-                <![CDATA[
-                select count(*)
-                from "java_method_invoke_average"
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
+
         <query>
             <testID>select-with-maths--cpu-busy</testID>
             <queryText>
