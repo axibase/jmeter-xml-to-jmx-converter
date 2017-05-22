@@ -1571,7 +1571,16 @@
             </queryText>
             <loops>10</loops>
         </query>
-
+        <query>
+            <testID>select-count--disk-used</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from df.disk_used
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
         <query>
             <testID>select-with-maths--cpu-busy</testID>
             <queryText>
@@ -1582,7 +1591,16 @@
             </queryText>
             <loops>10</loops>
         </query>
-
+        <query>
+            <testID>select-count--java-method-invoke-average</testID>
+            <queryText>
+                <![CDATA[
+                select count(*)
+                from "java_method_invoke_average"
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-entire-period-since-1970</testID>
             <queryText>
