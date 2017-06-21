@@ -77,8 +77,9 @@
                 POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
                 LN(value*2), MOD(CEIL(value)*2, 4)
                 FROM mpstat.cpu_busy
-                WHERE datetime >= now - 5 * minute
-                AND FLOOR(value) > 10
+                WHERE datetime >= current_minute - 5 * minute
+                AND entity = 'nurswghbs001'
+                AND FLOOR(value) >= 0
                 ORDER BY SQRT(value) DESC
                 ]]>
             </queryText>
