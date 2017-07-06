@@ -931,6 +931,21 @@
             <testID>Select-all-columns--query-with-series-tags--long</testID>
             <queryText>
                 <![CDATA[
+                SELECT entity, datetime, value
+                FROM df.disk_used
+                WHERE entity = 'nurswghbs001'
+                AND datetime > now - 5 * day
+                ORDER BY datetime
+                OPTION (ROW_MEMORY_THRESHOLD 15000000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-all-columns.md#query-with-series-tags</source>
+        </query>
+        <query>
+            <testID>Select-all-columns-asterisk--query-with-series-tags--long</testID>
+            <queryText>
+                <![CDATA[
                 SELECT *
                 FROM df.disk_used
                 WHERE entity = 'nurswghbs001'
@@ -989,6 +1004,21 @@
         </query>
         <query>
             <testID>outer-join--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, datetime, value
+                FROM mpstat.cpu_busy
+                OUTER JOIN df.disk_used
+                WHERE mpstat.cpu_busy.datetime > now - 3 * day
+                AND df.disk_used.entity = 'nurswghbs001'
+                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/outer-join.md#outer-join</source>
+        </query>
+        <query>
+            <testID>outer-join-asterisk--long</testID>
             <queryText>
                 <![CDATA[
                 SELECT *
