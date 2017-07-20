@@ -936,6 +936,7 @@
                 FROM df.disk_used
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * day
+                AND tags.file_system LIKE '/dev/md*'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
                 ]]>
@@ -951,6 +952,7 @@
                 FROM df.disk_used
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * day
+                AND tags.file_system LIKE '/dev/md*'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
                 ]]>
