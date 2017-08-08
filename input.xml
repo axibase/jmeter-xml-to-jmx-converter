@@ -394,7 +394,7 @@
                 FROM cdc.all_deaths tot
                 JOIN cdc.pneumonia_and_influenza_deaths pni
                 WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
-                AND tot.datetime > now-1*YEAR AND tot.value > 0
+                AND tot.datetime >= '2016-01-01T00:00:00Z' AND tot.value > 0
                 GROUP BY tot.tags
                 ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
                 ]]>
@@ -411,7 +411,7 @@
                 FROM cdc.pneumonia_and_influenza_deaths
                 WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
                 AND tags.region = '3'
-                AND datetime > now-5*year AND datetime < '2016-10-01T00:00:00Z'
+                AND datetime >= '2012-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
                 GROUP BY tags.region, period(1 MONTH)
                 ORDER BY datetime desc, tags.region
                 ]]>
