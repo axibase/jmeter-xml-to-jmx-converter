@@ -2288,7 +2288,7 @@
             <testID>data--issues--2240.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"325416e3d2d6","metric":"log_event_counter","tags":{"level":["INFO"],"command":["*"],"logger":["*"]},"startDate":"2016-02-10T11:57:41.821Z","endDate":"2016-02-15T11:57:41.821Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"325416e3d2d6","metric":"log_event_counter","tags":{"level":["INFO"],"command":["*"],"logger":["*"]},"startDate":"2016-02-10T11:57:41.821Z","endDate":"2016-02-15T11:57:41.821Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2299,7 +2299,7 @@
             <testID>data--issues--2339_bar.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["JAVA.G*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"DAY"}},"startDate":"2015-12-01T00:00:00Z","endDate":"2015-12-02T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["JAVA.G*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"DAY"}},"startDate":"2015-12-01T00:00:00Z","endDate":"2015-12-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2310,7 +2310,7 @@
             <testID>data--issues--2398_bar.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["JAVA.G*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"DAY"}},"startDate":"2015-12-01T00:00:00Z","endDate":"2015-12-02T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["JAVA.G*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"DAY"}},"startDate":"2015-12-01T00:00:00Z","endDate":"2015-12-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2321,7 +2321,7 @@
             <testID>data--issues--2503_pie.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2015-12-01T23:00:00Z","endDate":"2015-12-02T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"aixtest01","metric":"nmon.wlmcpu.cpu_percent","tags":{"id":["*"]},"aggregate":{"types":["AVG"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2015-12-01T23:00:00Z","endDate":"2015-12-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2332,7 +2332,7 @@
             <testID>data--issues--2893.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["com.axibase.tsd.Server"],"logger":["com.axibase.tsd.web.DefaultExceptionHandler"]},"startDate":"2016-06-13T00:00:00Z","endDate":"2016-06-15T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["com.axibase.tsd.Server"],"logger":["com.axibase.tsd.web.DefaultExceptionHandler"]},"startDate":"2016-06-13T00:00:00Z","endDate":"2016-06-15T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2343,7 +2343,7 @@
             <testID>data--issues--2893.config--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["com.axibase.tsd.Server"],"logger":["com.axibase.tsd.web.DefaultExceptionHandler"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY"}},"startDate":"2016-06-13T00:00:00Z","endDate":"2016-06-15T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["com.axibase.tsd.Server"],"logger":["com.axibase.tsd.web.DefaultExceptionHandler"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY"}},"startDate":"2016-06-13T00:00:00Z","endDate":"2016-06-15T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2354,7 +2354,7 @@
             <testID>data--issues--2952.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2365,7 +2365,7 @@
             <testID>data--issues--2952.config--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2376,7 +2376,7 @@
             <testID>data--issues--2953.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2387,7 +2387,7 @@
             <testID>data--issues--2953.config--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY","align":"END_TIME"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY","align":"END_TIME"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-06T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2398,7 +2398,7 @@
             <testID>data--issues--2954.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY","align":"END_TIME"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-05T16:04:38.110Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"DAY","align":"END_TIME"}},"startDate":"2017-04-04T00:00:00Z","endDate":"2017-04-05T16:04:38.110Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2409,7 +2409,7 @@
             <testID>data--issues--3242tags.config</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"f7nd-jj28","metric":"f7nd-jj28.value","seriesLimit":5,"startDate":"2000-01-01T00:00:00Z","endDate":"9999-12-31T23:59:59.999Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"f7nd-jj28","metric":"f7nd-jj28.value","seriesLimit":5,"startDate":"2000-01-01T00:00:00Z","endDate":"9999-12-31T23:59:59.999Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2420,7 +2420,7 @@
             <testID>data--issues--3941.config</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.oro","ca.cle","ca.dnp","ca.exc","ca.fol","ca.mil","ca.nml","ca.pnf","ca.sha","ca.snl"],"metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-05T18:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.oro","ca.cle","ca.dnp","ca.exc","ca.fol","ca.mil","ca.nml","ca.pnf","ca.sha","ca.snl"],"metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-05T18:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2431,7 +2431,7 @@
             <testID>data--issues--3941.config--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.oro","ca.cle","ca.dnp","ca.exc","ca.fol","ca.mil","ca.nml","ca.pnf","ca.sha","ca.snl"],"metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-05T18:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.oro","ca.cle","ca.dnp","ca.exc","ca.fol","ca.mil","ca.nml","ca.pnf","ca.sha","ca.snl"],"metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-05T18:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2442,7 +2442,7 @@
             <testID>data--issues--3941.config--2</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-06T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-04-02T12:00:00Z","endDate":"2017-04-06T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2464,7 +2464,7 @@
             <testID>data--issues--3941_entityTag.config</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-04-04T16:04:31.878Z","endDate":"2017-04-05T16:04:31.878Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-04-04T16:04:31.878Z","endDate":"2017-04-05T16:04:31.878Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2475,7 +2475,7 @@
             <testID>data--issues--3941_entityTag.config--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-04-04T16:04:31.964Z","endDate":"2017-04-05T18:28:31.964Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-04-04T16:04:31.964Z","endDate":"2017-04-05T18:28:31.964Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2508,7 +2508,7 @@
             <testID>data--chartlab--007721aa--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":15,"unit":"MINUTE"}},"startDate":"2016-10-20T17:45:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":15,"unit":"MINUTE"}},"startDate":"2016-10-20T17:45:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2530,7 +2530,7 @@
             <testID>data--chartlab--007721aa--1--3</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2016-10-19T00:00:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2016-10-19T00:00:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2541,7 +2541,7 @@
             <testID>data--chartlab--007721aa--1--4</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2016-10-18T23:00:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2016-10-18T23:00:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2552,7 +2552,7 @@
             <testID>data--chartlab--1e6f3425--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"6vp6-wxuq","limit":1,"metric":"cdc.nccd.data_value","tags":{"datavaluetypeid":["CrdPrv"],"short_question_text":["Obesity"],"cityname":["*"],"statedesc":["California"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-03-07T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"6vp6-wxuq","limit":1,"metric":"cdc.nccd.data_value","tags":{"datavaluetypeid":["CrdPrv"],"short_question_text":["Obesity"],"cityname":["*"],"statedesc":["California"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-03-07T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2563,7 +2563,7 @@
             <testID>data--chartlab--3c891764--10--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001/","metric":"cadvisor.cpu.usage.total%","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001/","metric":"cadvisor.cpu.usage.total%","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2574,7 +2574,7 @@
             <testID>data--chartlab--3c891764--10--2</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001/","metric":"cadvisor.memory.usage","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001/","metric":"cadvisor.memory.usage","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2585,7 +2585,7 @@
             <testID>data--chartlab--3c891764--10--3</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001/","metric":"cadvisor.memory.workingset","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001/","metric":"cadvisor.memory.workingset","startDate":"2015-11-19T13:00:00Z","endDate":"2015-11-20T13:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2618,7 +2618,7 @@
             <testID>data--chartlab--3c891764--10--6</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001/","metric":"cadvisor.network.txbytes","startDate":"2015-11-20T11:59:00Z","endDate":"2015-11-20T13:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001/","metric":"cadvisor.network.txbytes","startDate":"2015-11-20T11:59:00Z","endDate":"2015-11-20T13:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2629,7 +2629,7 @@
             <testID>data--chartlab--3c891764--10--7</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001/","metric":"cadvisor.network.rxbytes","startDate":"2015-11-20T11:59:00Z","endDate":"2015-11-20T13:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001/","metric":"cadvisor.network.rxbytes","startDate":"2015-11-20T11:59:00Z","endDate":"2015-11-20T13:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2871,7 +2871,7 @@
             <testID>data--chartlab--3f33d4ba--18--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-district","tags":{"primary_type":["HOMICIDE"],"district":["*"]},"startDate":"2007-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-district","tags":{"primary_type":["HOMICIDE"],"district":["*"]},"startDate":"2007-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2882,7 +2882,7 @@
             <testID>data--chartlab--3f33d4ba--18--2</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-district","tags":{"primary_type":["HOMICIDE"],"district":["*"]},"startDate":"2007-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-district","tags":{"primary_type":["HOMICIDE"],"district":["*"]},"startDate":"2007-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -2937,7 +2937,7 @@
             <testID>data--chartlab--43f054ee--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswgvml212","metric":"klzcpuavg.cpu_usage_current_average","startDate":"2015-09-29T08:00:00Z","endDate":"2015-09-30T08:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml212","metric":"klzcpuavg.cpu_usage_current_average","startDate":"2015-09-29T08:00:00Z","endDate":"2015-09-30T08:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3036,7 +3036,7 @@
             <testID>data--chartlab--53e42403--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"usa","metric":"us-trade-export","tags":{"ctyname":["*"],"cty_code":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"usa","metric":"us-trade-export","tags":{"ctyname":["*"],"cty_code":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3058,7 +3058,7 @@
             <testID>data--chartlab--53e42403--1--3</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"usa","metric":"us-trade-import","tags":{"ctyname":["*"],"cty_code":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"usa","metric":"us-trade-import","tags":{"ctyname":["*"],"cty_code":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3146,7 +3146,7 @@
             <testID>data--chartlab--d8ab98b3--19--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":15,"unit":"MINUTE"}},"startDate":"2016-10-20T17:45:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":15,"unit":"MINUTE"}},"startDate":"2016-10-20T17:45:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3168,7 +3168,7 @@
             <testID>data--chartlab--d8ab98b3--19--3</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2016-10-19T00:00:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_counter","tags":{"level":["ERROR"],"command":["*"],"logger":["*"]},"startDate":"2016-10-19T00:00:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3179,7 +3179,7 @@
             <testID>data--chartlab--d8ab98b3--19--4</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2016-10-18T23:00:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"NURSWGHBS001","metric":"log_event_total_counter","tags":{"level":["ERROR"],"command":["*"]},"aggregate":{"types":["COUNTER"],"period":{"count":1,"unit":"HOUR"}},"startDate":"2016-10-18T23:00:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3234,7 +3234,7 @@
             <testID>data--chartlab--dee79515--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-02-10T00:00:00Z","endDate":"2017-02-12T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-02-10T00:00:00Z","endDate":"2017-02-12T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3245,7 +3245,7 @@
             <testID>data--chartlab--dee79515--21--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entity":"ca.oro","metric":"ca.daily.reservoir_elevation_feet","startDate":"1985-01-01T00:00:00Z","endDate":"2017-02-12T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entity":"ca.oro","metric":"ca.daily.reservoir_elevation_feet","startDate":"1985-01-01T00:00:00Z","endDate":"2017-02-12T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3267,7 +3267,7 @@
             <testID>data--chartlab--dee79515--2--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2016-02-11T00:00:00Z","endDate":"2017-02-12T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2016-02-11T00:00:00Z","endDate":"2017-02-12T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3278,7 +3278,7 @@
             <testID>data--chartlab--dee79515--3--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-02-09T00:00:00Z","endDate":"2017-02-12T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2017-02-09T00:00:00Z","endDate":"2017-02-12T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3300,7 +3300,7 @@
             <testID>data--chartlab--dee79515--7--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2016-11-12T00:00:00Z","endDate":"2017-02-12T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ca.oro","metric":"ca.reservoir_storage_af","startDate":"2016-11-12T00:00:00Z","endDate":"2017-02-12T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3376,7 +3376,7 @@
             <testID>data--chartlab--fe01eb35--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3387,7 +3387,7 @@
             <testID>data--chartlab--fe01eb35--1--2</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3398,7 +3398,7 @@
             <testID>data--chartlab--fe01eb35--2--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3409,7 +3409,7 @@
             <testID>data--chartlab--fe01eb35--2--2</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3420,7 +3420,7 @@
             <testID>data--chartlab--fe01eb35--3--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3431,7 +3431,7 @@
             <testID>data--chartlab--fe01eb35--3--2</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3442,7 +3442,7 @@
             <testID>data--chartlab--fe01eb35--4--1</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3453,7 +3453,7 @@
             <testID>data--chartlab--fe01eb35--4--2</testID>
             <payload>
                 <![CDATA[
-                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"addMeta":true,"entities":["ca.alm","ca.ant","ca.ber","ca.blb","ca.boc","ca.buc","ca.bul","ca.cas","ca.cfw","ca.cle","ca.cmn","ca.coy","ca.dav","ca.dnn","ca.dnp","ca.eng","ca.epk","ca.exc","ca.fol","ca.frd","ca.frm","ca.hid","ca.ich","ca.inv","ca.isb","ca.kes","ca.lew","ca.lon","ca.mcs","ca.mil","ca.mrt","ca.nhg","ca.nml","ca.oro","ca.par","ca.pnf","ca.pra","ca.prs","ca.pym","ca.sat","ca.scc","ca.sha","ca.slb","ca.snl","ca.stg","ca.stp","ca.tab","ca.trm","ca.unv","ca.whi","ca.wrs"],"metric":"ca.reservoir_elevation_feet","startDate":"2017-02-26T00:00:00Z","endDate":"2017-02-27T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3464,7 +3464,7 @@
             <testID>data--chartlab--06a95d7c--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"dqp6-3idi","metric":"Price","tags":{"county":["Hilo"],"fuel":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"dqp6-3idi","metric":"Price","tags":{"county":["Hilo"],"fuel":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3475,7 +3475,7 @@
             <testID>data--chartlab--0e4a225d--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"uubd-eei2","metric":"feds_cases_denied_grant_reduced","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"uubd-eei2","metric":"feds_cases_denied_grant_reduced","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3486,7 +3486,7 @@
             <testID>data--chartlab--131b7670--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"tags":{"industry_type":["Farm"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-11-18T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"tags":{"industry_type":["Farm"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-11-18T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3497,7 +3497,7 @@
             <testID>data--chartlab--1ac33603--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"sxz8-4swt","metric":"employment_in_thousands","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-11-18T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"sxz8-4swt","metric":"employment_in_thousands","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-11-18T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3563,7 +3563,7 @@
             <testID>data--chartlab--32945a52--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"2016-10-20T23:45:00Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"2016-10-20T23:45:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3574,7 +3574,7 @@
             <testID>data--chartlab--3d07088c--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"mr8w-325u","metric":"cdc._1_24_years","aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"mr8w-325u","metric":"cdc._1_24_years","aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3585,7 +3585,7 @@
             <testID>data--chartlab--3d07088c--2--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"mr8w-325u","metric":"cdc.all_deaths","tags":{"city":["New Orleans"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-12-25T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"mr8w-325u","metric":"cdc.all_deaths","tags":{"city":["New Orleans"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-12-25T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3596,7 +3596,7 @@
             <testID>data--chartlab--3f33d4ba--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type","tags":{"primary_type":["HOMICIDE"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type","tags":{"primary_type":["HOMICIDE"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3618,7 +3618,7 @@
             <testID>data--chartlab--3f33d4ba--4--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type","tags":{"primary_type":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type","tags":{"primary_type":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3629,7 +3629,7 @@
             <testID>data--chartlab--3f33d4ba--7--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-description","tags":{"primary_type":["NARCOTICS"],"description":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-description","tags":{"primary_type":["NARCOTICS"],"description":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3640,7 +3640,7 @@
             <testID>data--chartlab--3f33d4ba--7--2</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-description","tags":{"primary_type":["NARCOTICS"],"description":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-description","tags":{"primary_type":["NARCOTICS"],"description":["*"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3673,7 +3673,7 @@
             <testID>data--chartlab--48b1d9b2--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"v48g-wbhi","metric":"disposed_statewide","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"v48g-wbhi","metric":"disposed_statewide","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3684,7 +3684,7 @@
             <testID>data--chartlab--55eb27ce--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"f7nd-jj28","metric":"f7nd-jj28.value","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"f7nd-jj28","metric":"f7nd-jj28.value","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3695,7 +3695,7 @@
             <testID>data--chartlab--61e23fa5--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"prxf-ppu5","metric":"maryland_veterans_unemployment_rate","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"prxf-ppu5","metric":"maryland_veterans_unemployment_rate","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3706,7 +3706,7 @@
             <testID>data--chartlab--6be07c75--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"rkm7-uwkb","metric":"retail_sales_of_goods","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"rkm7-uwkb","metric":"retail_sales_of_goods","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3717,7 +3717,7 @@
             <testID>data--chartlab--88942f63--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"qm34-pq7e","metric":"amer_indian","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"qm34-pq7e","metric":"amer_indian","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3728,7 +3728,7 @@
             <testID>data--chartlab--9026c3d7--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"d8hf-wqd9","metric":"scholarship_dollars","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"d8hf-wqd9","metric":"scholarship_dollars","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3739,7 +3739,7 @@
             <testID>data--chartlab--9e548f6b--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"74g9-vewt","metric":"price","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"74g9-vewt","metric":"price","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3750,7 +3750,7 @@
             <testID>data--chartlab--a4936180--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"3pzs-2zsk","metric":"expected_kwh_annual_production","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"3pzs-2zsk","metric":"expected_kwh_annual_production","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3761,7 +3761,7 @@
             <testID>data--chartlab--a85c4f60--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"3fys-ggpk","metric":"agg_assault","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"3fys-ggpk","metric":"agg_assault","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3794,7 +3794,7 @@
             <testID>data--chartlab--bc9ba2d9--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"f3h8-mnxi","metric":"district","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"f3h8-mnxi","metric":"district","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3805,7 +3805,7 @@
             <testID>data--chartlab--c041c40b--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"u49g-d7hw","metric":"volume","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"u49g-d7hw","metric":"volume","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3816,7 +3816,7 @@
             <testID>data--chartlab--cb62aab7--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"tags":{"industry_type":["Government and government enterprises"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"tags":{"industry_type":["Government and government enterprises"]},"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3827,7 +3827,7 @@
             <testID>data--chartlab--d5c04002--6--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-location","tags":{"primary_type":["HOMICIDE"],"location_description":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-location","tags":{"primary_type":["HOMICIDE"],"location_description":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2016-01-01T00:00:00Z","endDate":"2017-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3838,7 +3838,7 @@
             <testID>data--chartlab--d5c04002--6--2</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-location","tags":{"primary_type":["HOMICIDE"],"location_description":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2015-01-01T00:00:00Z","endDate":"2016-01-01T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"ijzp-q8t2","metric":"cc.cases-by-primary-type-and-location","tags":{"primary_type":["HOMICIDE"],"location_description":["*"]},"aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}},"startDate":"2015-01-01T00:00:00Z","endDate":"2016-01-01T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3871,7 +3871,7 @@
             <testID>data--chartlab--db5aa772--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"64jf-g2fe","metric":"actual_peak_demand","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"64jf-g2fe","metric":"actual_peak_demand","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3882,7 +3882,7 @@
             <testID>data--chartlab--ee379926--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"dqp6-3idi","metric":"price","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"dqp6-3idi","metric":"price","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3893,7 +3893,7 @@
             <testID>data--chartlab--f2083bc9--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"un65-7ipd","metric":"new","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"un65-7ipd","metric":"new","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3904,7 +3904,7 @@
             <testID>data--chartlab--f5eae012--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"yrss-ncc4","metric":"compensation","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3915,7 +3915,7 @@
             <testID>data--chartlab--fc75db9b--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"je5z-53wn","metric":"jobs_recovered_goal_to_reach_pre_recession_peak","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"je5z-53wn","metric":"jobs_recovered_goal_to_reach_pre_recession_peak","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -3926,7 +3926,7 @@
             <testID>data--chartlab--fd596ed9--1--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"5ymg-2p8u","metric":"baltimore","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","requestId":"0","timeFormat":"milliseconds"}]
+                [{"entity":"5ymg-2p8u","metric":"baltimore","seriesLimit":25,"startDate":"1970-01-01T00:00:00.001Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
