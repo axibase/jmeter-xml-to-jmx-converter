@@ -11,12 +11,10 @@
                 ]]>
             </queryText>
             <loops>30</loops>
-            <source>https://nur.axibase.com:41791/redmine/issues/4070</source>
+            <source>redmine/issues/4070</source>
         </query>
 
     </SQLqueries>
-
-
 
     <dataQueries>
         <dataQuery>
@@ -11147,7 +11145,7 @@
             <testID>data--chartlab--fedaa42e--7--1</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-10-20T00:00:00Z","endDate":"2016-10-21T00:00:00Z","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-02T00:00:00Z","endDate":"2016-11-03T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
