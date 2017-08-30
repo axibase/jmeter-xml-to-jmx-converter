@@ -341,7 +341,7 @@
             <queryText>
                 <![CDATA[
                 SELECT entity, datetime, value, tags.*
-                FROM 'm-metric1'
+                FROM "m-metric1"
                 WHERE datetime >= '2016-06-19T11:00:00Z' and datetime < '2016-06-19T12:00:00Z'
                 ]]>
             </queryText>
@@ -540,7 +540,7 @@
             <queryText>
                 <![CDATA[
                 SELECT value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value+value
-                FROM 'testmetric'
+                FROM "testmetric"
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -1702,7 +1702,7 @@
             <queryText>
                 <![CDATA[
                 SELECT datetime, count(*)
-                FROM 'chg.row_number.ijzp-q8t2'
+                FROM "chg.row_number.ijzp-q8t2"
                 WHERE tags.primary_type = 'HOMICIDE'
                 AND datetime >= '2016-01-01T00:00:00Z'
                 --AND entity = 'ijzp-q8t2'
