@@ -130,7 +130,7 @@
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * minute
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -554,7 +554,7 @@
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
                 WHERE datetime > now - 1*minute
-                AND LOWER(tags.file_system) LIKE '/dev/md*'
+                AND LOWER(tags.file_system) LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -569,7 +569,7 @@
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-12-01T12:00:30Z' AND '2016-12-01T12:01:30Z'
-                AND LOWER(tags.file_system) LIKE '/dev/md*'
+                AND LOWER(tags.file_system) LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -584,7 +584,7 @@
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-11-01T12:00:30Z' AND '2016-11-01T12:01:30Z'
-                AND LOWER(tags.file_system) LIKE '/dev/md*'
+                AND LOWER(tags.file_system) LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -598,7 +598,7 @@
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
                 WHERE datetime > now - 1 * day
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
@@ -613,7 +613,7 @@
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-12-01T12:00:30Z' AND '2016-12-02T12:00:30Z'
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
@@ -628,7 +628,7 @@
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-11-01T12:00:30Z' AND '2016-11-02T12:00:30Z'
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 ]]>
@@ -771,7 +771,7 @@
                 <![CDATA[
                 SELECT datetime, value, tags.file_system
                 FROM "df.disk_used"_percent
-                WHERE  tags.file_system LIKE '/dev/md*'
+                WHERE  tags.file_system LIKE '/dev/md%'
                 AND datetime >= now - 1 * hour
                 ]]>
             </queryText>
@@ -784,7 +784,7 @@
                 <![CDATA[
                 SELECT datetime, value, tags.file_system
                 FROM "df.disk_used"_percent
-                WHERE  tags.file_system LIKE '/dev/md*'
+                WHERE  tags.file_system LIKE '/dev/md%'
                 AND datetime BETWEEN '2016-12-01T12:00:30Z' AND '2016-12-01T13:00:30Z'
                 ]]>
             </queryText>
@@ -797,7 +797,7 @@
                 <![CDATA[
                 SELECT datetime, value, tags.file_system
                 FROM "df.disk_used"_percent
-                WHERE  tags.file_system LIKE '/dev/md*'
+                WHERE  tags.file_system LIKE '/dev/md%'
                 AND datetime BETWEEN '2016-11-01T12:00:30Z' AND '2016-11-01T13:00:30Z'
                 ]]>
             </queryText>
@@ -919,7 +919,7 @@
                 SELECT count(*)
                 FROM "cdc.all_deaths"
                 WHERE entity = 'mr8w-325u'
-                AND tags.city LIKE 'Philadelphia*'
+                AND tags.city LIKE 'Philadelphia%'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -936,7 +936,7 @@
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * day
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
                 ]]>
@@ -952,7 +952,7 @@
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
                 AND datetime > now - 5 * day
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
                 ]]>
@@ -1014,7 +1014,7 @@
                 OUTER JOIN "df.disk_used" t2
                 WHERE datetime > now - 3 * day
                 AND t1.entity = 'nurswghbs001'
-                AND t2.tags.file_system NOT LIKE '/dev/dm*'
+                AND t2.tags.file_system NOT LIKE '/dev/dm%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1030,7 +1030,7 @@
                 OUTER JOIN "df.disk_used"
                 WHERE "mpstat.cpu_busy".datetime > now - 3 * day
                 AND "df.disk_used".entity = 'nurswghbs001'
-                AND "df.disk_used".tags.file_system NOT LIKE '/dev/dm*'
+                AND "df.disk_used".tags.file_system NOT LIKE '/dev/dm%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1268,7 +1268,7 @@
                 SELECT entity, datetime, avg(value), tags
                 FROM "df.disk_used"
                 WHERE datetime >= previous_day AND datetime < current_day
-                AND tags.file_system LIKE '/dev/md*'
+                AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, PERIOD(2 HOUR)
                 ORDER BY entity, tags.file_system, datetime
                 OPTION (ROW_MEMORY_THRESHOLD 10000)
@@ -1433,7 +1433,7 @@
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-12-01T12:00:00Z' AND '2016-12-14T12:00:00Z'
-                AND LOWER(tags.file_system) LIKE '/dev/*'
+                AND LOWER(tags.file_system) LIKE '/dev/%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
@@ -1687,7 +1687,7 @@
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-01-01T12:00:00Z' AND '2016-12-25T12:00:00Z'
-                AND tags.file_system LIKE '/dev/*'
+                AND tags.file_system LIKE '/dev/%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
@@ -2020,7 +2020,7 @@
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/md*'",
+                  "tagExpression": "tags.file_system LIKE '/dev/md%'",
                   "limit": 5
                 }]
                 ]]>
@@ -2038,7 +2038,7 @@
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/%' && tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2093,7 +2093,7 @@
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/%' && tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2111,7 +2111,7 @@
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/%' && tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -2133,7 +2133,7 @@
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/%' && tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2155,7 +2155,7 @@
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/%' && tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
