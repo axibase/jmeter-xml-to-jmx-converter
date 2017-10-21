@@ -3933,5 +3933,223 @@
             <method>POST</method>
             <loops>30</loops>
         </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-count-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-count-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-count-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+
+        <dataQuery>
+            <testID>data--aggregator-sum-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["SUM"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-sum-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["SUM"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-sum-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["SUM"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>       
+
+         <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--aggregator-perc-75-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_75"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-perc-75-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_75"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-perc-75-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_75"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>  
+
+        <dataQuery>
+            <testID>data--aggregator-perc-50_75_90_95_99-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-perc-50_75_90_95_99-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-perc-50_75_90_95_99-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery> 
+
+         <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":[""COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"DAY"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"MONTH"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+         <dataQuery>
+            <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-year</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
     </dataQueries>
 </test>
