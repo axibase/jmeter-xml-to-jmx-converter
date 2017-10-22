@@ -4119,7 +4119,7 @@
             <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-day</testID>
             <payload>
                 <![CDATA[
-                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":[""COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"DAY"}}}]
+                [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"DAY"}}}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
