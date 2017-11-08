@@ -1698,6 +1698,17 @@
         </query>
 
         <query>
+            <testID>limit-desc-10</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM mpstat.cpu_busy ORDER BY datetime DESC LIMIT 10
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>https://nur.axibase.com:41791/redmine/issues/3269</source>
+        </query>        
+        
+        <query>
             <testID>slow-scan--ticket-4039</testID>
             <queryText>
                 <![CDATA[
