@@ -13,6 +13,17 @@
             <loops>30</loops>
             <source>redmine/issues/4070</source>
         </query>
+        
+        <query>
+            <testID>limit-desc-10</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM cpu_busy ORDER BY datetime DESC LIMIT 10
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>redmine/issues/3269</source>
+        </query>         
 
     </SQLqueries>
 
