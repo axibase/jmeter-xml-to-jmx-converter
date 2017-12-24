@@ -1173,7 +1173,7 @@
                 AND tot.tags.city = 'New York'
                 GROUP BY tot.tags, tot.period(1 year)
                 HAVING sum(tot.value) > 0
-                WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)
+                WITH INTERPOLATE (1 WEEK, LINEAR, INNER, TRUE, START_TIME)
                 ORDER BY tot.tags.city, tot.datetime
                 ]]>
             </queryText>
