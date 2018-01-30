@@ -1484,7 +1484,7 @@
                 WHERE datetime >= '2016-05-01T09:20:00Z' AND datetime < '2016-07-03T09:50:00Z'
                 AND entity = 'nurswghbs001'
                 GROUP BY entity, PERIOD(1 second, LINEAR)
-                OPTION (ROW_MEMORY_THRESHOLD 1500000)
+                OPTION (ROW_MEMORY_THRESHOLD 2000000)
                 ]]>
             </queryText>
             <loops>10</loops>
