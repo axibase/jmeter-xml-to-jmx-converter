@@ -997,7 +997,7 @@
                 LN(value*2), MOD(CEIL(value)*2, 4)
                 FROM "mpstat.cpu_busy"
                 WHERE datetime >= now - 5 * day
-                AND FLOOR(value) > 10
+                AND FLOOR(value) >= 0
                 ORDER BY SQRT(value) DESC
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
