@@ -1475,6 +1475,7 @@
             </queryText>
             <loops>10</loops>
         </query>
+        <!--
         <query>
             <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods--long</testID>
             <queryText>
@@ -1490,6 +1491,7 @@
             <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
         </query>
+-->
         <query>
             <testID>select-count--read-rate</testID>
             <queryText>
