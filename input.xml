@@ -1014,7 +1014,7 @@
                 OUTER JOIN "df.disk_used" t2
                 WHERE datetime > now - 3 * day
                 AND t1.entity = 'nurswghbs001'
-                AND t2.tags.file_system NOT LIKE '/dev/dm%'
+                AND t2.tags.file_system LIKE '/dev/md%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1030,7 +1030,7 @@
                 OUTER JOIN "df.disk_used"
                 WHERE "mpstat.cpu_busy".datetime > now - 3 * day
                 AND "df.disk_used".entity = 'nurswghbs001'
-                AND "df.disk_used".tags.file_system NOT LIKE '/dev/dm%'
+                AND "df.disk_used".tags.file_system LIKE '/dev/md%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
@@ -1433,7 +1433,7 @@
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-12-01T12:00:00Z' AND '2016-12-14T12:00:00Z'
-                AND LOWER(tags.file_system) LIKE '/dev/%'
+                AND LOWER(tags.file_system) LIKE '/dev/md%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
@@ -1673,7 +1673,7 @@
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
                 WHERE datetime BETWEEN '2016-01-01T12:00:00Z' AND '2016-12-25T12:00:00Z'
-                AND tags.file_system LIKE '/dev/%'
+                AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
