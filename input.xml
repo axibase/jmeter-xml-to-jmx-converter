@@ -323,6 +323,21 @@
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
         </query>
         <query>
+            <testID>Interpolate--Linear-Interpolation-1-Minute-Period-Multiple-Periods--long</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, date_format(PERIOD(1 second)), COUNT(value)
+                FROM "mpstat.cpu_busy"
+                WHERE datetime >= '2016-05-01T09:20:00Z' AND datetime < '2016-07-03T09:50:00Z'
+                AND entity = 'nurswghbs001'
+                GROUP BY entity, PERIOD(1 second, LINEAR)
+                OPTION (ROW_MEMORY_THRESHOLD 2000000)
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
+        </query>        
+        <query>
             <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
             <queryText>
                 <![CDATA[
