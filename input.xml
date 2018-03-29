@@ -19,7 +19,6 @@
             </queryText>
             <loops>60</loops>
         </query>
-        
         <query>
             <testID>JOIN</testID>
             <queryText>
@@ -4157,6 +4156,30 @@
             <payload>
                 <![CDATA[
                 [{"entity":"nurswghbs001","metric":"mpstat.cpu_busy","startDate":"1970-01-01T00:00:00Z","endDate":"2017-10-21T00:00:00Z","aggregate":{"types":["COUNT","SUM","MIN","MAX","AVG","PERCENTILE_50","PERCENTILE_75","PERCENTILE_90","PERCENTILE_95","PERCENTILE_99"],"period":{"count":1,"unit":"YEAR"}}}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+        
+        <dataQuery>
+            <testID>data--versioned-1-day</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-07-02T00:00:00Z","versioned":true}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        
+        <dataQuery>
+            <testID>data--versioned-1-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-08-01T00:00:00Z","versioned":true}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
