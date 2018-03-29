@@ -19,6 +19,7 @@
             </queryText>
             <loops>60</loops>
         </query>
+        
         <query>
             <testID>JOIN</testID>
             <queryText>
