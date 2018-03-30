@@ -4187,5 +4187,17 @@
             <loops>10</loops>
         </dataQuery>         
 
+        <dataQuery>
+            <testID>data--versioned-3-month</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-10-01T00:00:00Z","versioned":true}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
     </dataQueries>
 </test>
