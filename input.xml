@@ -11549,6 +11549,77 @@
             <loops>10</loops>
         </dataQuery>    
 
+        <dataQuery>
+            <testID>data--limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--limit-2-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":2,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--limit-100-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":100,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+        
+        <dataQuery>
+            <testID>data--limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--limit-2-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":2,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--limit-100-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"entity":"atsd","metric":"jvm_memory_used","tags":{"host":"NURSWGVML007"},"startDate":"2010-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","limit":100,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
 
     </dataQueries>
 </test>
