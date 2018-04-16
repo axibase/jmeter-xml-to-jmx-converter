@@ -11621,5 +11621,53 @@
             <loops>10</loops>
         </dataQuery>    
 
+        <dataQuery>
+            <testID>data--aggregate-limit-slope-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2013-04-10T00:00:00Z","endDate":"2018-05-12T00:00:00Z","entity":"nurswgvml007","metric":"cpu_busy","aggregate":{"type":"SLOPE","period":{"count":1,"unit":"HOUR"}},"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--aggregate-limit-slope-10-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2013-04-10T00:00:00Z","endDate":"2018-05-12T00:00:00Z","entity":"nurswgvml007","metric":"cpu_busy","aggregate":{"type":"SLOPE","period":{"count":1,"unit":"HOUR"}},"limit":10,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--aggregate-limit-slope-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2013-04-10T00:00:00Z","endDate":"2018-05-12T00:00:00Z","entity":"nurswgvml007","metric":"cpu_busy","aggregate":{"type":"SLOPE","period":{"count":1,"unit":"HOUR"}},"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
+        <dataQuery>
+            <testID>data--aggregate-limit-slope-10-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2013-04-10T00:00:00Z","endDate":"2018-05-12T00:00:00Z","entity":"nurswgvml007","metric":"cpu_busy","aggregate":{"type":"SLOPE","period":{"count":1,"unit":"HOUR"}},"limit":10,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>    
+
     </dataQueries>
 </test>
