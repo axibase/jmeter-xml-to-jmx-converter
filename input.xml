@@ -4163,6 +4163,8 @@
             <loops>10</loops>
         </dataQuery>         
         
+        <!-- Test performance of queries of versioned series. -->
+        
         <dataQuery>
             <testID>data--versioned-1-day</testID>
             <payload>
@@ -4210,6 +4212,110 @@
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>         
-    </dataQueries>
     
+    
+    <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series. 
+         3 months period. Total number of samples is 5 000 000 approximately. -->
+    
+    <!-- All raw series for 3 months. -->
+    
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-asterisk-iso</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-double-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-masks-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nurswgvml*","tags":{"file_system":"*","mount_point":"*"},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-masks-filters-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis-multiquery-same-interval</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml502","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml502","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"/dev/mapper/vg_nurswgvml006-lv_root","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"/dev/sdb1","mount_point":"/media/datadrive"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"/dev/sdb1","mount_point":"/app"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"//u113452.your-backup.de/backup/jenkins_data","mount_point":"/mnt/u113452/jenkins_data"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml301","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis-multiquery-different-intervals</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:01Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:02Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:03Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:04Z","metric":"disk_used_decimal_test","entity":"nurswgvml502","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:05Z","metric":"disk_used_decimal_test","entity":"nurswgvml502","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:06Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:07Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"/dev/mapper/vg_nurswgvml006-lv_root","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:08Z","metric":"disk_used_decimal_test","entity":"nurswgvml006","tags":{"file_system":"/dev/sdb1","mount_point":"/media/datadrive"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:09Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:10Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:11Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"/dev/sdb1","mount_point":"/app"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:12Z","metric":"disk_used_decimal_test","entity":"nurswgvml010","tags":{"file_system":"//u113452.your-backup.de/backup/jenkins_data","mount_point":"/mnt/u113452/jenkins_data"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:13Z","metric":"disk_used_decimal_test","entity":"nurswgvml301","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+        
+        <!-- All data, aggregated series for 3 months. -->
+        
+    </dataQueries>
 </test>
