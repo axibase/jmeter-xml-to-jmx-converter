@@ -4475,5 +4475,743 @@
             <loops>10</loops>
         </dataQuery>         
         
+        <!-- Limited number of series (raw and aggregated) for 3 months. -->
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-asterisk-millis-seriesLimit-1</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":1}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-asterisk-millis-seriesLimit-5</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":5}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-masks-filters-millis-seriesLimit-3</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","seriesLimit":3}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-concrete-millis-seriesLimit-3</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","seriesLimit":3}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-concrete-millis-3-series-same-interval</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-detail-concrete-millis-3-series-different-intervals</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:01Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:02Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-double-hour-interpolate-asterisk-millis-seriesLimit-3</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","seriesLimit":3}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-decimal-day-aggregate-asterisk-millis-seriesLimit-3</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-3</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <!-- Limited number of samples, all series (raw and aggregated) for 3 months. -->
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-asterisk-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-asterisk-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-masks-filters-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-masks-filters-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-concrete-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-concrete-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-hour-interpolate-asterisk-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-hour-interpolate-asterisk-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-day-aggregate-asterisk-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-day-aggregate-asterisk-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-day-interpolate-aggregate-rate-asterisk-millis-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-day-interpolate-aggregate-rate-asterisk-millis-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-asterisk-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-asterisk-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-masks-filters-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-masks-filters-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-concrete-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-detail-concrete-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-hour-interpolate-asterisk-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-hour-interpolate-asterisk-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-day-aggregate-asterisk-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-decimal-day-aggregate-asterisk-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-day-interpolate-aggregate-rate-asterisk-millis-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-limited-double-day-interpolate-aggregate-rate-asterisk-millis-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <!-- Limited number of samples, and limited number of series (raw and aggregated) for 3 months. -->
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-asterisk-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-asterisk-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-masks-filters-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-masks-filters-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-1-series-different-intervals-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-1-series-different-intervals-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-hour-interpolate-asterisk-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-hour-interpolate-asterisk-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-day-aggregate-asterisk-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-day-aggregate-asterisk-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-1-limit-1-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-1-limit-1-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-asterisk-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-asterisk-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-masks-filters-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-masks-filters-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"nur*","entityExpression":"name like 'nurswgvml*' and enabled = true","tags":{"file_system":["/dev/sda1","/dev/sdb1","//*"],"mount_point":"/*"},"tagExpression":"tags.mount_point like '/mnt*' or tags.mount_point like '/*'","timeFormat":"milliseconds","seriesLimit":1,"limit":1,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entities":["nurswgvml007","nurswgvml006","nurswgvml010","nurswgvml501","nurswgvml502","nurswgvml301"],"tags":{"file_system":["/dev/sda1","//u113452.your-backup.de/backup","/dev/mapper/vg_nurswgvml006-lv_root","/dev/sdb1","//u113452.your-backup.de/backup/jenkins_data"],"mount_point":["/","/mnt/u113452","/media/datadrive","/app","/mnt/u113452/jenkins_data"]},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-3-series-different-intervals-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":5,"direction":"ASC"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:01Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds","limit":5,"direction":"ASC"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:02Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-detail-concrete-millis-3-series-different-intervals-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":5,"direction":"DESC"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:01Z","metric":"disk_used_decimal_test","entity":"nurswgvml501","tags":{"file_system":"//u113452.your-backup.de/backup","mount_point":"/mnt/u113452"},"timeFormat":"milliseconds","limit":5,"direction":"DESC"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:02Z","metric":"disk_used_decimal_test","entity":"nurswgvml007","tags":{"file_system":"/dev/sda1","mount_point":"/"},"timeFormat":"milliseconds","limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-hour-interpolate-asterisk-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-hour-interpolate-asterisk-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-day-aggregate-asterisk-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-decimal-day-aggregate-asterisk-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-3-limit-5-ASC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"ASC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-3-limit-5-DESC</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        
     </dataQueries>
 </test>
