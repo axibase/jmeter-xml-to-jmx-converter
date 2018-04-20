@@ -4317,5 +4317,113 @@
         
         <!-- All data, aggregated series for 3 months. -->
         
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-count-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","aggregate":{"type":"COUNT","period":{"count":3,"unit":"MONTH"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-month-interpolate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"MONTH"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-hour-interpolate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-minute-interpolate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"MINUTE"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-decimal-day-aggregate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-day-aggregate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-decimal-month-aggregate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"MONTH"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-month-aggregate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"MONTH"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-aggregate-rate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+        
     </dataQueries>
 </test>
