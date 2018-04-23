@@ -4424,6 +4424,30 @@
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-decimal-day-aggregate-multiqueries-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"COUNT","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"MIN","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"MAX","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"AVG","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"MEDIAN","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_decimal_test","entity":"*","aggregate":{"type":"STANDARD_DEVIATION","period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-aggregate-rate-multiqueries-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"COUNT","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"MIN","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"MAX","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"AVG","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"MEDIAN","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"},{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"type":"STANDARD_DEVIATION","period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
         
         <!-- Raw series for 1 hour. -->
         
