@@ -4484,7 +4484,19 @@
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>         
-        
+
+        <dataQuery>
+            <testID>data--disk_used_test-3-months-all-aggregate-double-day-group-aggregate-asterisk-millis</testID>
+            <payload>
+                <![CDATA[
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","aggregate":{"type":"COUNT","period":{"count":1,"unit":"DAY"},"order":2},"group":{"type":"SUM","period":{"count":1,"unit":"HOUR"},"order":1},"timeFormat":"milliseconds"}]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
         <!-- Raw series for 1 hour. -->
         
         <dataQuery>
