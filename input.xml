@@ -1629,6 +1629,42 @@
             <loops>10</loops>
         </query>
         <query>
+            <testID>sql-time-formatter-test-datetime</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, datetime, datetime, datetime, datetime FROM "df.disk_used"
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>sql-time-formatter-test-iso-utc</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC') FROM "df.disk_used"
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>sql-time-formatter-test-iso-local</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX') FROM "df.disk_used"
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
+            <testID>sql-time-formatter-test-us-date</testID>
+            <queryText>
+                <![CDATA[
+                SELECT date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy') FROM "df.disk_used"
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+        <query>
             <testID>select-count--java-method-invoke-average</testID>
             <queryText>
                 <![CDATA[
@@ -1758,6 +1794,22 @@
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--mpstat-cpu-busy-metric-all</testID>
+            <payload>
+                <![CDATA[
+                [{
+                  "startDate": "1970-01-01T00:00:00Z",
+                  "endDate":   "9999-01-01T00:00:00Z",
+                  "entity": "nurswghbs001",
+                  "metric": "mpstat.cpu_busy"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--mpstat-cpu-busy-metric-1-day</testID>
