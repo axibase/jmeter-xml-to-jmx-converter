@@ -1632,7 +1632,7 @@
             <testID>sql-time-formatter-test-datetime</testID>
             <queryText>
                 <![CDATA[
-                SELECT datetime, datetime, datetime, datetime, datetime FROM "df.disk_used"
+                SELECT datetime, datetime, datetime, datetime, datetime FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1641,7 +1641,7 @@
             <testID>sql-time-formatter-test-iso-utc</testID>
             <queryText>
                 <![CDATA[
-                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC') FROM "df.disk_used"
+                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC') FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1650,7 +1650,7 @@
             <testID>sql-time-formatter-test-iso-local</testID>
             <queryText>
                 <![CDATA[
-                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX') FROM "df.disk_used"
+                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX') FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1659,7 +1659,7 @@
             <testID>sql-time-formatter-test-us-date</testID>
             <queryText>
                 <![CDATA[
-                SELECT date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy') FROM "df.disk_used"
+                SELECT date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy') FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
             <loops>10</loops>
