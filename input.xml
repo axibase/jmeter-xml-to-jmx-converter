@@ -1629,42 +1629,6 @@
             <loops>10</loops>
         </query>
         <query>
-            <testID>sql-time-formatter-test-datetime</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, datetime, datetime, datetime, datetime FROM "mpstat.cpu_busy"
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
-        <query>
-            <testID>sql-time-formatter-test-iso-utc</testID>
-            <queryText>
-                <![CDATA[
-                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC') FROM "mpstat.cpu_busy"
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
-        <query>
-            <testID>sql-time-formatter-test-iso-local</testID>
-            <queryText>
-                <![CDATA[
-                SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX') FROM "mpstat.cpu_busy"
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
-        <query>
-            <testID>sql-time-formatter-test-us-date</testID>
-            <queryText>
-                <![CDATA[
-                SELECT date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy') FROM "mpstat.cpu_busy"
-                ]]>
-            </queryText>
-            <loops>10</loops>
-        </query>
-        <query>
             <testID>select-count--java-method-invoke-average</testID>
             <queryText>
                 <![CDATA[
@@ -1808,6 +1772,50 @@
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>sql-time-formatter-test-datetime</testID>
+            <payload>
+                <![CDATA[
+                q=SELECT datetime, datetime, datetime, datetime, datetime FROM "mpstat.cpu_busy"
+                ]]>
+            </payload>
+            <path>/api/sql?discardOutput=true</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>sql-time-formatter-test-iso-utc</testID>
+            <payload>
+                <![CDATA[
+                q=SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSS''Z''', 'UTC') FROM "mpstat.cpu_busy"
+                ]]>
+            </payload>
+            <path>/api/sql?discardOutput=true</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>sql-time-formatter-test-iso-local</testID>
+            <payload>
+                <![CDATA[
+                q=SELECT date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX'), date_format(time, 'yyyy-MM-dd''T''HH:mm:ss.SSSXXX') FROM "mpstat.cpu_busy"
+                ]]>
+            </payload>
+            <path>/api/sql?discardOutput=true</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>sql-time-formatter-test-us-date</testID>
+            <payload>
+                <![CDATA[
+                q=SELECT date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy'), date_format(time, 'MM/dd/yyyy') FROM "mpstat.cpu_busy"
+                ]]>
+            </payload>
+            <path>/api/sql?discardOutput=true</path>
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
