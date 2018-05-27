@@ -171,7 +171,7 @@
                 <![CDATA[
                 SELECT datetime, value
                 FROM "mpstat.cpu_busy"
-                WHERE datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
+                WHERE datetime BETWEEN '2018-05-23T23:00:00Z' AND '2018-05-24T00:00:00Z'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -233,7 +233,7 @@
                 <![CDATA[
                 SELECT entity, avg(value)
                 FROM "mpstat.cpu_busy"
-                WHERE datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
+                WHERE datetime BETWEEN '2018-05-23T23:00:00Z' AND '2018-05-24T00:00:00Z'
                 GROUP BY entity
                 ORDER BY avg(value) DESC
                 ]]>
