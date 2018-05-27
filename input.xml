@@ -26,7 +26,7 @@
                 SELECT t1.entity, t1.datetime, t1.value, t2.value
                 FROM "mpstat.cpu_busy" t1
                 JOIN "mpstat.cpu_idle" t2
-                WHERE t1.datetime > now - 1 * hour
+                WHERE t1.datetime BETWEEN '2018-05-23T23:00:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -63,7 +63,7 @@
                 (1-fre.value/tot.value)*100 "used_%"
                 FROM "meminfo.memtotal" AS tot
                 JOIN "meminfo.memfree" AS fre
-                WHERE tot.datetime > now - 5 * MINUTE
+                WHERE tot.datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -129,7 +129,7 @@
                 SELECT *
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
-                AND datetime > now - 5 * minute
+                AND datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
                 AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
@@ -171,7 +171,7 @@
                 <![CDATA[
                 SELECT datetime, value
                 FROM "mpstat.cpu_busy"
-                WHERE datetime BETWEEN now - 1 * hour AND now
+                WHERE datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
                 ORDER BY datetime
                 ]]>
             </queryText>
@@ -233,7 +233,7 @@
                 <![CDATA[
                 SELECT entity, avg(value)
                 FROM "mpstat.cpu_busy"
-                WHERE datetime > now - 1*hour
+                WHERE datetime BETWEEN '2018-05-23T23:55:00Z' AND '2018-05-24T00:00:00Z'
                 GROUP BY entity
                 ORDER BY avg(value) DESC
                 ]]>
@@ -568,7 +568,7 @@
                 SELECT datetime, UPPER(REPLACE(entity, 'nurswg', '')) AS "entity", value,
                 SUBSTR(tags.file_system, LOCATE('vg', tags.file_system)) as fs
                 FROM "df.disk_used"
-                WHERE datetime > now - 1*minute
+                WHERE datetime BETWEEN '2018-05-23T23:59:00Z' AND '2018-05-24T00:00:00Z'
                 AND LOWER(tags.file_system) LIKE '/dev/md%'
                 ORDER BY datetime
                 ]]>
@@ -612,7 +612,7 @@
                 <![CDATA[
                 SELECT entity, tags.*, datetime, avg(value)
                 FROM "df.disk_used"
-                WHERE datetime > now - 1 * day
+                WHERE datetime BETWEEN '2018-05-23T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND tags.file_system LIKE '/dev/md%'
                 GROUP BY entity, tags, period(15 minute)
                 WITH row_number(entity, tags ORDER BY avg(value) DESC) <= 3
@@ -787,7 +787,7 @@
                 SELECT datetime, value, tags.file_system
                 FROM "df.disk_used"_percent
                 WHERE  tags.file_system LIKE '/dev/md%'
-                AND datetime >= now - 1 * hour
+                AND datetime BETWEEN '2018-05-23T23:00:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
             <loops>60</loops>
@@ -950,7 +950,7 @@
                 SELECT entity, datetime, value
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
-                AND datetime > now - 5 * day
+                AND datetime BETWEEN '2018-05-19T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
@@ -966,7 +966,7 @@
                 SELECT *
                 FROM "df.disk_used"
                 WHERE entity = 'nurswghbs001'
-                AND datetime > now - 5 * day
+                AND datetime BETWEEN '2018-05-19T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND tags.file_system LIKE '/dev/md%'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 15000000)
@@ -981,7 +981,7 @@
                 <![CDATA[
                 SELECT datetime, value
                 FROM "mpstat.cpu_busy"
-                WHERE datetime BETWEEN now - 20 * day AND now
+                WHERE datetime BETWEEN '2018-05-04T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 ORDER BY datetime
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
@@ -1011,7 +1011,7 @@
                 POWER(value, 2), EXP(value), LN(value), LOG(10, value), SQRT(value),
                 LN(value*2), MOD(CEIL(value)*2, 4)
                 FROM "mpstat.cpu_busy"
-                WHERE datetime >= now - 5 * day
+                WHERE datetime BETWEEN '2018-05-19T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND FLOOR(value) >= 0
                 ORDER BY SQRT(value) DESC
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
@@ -1027,7 +1027,7 @@
                 SELECT t1.entity, datetime, t1.value
                 FROM "mpstat.cpu_busy" t1
                 OUTER JOIN "df.disk_used" t2
-                WHERE datetime > now - 3 * day
+                WHERE datetime BETWEEN '2018-05-21T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND t1.entity = 'nurswghbs001'
                 AND t2.tags.file_system LIKE '/dev/md%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
@@ -1043,7 +1043,7 @@
                 SELECT *
                 FROM "mpstat.cpu_busy"
                 OUTER JOIN "df.disk_used"
-                WHERE "mpstat.cpu_busy".datetime > now - 3 * day
+                WHERE "mpstat.cpu_busy".datetime BETWEEN '2018-05-21T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 AND "df.disk_used".entity = 'nurswghbs001'
                 AND "df.disk_used".tags.file_system LIKE '/dev/md%'
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
@@ -1424,7 +1424,7 @@
                 <![CDATA[
                 SELECT avg(value)
                 FROM "mpstat.cpu_busy"
-                WHERE datetime >= now - 2 * year
+                WHERE datetime BETWEEN '2016-05-24T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
             <loops>20</loops>
