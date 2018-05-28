@@ -1106,7 +1106,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>20</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/string-functions.md#group-by-null</source>
         </query>
         <query>
@@ -1416,7 +1416,7 @@
                 FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
-            <loops>20</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>Aggregate--Average-Value--long</testID>
@@ -1427,7 +1427,7 @@
                 WHERE datetime BETWEEN '2016-05-24T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
-            <loops>20</loops>
+            <loops>10</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
@@ -1438,7 +1438,7 @@
                 FROM "mpstat.cpu_busy"
                 ]]>
             </queryText>
-            <loops>20</loops>
+            <loops>10</loops>
         </query>
         <query>
             <testID>String-functions--long</testID>
