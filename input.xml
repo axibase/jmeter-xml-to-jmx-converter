@@ -2139,7 +2139,7 @@
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system = '/dev/md*'",
+                  "tagExpression": "tags.file_system LIKE '/dev/md*'",
                   "limit": 5
                 }]
                 ]]>
@@ -2157,7 +2157,7 @@
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system = '/dev/*' && tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
