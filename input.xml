@@ -1776,6 +1776,17 @@
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
+            <testID>sql-time-formatter-test-time-raw-single-column</testID>
+            <payload>
+                <![CDATA[
+                q=SELECT time FROM "mpstat.cpu_busy"
+                ]]>
+            </payload>
+            <path>/api/sql?discardOutput=true</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
             <testID>sql-time-formatter-test-time-raw</testID>
             <payload>
                 <![CDATA[
