@@ -74,7 +74,7 @@ public class Main {
                 "        <stringProp name=\"checkQuery\">SELECT 1</stringProp>\n" +
                 "        <stringProp name=\"connectionAge\">5000</stringProp>\n" +
                 "        <stringProp name=\"dataSource\">atsd</stringProp>\n" +
-                "        <stringProp name=\"dbUrl\">jdbc:axibase:atsd:${protocol}://${atsdURL}:${port}/api/sql;trustServerCertificate=true</stringProp>\n" +
+                "        <stringProp name=\"dbUrl\">jdbc:atsd://${atsdURL}:${port}</stringProp>\n" +
                 "        <stringProp name=\"driver\">com.axibase.tsd.driver.jdbc.AtsdDriver</stringProp>\n" +
                 "        <boolProp name=\"keepAlive\">true</boolProp>\n" +
                 "        <stringProp name=\"password\">");
