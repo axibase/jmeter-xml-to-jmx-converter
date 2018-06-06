@@ -18,5 +18,5 @@ java com.axibase.jmeter.Main /opt/axibase/input.xml /opt/axibase/tmp/credentials
 /opt/axibase/jmeter/bin/jmeter -n -t /opt/axibase/jmeter-xml-to-jmx-converter/src/test.jmx -j /opt/axibase/tmp/credentials/jmeter.log
 
 #write short version of log
-cd /opt/axibase/tmp/credentials/ 
+cd /opt/axibase/tmp/credentials/
 grep -P "Thread (started|finished).*Main requests" jmeter.log > short.log
