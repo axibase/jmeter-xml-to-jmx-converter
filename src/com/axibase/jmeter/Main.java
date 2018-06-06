@@ -1,9 +1,5 @@
 package com.axibase.jmeter;
 
-import java.io.*;
-import java.net.URL;
-import java.util.Properties;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,6 +9,9 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
+import java.net.URL;
+import java.util.Properties;
 
 public class Main {
     private static String protocol;
@@ -420,7 +419,7 @@ public class Main {
                 .replace("<", "&lt;")
                 .replace(">", "&gt;")
                 .replace("\"", "&quot;")
-                .replace("\'", "&apos;");
+                .replace("\'", "&apos;").trim();
     }
 
     private static void readProperties(String pathToFile) throws IOException {
@@ -468,9 +467,8 @@ public class Main {
             file.delete();
         }
         file.createNewFile();
-        Writer writer = new FileWriter(file);
-        BufferedWriter bufferedWriter = new BufferedWriter(writer);
-        bufferedWriter.write(rawFile);
-        bufferedWriter.close();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write(rawFile);
+        }
     }
 }
