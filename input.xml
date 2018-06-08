@@ -1624,6 +1624,7 @@
                 <![CDATA[
                 SELECT time, value, value+0
                 FROM "mpstat.cpu_busy"
+                WHERE datetime >= '2017-01-01T00:00:00Z' and datetime < '2018-01-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1632,8 +1633,9 @@
             <testID>select-count--java-method-invoke-average</testID>
             <queryText>
                 <![CDATA[
-                select count(*)
-                from "java_method_invoke_average"
+                SELECT count(*)
+                FROM "java_method_invoke_average"
+                WHERE datetime >= '2017-01-01T00:00:00Z' and datetime < '2018-01-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
