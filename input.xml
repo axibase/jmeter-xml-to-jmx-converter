@@ -825,7 +825,7 @@
                 <![CDATA[
                 SELECT datetime, avg(value), ISNULL(entity.tags.environment, 'other') as environment
                 FROM "mpstat.cpu_busy"
-                AND datetime BETWEEN '2018-06-07T04:00:00Z' AND '2018-06-07T06:00:00Z'
+                WHERE datetime BETWEEN '2018-06-07T04:00:00Z' AND '2018-06-07T06:00:00Z'
                 GROUP BY PERIOD(1 hour), ISNULL(entity.tags.environment, 'other')
                 ORDER BY datetime
                 ]]>
@@ -1497,6 +1497,7 @@
                 <![CDATA[
                 SELECT count(*)
                 FROM "iostat.read_rate"
+                WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1595,6 +1596,7 @@
                 <![CDATA[
                 select count(*)
                 from "collectd.df.space.used"
+                WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1605,6 +1607,7 @@
                 <![CDATA[
                 SELECT entity, datetime, value
                 FROM "mpstat.cpu_busy"
+                WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
@@ -1613,7 +1616,9 @@
             <testID>select-count--disk-used</testID>
             <queryText>
                 <![CDATA[
-                SELECT count(*) FROM "df.disk_used"
+                SELECT count(*) 
+                FROM "df.disk_used" 
+                WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
