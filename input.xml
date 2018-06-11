@@ -1596,7 +1596,6 @@
                 <![CDATA[
                 select count(*)
                 from "collectd.df.space.used"
-                WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
             <loops>10</loops>
