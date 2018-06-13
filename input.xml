@@ -4121,7 +4121,7 @@
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
-            <loops>30</loops>
+            <loops>20</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--6042ea50--2--1</testID>
