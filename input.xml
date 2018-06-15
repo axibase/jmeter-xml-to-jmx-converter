@@ -1598,7 +1598,7 @@
                 from "collectd.df.space.used"
                 ]]>
             </queryText>
-            <loops>6</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>SELECT-entity-datetime-value--cpu-busy</testID>
@@ -1642,7 +1642,7 @@
                 WHERE datetime >= '2017-01-01T00:00:00Z' and datetime < '2018-01-01T00:00:00Z'
                 ]]>
             </queryText>
-            <loops>6</loops>
+            <loops>5</loops>
         </query>
         <query>
             <testID>Top-10-cities-with-the-highest-percentage-of-deaths-caused-by-PNI-for-entire-period-since-1970</testID>
@@ -1700,7 +1700,7 @@
                 OPTION (ROW_MEMORY_THRESHOLD 1500000)
                 ]]>
             </queryText>
-            <loops>6</loops>
+            <loops>5</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/partition-row-number-top-N-tags.md#partition---row_number-with-order-by-avg</source>
         </query>
 
@@ -1801,7 +1801,7 @@
             </payload>
             <path>/api/sql?discardOutput=true</path>
             <method>POST</method>
-            <loops>10</loops>
+            <loops>5</loops>
         </dataQuery>
         <dataQuery>
             <testID>sql-time-formatter-test-datetime</testID>
@@ -4298,7 +4298,7 @@
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
-            <loops>10</loops>
+            <loops>5</loops>
         </dataQuery>         
     
     
@@ -4522,7 +4522,7 @@
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
-            <loops>10</loops>
+            <loops>5</loops>
         </dataQuery>         
 
         <dataQuery>
@@ -4534,7 +4534,7 @@
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
-            <loops>10</loops>
+            <loops>5</loops>
         </dataQuery>         
         
         <dataQuery>
