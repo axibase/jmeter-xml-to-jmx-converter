@@ -1427,7 +1427,7 @@
                 WHERE datetime BETWEEN '2016-05-24T00:00:00Z' AND '2018-05-24T00:00:00Z'
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>5</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/aggregate.md#query</source>
         </query>
         <query>
@@ -4340,7 +4340,7 @@
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
-            <loops>10</loops>
+            <loops>5</loops>
         </dataQuery>         
 
         <dataQuery>
