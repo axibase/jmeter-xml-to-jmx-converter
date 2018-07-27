@@ -6115,9 +6115,10 @@
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--92b7e471--4--1</testID>
+            <!-- Change entity "nurswgvml007" -> "nurswgvml006" because forecasts for "007" was accidentally deleted.  -->
             <payload>
                 <![CDATA[
-                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml006","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -6126,9 +6127,10 @@
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--92b7e471--4--2</testID>
+            <!-- Change entity "nurswgvml007" -> "nurswgvml006" because forecasts for "007" was accidentally deleted.  -->
             <payload>
                 <![CDATA[
-                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml006","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -8899,9 +8901,10 @@
         </dataQuery>
         <dataQuery>
             <testID>data--chartlab--da03b8a5--26--2</testID>
+            <!-- Change entity "nurswgvml007" -> "nurswgvml006" because forecasts for "007" was accidentally deleted.  -->
             <payload>
                 <![CDATA[
-                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml006","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-01T00:00:00Z","endDate":"2016-11-02T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -11155,8 +11158,9 @@
         <dataQuery>
             <testID>data--chartlab--fedaa42e--7--1</testID>
             <payload>
+                <!-- Change entity "nurswgvml007" -> "nurswgvml006" because forecasts for "007" was accidentally deleted.  -->
                 <![CDATA[
-                [{"entity":"nurswgvml007","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-02T00:00:00Z","endDate":"2016-11-03T00:00:00Z","timeFormat":"milliseconds"}]
+                [{"entity":"nurswgvml006","metric":"cpu_busy","type":"FORECAST","startDate":"2016-11-02T00:00:00Z","endDate":"2016-11-03T00:00:00Z","timeFormat":"milliseconds"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
