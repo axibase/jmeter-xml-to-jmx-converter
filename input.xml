@@ -5483,5 +5483,143 @@
             <loops>10</loops>
         </dataQuery>          
 
+          <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-group-period-limit-seriesLimit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"group": {"type": "COUNT", "period": {"count": 1, "unit": "HOUR"}},
+                	"timeFormat": "milliseconds",
+                	"seriesLimit": 3, "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-group-period</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"group": {"type": "COUNT", "period": {"count": 1, "unit": "HOUR"}},
+                	"timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-group-period-limit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"group": {"type": "COUNT", "period": {"count": 1, "unit": "HOUR"}},
+                	"timeFormat": "milliseconds",
+                	"limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+        
+          <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-group-period-seriesLimit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"group": {"type": "COUNT", "period": {"count": 1, "unit": "HOUR"}},
+                	"timeFormat": "milliseconds",
+                	"seriesLimit": 3
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-1-months-group</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"timeFormat": "milliseconds"
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-1-months-group-limit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"timeFormat": "milliseconds",
+                	"limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-1-months-group-seriesLimit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"timeFormat": "milliseconds",
+                	"seriesLimit": 3
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
+        <dataQuery>
+            <testID>data--disk_used_decimal_test-1-months-group-limit-seriesLimit</testID>
+            <payload>
+                <![CDATA[
+                [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                	"metric": "disk_used_double_test", "entity": "*",
+                	"timeFormat": "milliseconds",
+                	"seriesLimit": 3, "limit": 5
+                }]
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
     </dataQueries>
 </test>
