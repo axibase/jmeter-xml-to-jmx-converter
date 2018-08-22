@@ -5555,12 +5555,13 @@
         </dataQuery>          
 
         <dataQuery>
-            <testID>data--disk_used_decimal_test-1-months-group</testID>
+            <testID>data--disk_used_decimal_test-2-days-group</testID>
             <payload>
                 <![CDATA[
                 [{
-                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-01-03T00:00:00Z",
                 	"metric": "disk_used_double_test", "entity": "*",
+                    "group": {"type": "COUNT"},
                 	"timeFormat": "milliseconds"
                 }]
                 ]]>
@@ -5571,13 +5572,14 @@
         </dataQuery>          
 
         <dataQuery>
-            <testID>data--disk_used_decimal_test-1-months-group-limit</testID>
+            <testID>data--disk_used_decimal_test-2-days-group-limit</testID>
             <payload>
                 <![CDATA[
                 [{
-                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-01-03T00:00:00Z",
                 	"metric": "disk_used_double_test", "entity": "*",
-                	"timeFormat": "milliseconds",
+                    "group": {"type": "COUNT"},
+                    "timeFormat": "milliseconds",
                 	"limit": 5
                 }]
                 ]]>
@@ -5588,12 +5590,13 @@
         </dataQuery>          
 
         <dataQuery>
-            <testID>data--disk_used_decimal_test-1-months-group-seriesLimit</testID>
+            <testID>data--disk_used_decimal_test-2-days-group-seriesLimit</testID>
             <payload>
                 <![CDATA[
                 [{
-                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-01-03T00:00:00Z",
                 	"metric": "disk_used_double_test", "entity": "*",
+                    "group": {"type": "COUNT"},
                 	"timeFormat": "milliseconds",
                 	"seriesLimit": 3
                 }]
@@ -5605,12 +5608,13 @@
         </dataQuery>          
 
         <dataQuery>
-            <testID>data--disk_used_decimal_test-1-months-group-limit-seriesLimit</testID>
+            <testID>data--disk_used_decimal_test-2-days-group-limit-seriesLimit</testID>
             <payload>
                 <![CDATA[
                 [{
-                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-01-03T00:00:00Z",
                 	"metric": "disk_used_double_test", "entity": "*",
+                    "group": {"type": "COUNT"},
                 	"timeFormat": "milliseconds",
                 	"seriesLimit": 3, "limit": 5
                 }]
