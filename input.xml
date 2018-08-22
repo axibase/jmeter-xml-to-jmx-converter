@@ -5362,16 +5362,126 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-seriesLimited-limited-double-day-interpolate-aggregate-rate-asterisk-millis-seriesLimit-3-limit-5-DESC</testID>
+            <testID>data--cpu_busy-3-months-smooth-AVG</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric":"disk_used_double_test","entity":"*","interpolate":{"function":"LINEAR","period":{"count":1,"unit":"HOUR"}},"aggregate":{"types":["COUNT","MIN","MAX","AVG","MEDIAN","STANDARD_DEVIATION"],"period":{"count":1,"unit":"DAY"}},"rate":{"period":{"count":1,"unit":"DAY"}},"timeFormat":"milliseconds","seriesLimit":3,"limit":5,"direction":"DESC"}]
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
+                    "smooth": { "type": "AVG", "interval": { "count": 1, "unit": "HOUR" } },
+                    "timeFormat": "milliseconds"
+                    }]                
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
-        
+
+        <dataQuery>
+            <testID>data--cpu_busy-3-months-smooth-WAVG</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
+                    "smooth": { "type": "WAVG", "interval": { "count": 1, "unit": "HOUR" } },
+                    "timeFormat": "milliseconds"
+                    }]                
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>        
+
+         <dataQuery>
+            <testID>data--cpu_busy-3-months-smooth-WTAVG</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
+                    "smooth": { "type": "WTAVG", "interval": { "count": 1, "unit": "HOUR" } },
+                    "timeFormat": "milliseconds"
+                    }]                
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery> 
+
+         <dataQuery>
+            <testID>data--cpu_busy-3-months-smooth-EMA</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
+                    "smooth": { "type": "EMA", "factor": 0.5 },
+                    "timeFormat": "milliseconds"
+                    }]                
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery> 
+
+         <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-downsample-difference-0</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "disk_used_decimal_test", "entity": "*",
+                    "downsample": { "difference": 0 },
+                    "timeFormat": "milliseconds",
+                    "seriesLimit": 5
+                    }]                 
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>         
+
+         <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "disk_used_decimal_test", "entity": "*",
+                    "downsample": { "ratio": 1.05 },
+                    "timeFormat": "milliseconds",
+                    "seriesLimit": 5
+                    }]                
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery> 
+
+          <dataQuery>
+            <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
+            <payload>
+                <![CDATA[
+                    [{
+                    "startDate": "2018-01-01T00:00:00Z", "endDate": "2018-04-01T00:00:00Z",
+                    "metric": "disk_used_decimal_test", "entity": "*",
+                    "downsample": { "algorithm": "INTERPOLATE", "ratio": 1.05 },
+                    "timeFormat": "milliseconds",
+                    "seriesLimit": 5
+                    }]                  
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>10</loops>
+        </dataQuery>          
+
     </dataQueries>
 </test>
