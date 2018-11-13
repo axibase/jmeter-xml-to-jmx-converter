@@ -1,29 +1,5 @@
 <test>
     <SQLqueries>
-        <query>
-            <testID>processing-of-or-datetime--ticket-4070</testID>
-            <queryText>
-                <![CDATA[
-                SELECT datetime, value
-                  FROM cpu_busy
-                WHERE datetime BETWEEN '2017-04-01T00:00:00Z' AND '2017-04-01T00:01:00Z'
-                    OR datetime BETWEEN '2017-04-01T00:10:00Z' AND '2017-04-01T00:11:00Z'
-                ]]>
-            </queryText>
-            <loops>30</loops>
-            <source>redmine/issues/4070</source>
-        </query>
-        
-        <query>
-            <testID>limit-desc-10</testID>
-            <queryText>
-                <![CDATA[
-                SELECT * FROM cpu_busy ORDER BY datetime DESC LIMIT 10
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>redmine/issues/3269</source>
-        </query>      
 
         <query>
             <testID>count_all</testID>
@@ -48,7 +24,7 @@
         </query> 
 
         <query>
-            <testID>count_value</testID>
+            <testID>count_dt</testID>
             <queryText>
                 <![CDATA[
                 SELECT count(datetime) FROM cpu_busy
@@ -57,6 +33,32 @@
             <loops>10</loops>
             <source>redmine/issues/3269-c</source>
         </query> 
+
+         <query>
+            <testID>processing-of-or-datetime--ticket-4070</testID>
+            <queryText>
+                <![CDATA[
+                SELECT datetime, value
+                  FROM cpu_busy
+                WHERE datetime BETWEEN '2017-04-01T00:00:00Z' AND '2017-04-01T00:01:00Z'
+                    OR datetime BETWEEN '2017-04-01T00:10:00Z' AND '2017-04-01T00:11:00Z'
+                ]]>
+            </queryText>
+            <loops>30</loops>
+            <source>redmine/issues/4070</source>
+        </query>
+        
+        <query>
+            <testID>limit-desc-10</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM cpu_busy ORDER BY datetime DESC LIMIT 10
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>redmine/issues/3269</source>
+        </query>      
+       
     </SQLqueries>
 
 </test>
