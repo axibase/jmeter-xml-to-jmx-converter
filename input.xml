@@ -23,7 +23,18 @@
             </queryText>
             <loops>10</loops>
             <source>redmine/issues/3269</source>
-        </query>         
+        </query>      
+
+        <query>
+            <testID>count_all</testID>
+            <queryText>
+                <![CDATA[
+                SELECT count(*) FROM cpu_busy
+                ]]>
+            </queryText>
+            <loops>10</loops>
+            <source>redmine/issues/3269</source>
+        </query>            
 
     </SQLqueries>
 
