@@ -1,39 +1,6 @@
 <test>
     <SQLqueries>
 
-        <query>
-            <testID>count_all</testID>
-            <queryText>
-                <![CDATA[
-                SELECT count(*) FROM cpu_busy
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>redmine/issues/3269-a</source>
-        </query>            
-
-        <query>
-            <testID>count_value</testID>
-            <queryText>
-                <![CDATA[
-                SELECT count(value) FROM cpu_busy
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>redmine/issues/3269-b</source>
-        </query> 
-
-        <query>
-            <testID>count_dt</testID>
-            <queryText>
-                <![CDATA[
-                SELECT count(datetime) FROM cpu_busy
-                ]]>
-            </queryText>
-            <loops>10</loops>
-            <source>redmine/issues/3269-c</source>
-        </query> 
-
          <query>
             <testID>processing-of-or-datetime--ticket-4070</testID>
             <queryText>
