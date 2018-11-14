@@ -17,7 +17,6 @@ RUN apt-get clean && apt-get update && apt-get install -y \
       wget
 
 #download jmeter and jmeter converter
-RUN git config --global http.postBuffer 8M
 RUN git clone https://github.com/axibase/jmeter-xml-to-jmx-converter.git -b master
 RUN git clone https://github.com/axibase/jmeter.git -b trunk
 
@@ -29,7 +28,10 @@ RUN javac com/axibase/jmeter/Main.java
 WORKDIR /opt/axibase/jmeter
 RUN ant download_jars \
  && ant install
-RUN wget -qO /opt/axibase/jmeter/lib/atsd-jdbc-1.2.17-DEPS.jar https://github.com/axibase/atsd-jdbc/releases/download/RELEASE-1.2.17/atsd-jdbc-1.2.17-DEPS.jar
+
+RUN wget -qO /opt/axibase/jmeter/lib/atsd-jdbc-1.4.7-DEPS.jar https://github.com/axibase/atsd-jdbc/releases/download/RELEASE-1.4.7/atsd-jdbc-1.4.7-DEPS.jar
+
+#COPY atsd-jdbc-1.4.1-SNAPSHOT-DEPS.jar /opt/axibase/jmeter/lib/
 
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
