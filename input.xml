@@ -21,7 +21,7 @@
                 SELECT * FROM cpu_busy ORDER BY datetime DESC LIMIT 10
                 ]]>
             </queryText>
-            <loops>10</loops>
+            <loops>30</loops>
             <source>redmine/issues/3269</source>
         </query>         
 
