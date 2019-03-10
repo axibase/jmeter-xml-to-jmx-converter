@@ -4252,7 +4252,7 @@
         </dataQuery>         
         
         <!-- Test performance of queries of versioned series. -->
-        
+        <!--
         <dataQuery>
             <testID>data--versioned-1-day</testID>
             <payload>
@@ -4300,7 +4300,7 @@
             <method>POST</method>
             <loops>5</loops>
         </dataQuery>         
-    
+    -->
     
     <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series. 
          3 months period. Total number of samples is 5 000 000 approximately. -->
