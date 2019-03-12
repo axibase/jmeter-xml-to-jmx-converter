@@ -4254,7 +4254,7 @@
         <!-- Test performance of queries of versioned series. -->
         <!--
         <dataQuery>
-            <testID>data--versioned-1-day</testID>
+            <testID>data-versioned-1-day</testID>
             <payload>
                 <![CDATA[
                 [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-07-02T00:00:00Z","versioned":true}]
@@ -4266,7 +4266,7 @@
         </dataQuery>
         
         <dataQuery>
-            <testID>data--versioned-1-month</testID>
+            <testID>data-versioned-1-month</testID>
             <payload>
                 <![CDATA[
                 [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-08-01T00:00:00Z","versioned":true}]
@@ -4278,7 +4278,7 @@
         </dataQuery>         
 
         <dataQuery>
-            <testID>data--versioned-3-month</testID>
+            <testID>data-versioned-3-month</testID>
             <payload>
                 <![CDATA[
                 [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2017-10-01T00:00:00Z","versioned":true}]
@@ -4290,7 +4290,7 @@
         </dataQuery>         
 
         <dataQuery>
-            <testID>data--versioned-6-month</testID>
+            <testID>data-versioned-6-month</testID>
             <payload>
                 <![CDATA[
                 [{"entity":"e-vers","metric":"m-vers","startDate":"2017-07-01T00:00:00Z","endDate":"2018-01-01T00:00:00Z","versioned":true}]
