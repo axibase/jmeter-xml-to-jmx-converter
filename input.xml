@@ -5626,10 +5626,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-decimal-asterisk-iso-filter-all</testID>
+            <testID>data--disk_used_test-1-month-detail-decimal-asterisk-iso-filter-all</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"true"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"true"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5638,10 +5638,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-decimal-asterisk-iso-filter-none</testID>
+            <testID>data--disk_used_test-1-month-detail-decimal-asterisk-iso-filter-none</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"false"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"false"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5650,10 +5650,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-decimal-asterisk-iso-filter-half</testID>
+            <testID>data--disk_used_test-1-month-detail-decimal-asterisk-iso-filter-half</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 12"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 12"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5662,10 +5662,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-decimal-asterisk-iso-filter-25perc</testID>
+            <testID>data--disk_used_test-1-month-detail-decimal-asterisk-iso-filter-25perc</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 6"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 6"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5674,10 +5674,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-decimal-asterisk-iso-filter-75perc</testID>
+            <testID>data--disk_used_test-1-month-detail-decimal-asterisk-iso-filter-75perc</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 18"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_decimal_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 18"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5686,10 +5686,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-double-asterisk-iso-filter-all</testID>
+            <testID>data--disk_used_test-1-month-detail-double-asterisk-iso-filter-all</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"true"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"true"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5698,10 +5698,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-double-asterisk-iso-filter-none</testID>
+            <testID>data--disk_used_test-1-month-detail-double-asterisk-iso-filter-none</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"false"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"false"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5710,10 +5710,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-double-asterisk-iso-filter-half</testID>
+            <testID>data--disk_used_test-1-month-detail-double-asterisk-iso-filter-half</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 12"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 12"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5722,10 +5722,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-double-asterisk-iso-filter-25perc</testID>
+            <testID>data--disk_used_test-1-month-detail-double-asterisk-iso-filter-25perc</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 6"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 6"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5734,10 +5734,10 @@
         </dataQuery>
 
         <dataQuery>
-            <testID>data--disk_used_test-3-months-detail-double-asterisk-iso-filter-75perc</testID>
+            <testID>data--disk_used_test-1-month-detail-double-asterisk-iso-filter-75perc</testID>
             <payload>
                 <![CDATA[
-                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-04-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 18"}]
+                [{"startDate":"2018-01-01T00:00:00Z","endDate":"2018-02-01T00:00:00Z","metric": "disk_used_double_test","entity":"*","timeFormat":"iso","sampleFilter":"date.hourOfDay < 18"}]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
