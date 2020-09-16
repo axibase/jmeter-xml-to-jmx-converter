@@ -1,6 +1,79 @@
 <test>
     <SQLqueries>
-
+        <!-- FINANCE EDITION START -->
+        <query>
+            <testID>fin-detail-1-symbol-ASC</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
+ORDER BY datetime, trade_num
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>   
+        <query>
+            <testID>fin-detail-1-symbol-DESC</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
+ORDER BY datetime DESC, trade_num DESC
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>                
+        <query>
+            <testID>fin-aggr-1m-c-side-filter</testID>
+            <queryText>
+                <![CDATA[
+                SELECT time, close() FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP' and side = 'B'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
+GROUP BY exchange, class, symbol, PERIOD(1 minute)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query> 
+        <query>
+            <testID>fin-aggr-1m-ohlc</testID>
+            <queryText>
+                <![CDATA[
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
+GROUP BY exchange, class, symbol, PERIOD(1 minute)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>  
+        <query>
+            <testID>fin-aggr-1h-ohlc</testID>
+            <queryText>
+                <![CDATA[
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
+GROUP BY exchange, class, symbol, PERIOD(1 hour)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>         
+        <query>
+            <testID>fin-aggr-1m-ohlc-3-symbols</testID>
+            <queryText>
+                <![CDATA[
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol IN ('GAZP', 'LKOH', 'SBER')
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
+GROUP BY exchange, class, symbol, PERIOD(1 minute)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>                
+        <!-- FINANCE EDITION END -->       
         <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
             <queryText>
@@ -1747,8 +1820,66 @@
     </SQLqueries>
 
 
-
     <dataQueries>
+        <!-- FINANCE EDITION START -->
+        <dataQuery>
+            <testID>data--fin-detail-1-symbol-ASC</testID>
+            <payload>
+                <![CDATA[
+                {
+                    "entity": "gazp_[tqbr]",
+                    "metric": "trade_price",
+                    "startDate": "2020-08-20T00:00:00.000Z",
+                    "endDate":   "2020-08-27T00:00:00.000Z"
+                }
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-aggr-1m-c-side-filter</testID>
+            <payload>
+                <![CDATA[
+                {
+                    "entity": "gazp_[tqbr]",
+                    "metric": "trade_price",
+                    "tags": { "side": [ "B" ] },
+                    "aggregate": {
+                        "types": [ "LAST" ],
+                        "period": { "count": 1, "unit": "MINUTE" }
+                    },
+                    "startDate": "2020-08-20T00:00:00.000Z",
+                    "endDate":   "2020-09-07T00:00:00.000Z"
+                }
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-aggr-1h-ohlc</testID>
+            <payload>
+                <![CDATA[
+                {
+                    "entity": "gazp_[tqbr]",
+                    "metric": "trade_price",
+                    "aggregate": {
+                        "types": [ "FIRST", "MAX", "MIN", "LAST" ],
+                        "period": { "count": 1, "unit": "HOUR" }
+                    },
+                    "startDate": "2020-08-20T00:00:00.000Z",
+                    "endDate":   "2020-09-07T00:00:00.000Z"
+                }
+                ]]>
+            </payload>
+            <path>/api/v1/series/query</path>
+            <method>POST</method>
+            <loops>20</loops>
+        </dataQuery>        
+        <!-- FINANCE EDITION END -->
         <dataQuery>
             <testID>data--jmeter-ok-count-metric</testID>
             <payload>
