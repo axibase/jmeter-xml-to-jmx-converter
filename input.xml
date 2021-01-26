@@ -1,6 +1,73 @@
 <test>
     <SQLqueries>
         <!-- FINANCE EDITION START -->
+        <!-- instruments -->
+        <query>
+            <testID>fin-1-symbol</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.symbol  = 'GAZP'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>         
+        <query>
+            <testID>fin-3-symbols</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.symbol  IN('GAZP', 'AAPL.US', 'LKOH')
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query> 
+        <query>
+            <testID>fin-tqbr-class-and-name-check</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE name LIKE '%_[%]' AND tags.class_code = 'TQBR'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>          
+        <query>
+            <testID>fin-tqbr-class</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code = 'TQBR'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>       
+        <query>
+            <testID>fin-2-classes</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT')
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>        
+         <query>
+            <testID>fin-2-classes_and_name_like</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE name LIKE '%_[%]' AND tags.class_code IN('TQBR', 'SPBFUT')
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+         <query>
+            <testID>fin-2-classes_and_tag_like</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT') AND tags.symbol LIKE 'G%Z%'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>       
+        <!-- end instruments -->
+        
+        <!-- trades -->
         <query>
             <testID>fin-detail-1-symbol-ASC</testID>
             <queryText>
