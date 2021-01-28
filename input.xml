@@ -1945,7 +1945,29 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>20</loops>
-        </dataQuery>        
+        </dataQuery>     
+        
+        <!-- instrument search -->
+        <dataQuery>
+            <testID>data--fin-instr-search-1</testID>
+            <path>/financial/trades/suggest/instruments?pattern=g&className=&limit=20</path>
+            <method>GET</method>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-instr-search-2</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GA&className=&limit=20</path>
+            <method>GET</method>
+            <loops>20</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--fin-instr-search-4</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GAZP&className=&limit=20</path>
+            <method>GET</method>
+            <loops>20</loops>
+        </dataQuery>          
+        <dataQuery>        
+        
         <!-- FINANCE EDITION END -->
         <dataQuery>
             <testID>data--jmeter-ok-count-metric</testID>
