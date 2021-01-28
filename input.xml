@@ -5942,6 +5942,42 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
-
+        <!--Raw trades export-->
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-1</testID>
+            <path>/api/v1/trades?symbol=GAZP&class=TQBR&startDate=2021-01-04&endDate=2021-01-05&exchange=moex</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-2</testID>
+            <path>/api/v1/trades?symbol=GAZP&class=TQBR&startDate=2021-01-04&endDate=2021-01-05</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-2</testID>
+            <path>/api/v1/trades?symbol=GAZP&class=TQBR&startDate=2021-01-04&endDate=2021-01-05</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-3</testID>
+            <path>/api/v1/trades?symbol=GAZP&class=TQBR&startDate=2021-01-04T07:00:00.572695Z&endDate=2021-01-04T07:00:00.5727696Z&exchange=moex</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-4</testID>
+            <path/api/v1/trades?symbol=GAZP&class=TQBR&startDate=previous_day&endDate=current_working_day&exchange=moex&workdayCalendar=moex</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-5</testID>
+            <path>/api/v1/trades?symbol=GAZP&class=TQBR&startDate=2021-01-04 09:50&endDate=2021-01-05 18:50&exchange=moex&timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
     </dataQueries>
 </test>
