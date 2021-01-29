@@ -10,7 +10,7 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>         
+        </query>
         <query>
             <testID>fin-3-symbols</testID>
             <queryText>
@@ -19,7 +19,7 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query> 
+        </query>
         <query>
             <testID>fin-tqbr-class-and-name-check</testID>
             <queryText>
@@ -28,7 +28,7 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>          
+        </query>
         <query>
             <testID>fin-tqbr-class</testID>
             <queryText>
@@ -37,7 +37,7 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>       
+        </query>
         <query>
             <testID>fin-2-classes</testID>
             <queryText>
@@ -46,8 +46,8 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>        
-         <query>
+        </query>
+        <query>
             <testID>fin-2-classes_and_name_like</testID>
             <queryText>
                 <![CDATA[
@@ -56,7 +56,7 @@
             </queryText>
             <loops>20</loops>
         </query>
-         <query>
+        <query>
             <testID>fin-2-classes_and_tag_like</testID>
             <queryText>
                 <![CDATA[
@@ -64,9 +64,9 @@
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>       
+        </query>
         <!-- end instruments -->
-        
+
         <!-- trades -->
         <query>
             <testID>fin-detail-1-symbol-ASC</testID>
@@ -79,7 +79,7 @@ ORDER BY datetime, trade_num
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>   
+        </query>
         <query>
             <testID>fin-detail-1-symbol-DESC</testID>
             <queryText>
@@ -91,7 +91,7 @@ ORDER BY datetime DESC, trade_num DESC
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>                
+        </query>
         <query>
             <testID>fin-aggr-1m-c-side-filter</testID>
             <queryText>
@@ -103,7 +103,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query> 
+        </query>
         <query>
             <testID>fin-aggr-1m-ohlc</testID>
             <queryText>
@@ -115,7 +115,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>  
+        </query>
         <query>
             <testID>fin-aggr-1h-ohlc</testID>
             <queryText>
@@ -127,7 +127,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 hour)
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>         
+        </query>
         <query>
             <testID>fin-aggr-1m-ohlc-3-symbols</testID>
             <queryText>
@@ -139,8 +139,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 ]]>
             </queryText>
             <loops>20</loops>
-        </query>                
-        <!-- FINANCE EDITION END -->       
+        </query>
+        <!-- FINANCE EDITION END -->
         <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
             <queryText>
@@ -258,8 +258,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
         </query>
-
-
 
 
         <query>
@@ -476,7 +474,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             </queryText>
             <loops>5</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/interpolate.md#linear-interpolation-1-minute-period-multiple-periods</source>
-        </query>        
+        </query>
         <query>
             <testID>Partition-Row Number--First-Record-in-Each-Partition</testID>
             <queryText>
@@ -1082,7 +1080,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </query>
 
 
-
         <query>
             <testID>Select-all-columns--query-with-series-tags--long</testID>
             <queryText>
@@ -1598,7 +1595,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </query>
 
 
-
         <query>
             <testID>join--derived-series--long</testID>
             <queryText>
@@ -1853,8 +1849,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             </queryText>
             <loops>10</loops>
             <source>https://nur.axibase.com:41791/redmine/issues/3269</source>
-        </query>        
-        
+        </query>
+
         <query>
             <testID>slow-scan--ticket-4039</testID>
             <queryText>
@@ -1945,8 +1941,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>20</loops>
-        </dataQuery>     
-        
+        </dataQuery>
+
         <!-- instrument search -->
         <dataQuery>
             <testID>data--fin-instr-search-1</testID>
@@ -1959,14 +1955,14 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/financial/trades/suggest/instruments?pattern=GA&#38;className=&#38;limit=20</path>
             <method>GET</method>
             <loops>20</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--fin-instr-search-4</testID>
             <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;className=&#38;limit=20</path>
             <method>GET</method>
             <loops>20</loops>
-        </dataQuery>          
- 
+        </dataQuery>
+
         <!-- FINANCE EDITION END -->
         <dataQuery>
             <testID>data--jmeter-ok-count-metric</testID>
@@ -3625,7 +3621,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery><dataQuery>
+        </dataQuery>
+        <dataQuery>
             <testID>data--chartlab--e0e0be77--1--1</testID>
             <payload>
                 <![CDATA[
@@ -4277,7 +4274,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-count-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4287,7 +4284,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
 
         <dataQuery>
@@ -4314,7 +4311,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-sum-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4324,9 +4321,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>       
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-1-day</testID>
             <payload>
                 <![CDATA[
@@ -4350,7 +4347,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4360,7 +4357,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--aggregator-perc-75-1-day</testID>
@@ -4386,7 +4383,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-perc-75-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4396,7 +4393,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
 
         <dataQuery>
             <testID>data--aggregator-perc-50_75_90_95_99-1-day</testID>
@@ -4422,7 +4419,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-perc-50_75_90_95_99-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4432,9 +4429,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-day</testID>
             <payload>
                 <![CDATA[
@@ -4458,7 +4455,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4468,8 +4465,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
-        
+        </dataQuery>
+
         <!-- Test performance of queries of versioned series. -->
         <!--
         <dataQuery>
@@ -4520,12 +4517,12 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>5</loops>
         </dataQuery>         
     -->
-    
-    <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series. 
+
+        <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series. 
          3 months period. Total number of samples is 5 000 000 approximately. -->
-    
-    <!-- All raw series for 3 months. -->
-    
+
+        <!-- All raw series for 3 months. -->
+
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-asterisk-iso</testID>
             <payload>
@@ -4536,7 +4533,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-asterisk-millis</testID>
@@ -4548,7 +4545,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-double-asterisk-millis</testID>
@@ -4560,7 +4557,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>5</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-masks-millis</testID>
@@ -4572,7 +4569,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-masks-filters-millis</testID>
@@ -4584,7 +4581,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis</testID>
@@ -4596,7 +4593,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis-multiquery-same-interval</testID>
@@ -4608,7 +4605,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-concrete-millis-multiquery-different-intervals</testID>
@@ -4620,10 +4617,10 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
-        
+        </dataQuery>
+
         <!-- All data, aggregated series for 3 months. -->
-        
+
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-count-asterisk-millis</testID>
             <payload>
@@ -4634,7 +4631,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-month-interpolate-asterisk-millis</testID>
@@ -4646,7 +4643,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-hour-interpolate-asterisk-millis</testID>
@@ -4658,7 +4655,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-minute-interpolate-asterisk-millis</testID>
@@ -4670,7 +4667,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-decimal-day-aggregate-asterisk-millis</testID>
@@ -4682,7 +4679,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-aggregate-asterisk-millis</testID>
@@ -4694,7 +4691,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-decimal-month-aggregate-asterisk-millis</testID>
@@ -4706,7 +4703,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-month-aggregate-asterisk-millis</testID>
@@ -4718,7 +4715,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-aggregate-rate-asterisk-millis</testID>
@@ -4730,7 +4727,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-decimal-day-aggregate-multiqueries-asterisk-millis</testID>
@@ -4742,7 +4739,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>5</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-aggregate-rate-multiqueries-asterisk-millis</testID>
@@ -4754,8 +4751,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>5</loops>
-        </dataQuery>         
-        
+        </dataQuery>
+
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-group-asterisk-millis</testID>
             <payload>
@@ -4766,7 +4763,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-aggregate-group-rate-asterisk-millis</testID>
@@ -4778,7 +4775,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-interpolate-group-rate-aggregate-asterisk-millis</testID>
@@ -4790,7 +4787,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-aggregate-double-day-group-aggregate-asterisk-millis</testID>
@@ -4802,10 +4799,10 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <!-- Raw series for 1 hour. -->
-        
+
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-1-hour-decimal-concrete-millis</testID>
             <payload>
@@ -4816,7 +4813,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-1-hour-decimal-concrete-millis-multiquery-same-interval</testID>
@@ -4828,7 +4825,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-1-hour-decimal-concrete-millis-multiquery-different-intervals</testID>
@@ -4840,7 +4837,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-1-hour-decimal-concrete-millis-multiquery-different-hour+-intervals</testID>
@@ -4852,8 +4849,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
-        
+        </dataQuery>
+
         <!-- Limited number of series (raw and aggregated) for 3 months. -->
 
         <dataQuery>
@@ -5612,9 +5609,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>        
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--cpu_busy-3-months-smooth-WTAVG</testID>
             <payload>
                 <![CDATA[
@@ -5629,9 +5626,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--cpu_busy-3-months-smooth-EMA</testID>
             <payload>
                 <![CDATA[
@@ -5646,9 +5643,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-difference-0</testID>
             <payload>
                 <![CDATA[
@@ -5664,9 +5661,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
-         <dataQuery>
+        <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
             <payload>
                 <![CDATA[
@@ -5682,9 +5679,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
 
-          <dataQuery>
+        <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
             <payload>
                 <![CDATA[
@@ -5700,9 +5697,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
-          <dataQuery>
+        <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period-limit-seriesLimit</testID>
             <payload>
                 <![CDATA[
@@ -5718,7 +5715,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period</testID>
@@ -5735,7 +5732,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period-limit</testID>
@@ -5753,9 +5750,9 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
-        
-          <dataQuery>
+        </dataQuery>
+
+        <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period-seriesLimit</testID>
             <payload>
                 <![CDATA[
@@ -5771,7 +5768,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-2-days-group</testID>
@@ -5788,7 +5785,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-2-days-group-limit</testID>
@@ -5806,7 +5803,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-2-days-group-seriesLimit</testID>
@@ -5824,7 +5821,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>          
+        </dataQuery>
 
         <dataQuery>
             <testID>data--disk_used_decimal_test-2-days-group-limit-seriesLimit</testID>
@@ -5971,104 +5968,104 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-2</testID>
             <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-3</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-4</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
 
         <dataQuery>
             <testID>data--entity-search-fin-1</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-2</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>       
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-3</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>    
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-4</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>    
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-5</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>   
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-6</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>    
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-7</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-8</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-9</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-10</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-11</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-12</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>  
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-13</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>                                                                           
+        </dataQuery>
 
         <!--Raw trades export-->
         <dataQuery>
@@ -6112,6 +6109,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01 00:00:00&#38;endDate=2021-01-29 00:00:00&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
             <method>GET</method>
             <loops>10</loops>
-        </dataQuery>        
+        </dataQuery>
     </dataQueries>
 </test>
