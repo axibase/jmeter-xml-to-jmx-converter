@@ -1946,19 +1946,19 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         <!-- instrument search -->
         <dataQuery>
             <testID>data--fin-instr-search-1</testID>
-            <path>/financial/trades/suggest/instruments?pattern=g&#38;className=&#38;limit=20</path>
+            <path>/financial/trades/suggest/instruments?pattern=g&#38;#38;className=&#38;#38;limit=20</path>
             <method>GET</method>
             <loops>20</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--fin-instr-search-2</testID>
-            <path>/financial/trades/suggest/instruments?pattern=GA&#38;className=&#38;limit=20</path>
+            <path>/financial/trades/suggest/instruments?pattern=GA&#38;#38;className=&#38;#38;limit=20</path>
             <method>GET</method>
             <loops>20</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--fin-instr-search-4</testID>
-            <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;className=&#38;limit=20</path>
+            <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;#38;className=&#38;#38;limit=20</path>
             <method>GET</method>
             <loops>20</loops>
         </dataQuery>
@@ -2296,7 +2296,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system = '/dev/md3' && tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system = '/dev/md3' &#38;&#38; tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2353,7 +2353,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2389,7 +2389,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2408,7 +2408,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2426,7 +2426,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -2448,7 +2448,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2470,7 +2470,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -2572,7 +2572,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system = '/dev/md1' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system = '/dev/md1' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2590,7 +2590,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system = '/dev/md1' && tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system = '/dev/md1' &#38;&#38; tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -5965,104 +5965,104 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         <!-- entity search -->
         <dataQuery>
             <testID>data--entity-search-docker-1</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.docker-type = 'image'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-2</testID>
-            <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
+            <path>/api/v1/entities?addInsertTime=true&#38;#38;expression=tags.docker-type = 'container'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-3</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.docker-type = 'container'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-docker-4</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;#38;limit=-1</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
 
         <dataQuery>
             <testID>data--entity-search-fin-1</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code = 'TQBR'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-2</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code = 'TQBR'&#38;#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-3</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-4</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-5</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-6</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-7</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-8</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-9</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.isin = 'NL0009805522'&#38;#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-10</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.isin LIKE 'NL*'&#38;#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-11</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.symbol = 'GAZP'&#38;#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-12</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.symbol LIKE '*GAZ*'&#38;#38;tags=*</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-13</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;#38;expression=tags.name LIKE '*Газ*'&#38;#38;tags=name</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
@@ -6070,43 +6070,134 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         <!--Raw trades export-->
         <dataQuery>
             <testID>gh-tsd-1054-raw-1</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-05&#38;exchange=moex</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-04&#38;#38;endDate=2021-01-05&#38;#38;exchange=moex</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-2</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-05</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-04&#38;#38;endDate=2021-01-05</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-2</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-05</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-04&#38;#38;endDate=2021-01-05</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-3</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04T07:00:00.572695Z&#38;endDate=2021-01-04T07:00:00.5727696Z&#38;exchange=moex</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-04T07:00:00.572695Z&#38;#38;endDate=2021-01-04T07:00:00.5727696Z&#38;#38;exchange=moex</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-4</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=previous_working_day&#38;endDate=current_working_day&#38;exchange=moex&#38;workdayCalendar=moex</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=previous_working_day&#38;#38;endDate=current_working_day&#38;#38;exchange=moex&#38;#38;workdayCalendar=moex</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-5</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04 09:50&#38;endDate=2021-01-05 18:50&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-04 09:50&#38;#38;endDate=2021-01-05 18:50&#38;#38;exchange=moex&#38;#38;timezone=Europe/Moscow</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-6</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01 00:00:00&#38;endDate=2021-01-29 00:00:00&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;#38;class=TQBR&#38;#38;startDate=2021-01-01 00:00:00&#38;#38;endDate=2021-01-29 00:00:00&#38;#38;exchange=moex&#38;#38;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <!--OHLCV endpoint tests /api/v1/ohlcv-->
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-1</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01%2000:00:00&#38;endDate=2021-01-29%2000:00:00&#38;exchange=moex&#38;;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-2</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=AMOUNT</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-3</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 DAY</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-4</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 HOUR</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-5</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 SECOND</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-6</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01%2000:00:00&#38;endDate=2021-01-29%2000:00:00&#38;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-7</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=AMOUNT</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-9</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-9</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 HOUR</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-10</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-11</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01%2000:00:00&#38;endDate=2021-01-29%2000:00:00&#38;timezone=Europe/Moscow&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-12</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-13</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-14</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 HOUR&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-ohlcv-15</testID>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
