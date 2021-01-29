@@ -5963,6 +5963,113 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
+
+
+        <!-- entity search -->
+        <dataQuery>
+            <testID>data--entity-search-docker-1</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-docker-2</testID>
+            <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-docker-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery> 
+        <dataQuery>
+            <testID>data--entity-search-docker-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery> 
+
+        <dataQuery>
+            <testID>data--entity-search-fin-1</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-fin-2</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>       
+        <dataQuery>
+            <testID>data--entity-search-fin-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>    
+        <dataQuery>
+            <testID>data--entity-search-fin-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>    
+        <dataQuery>
+            <testID>data--entity-search-fin-5</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>   
+        <dataQuery>
+            <testID>data--entity-search-fin-6</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>    
+        <dataQuery>
+            <testID>data--entity-search-fin-7</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery> 
+        <dataQuery>
+            <testID>data--entity-search-fin-8</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-fin-9</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>         
+        <dataQuery>
+            <testID>data--entity-search-fin-10</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-fin-11</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>         
+        <dataQuery>
+            <testID>data--entity-search-fin-12</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>  
+        <dataQuery>
+            <testID>data--entity-search-fin-13</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>                                                                           
+
         <!--Raw trades export-->
         <dataQuery>
             <testID>gh-tsd-1054-raw-1</testID>
@@ -5990,7 +6097,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-4</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=previous_day&#38;endDate=current_working_day&#38;exchange=moex&#38;workdayCalendar=moex</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=previous_working_day&#38;endDate=current_working_day&#38;exchange=moex&#38;workdayCalendar=moex</path>
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
@@ -6000,5 +6107,11 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>GET</method>
             <loops>10</loops>
         </dataQuery>
+        <dataQuery>
+            <testID>gh-tsd-1054-raw-6</testID>
+            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01 00:00:00&#38;endDate=2021-01-29 00:00:00&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <loops>10</loops>
+        </dataQuery>        
     </dataQueries>
 </test>
