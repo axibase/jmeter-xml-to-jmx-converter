@@ -248,20 +248,24 @@ public class Main {
                     "      <hashTree>\n" +
                     "        <HTTPSamplerProxy guiclass=\"HttpTestSampleGui\" testclass=\"HTTPSamplerProxy\" testname=\"rampup ");
             sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
-            sb.append("\" enabled=\"true\">\n" +
-                    "          <boolProp name=\"HTTPSampler.postBodyRaw\">true</boolProp>\n" +
-                    "          <elementProp name=\"HTTPsampler.Arguments\" elementType=\"Arguments\">\n" +
-                    "            <collectionProp name=\"Arguments.arguments\">\n" +
-                    "              <elementProp name=\"\" elementType=\"HTTPArgument\">\n" +
-                    "                <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>\n" +
-                    "                <stringProp name=\"Argument.value\">");
-            sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("payload").item(0).getTextContent()));
-            sb.append("</stringProp>\n" +
-                    "                <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
-                    "              </elementProp>\n" +
-                    "            </collectionProp>\n" +
-                    "          </elementProp>\n" +
-                    "          <stringProp name=\"HTTPSampler.domain\"></stringProp>\n" +
+            sb.append("\" enabled=\"true\">\n";
+            if (eElement.getElementsByTagName("payload") != null && eElement.getElementsByTagName("payload").item(0) != null && eElement.getElementsByTagName("payload").item(0).getTextContent() != null) {
+
+                sb.append("          <boolProp name=\"HTTPSampler.postBodyRaw\">true</boolProp>\n" +
+                        "          <elementProp name=\"HTTPsampler.Arguments\" elementType=\"Arguments\">\n" +
+                        "            <collectionProp name=\"Arguments.arguments\">\n" +
+                        "              <elementProp name=\"\" elementType=\"HTTPArgument\">\n" +
+                        "                <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>\n" +
+                        "                <stringProp name=\"Argument.value\">");
+                sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("payload").item(0).getTextContent()));
+                sb.append("</stringProp>\n" +
+                        "                <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
+                        "              </elementProp>\n" +
+                        "            </collectionProp>\n" +
+                        "          </elementProp>\n";
+            }
+
+            sb.append("          <stringProp name=\"HTTPSampler.domain\"></stringProp>\n" +
                     "          <stringProp name=\"HTTPSampler.port\"></stringProp>\n" +
                     "          <stringProp name=\"HTTPSampler.connect_timeout\"></stringProp>\n" +
                     "          <stringProp name=\"HTTPSampler.response_timeout\"></stringProp>\n" +
