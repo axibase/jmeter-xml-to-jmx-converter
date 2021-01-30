@@ -460,7 +460,7 @@ public class Main {
         dataQueries = doc.getElementsByTagName("dataQuery");
     }
 
-    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException{
+    public static void main(String[] args) throws Exception{
         if (args.length != 2) {
             System.out.println("Need 2 args -- input filepath, config filepath!");
             return;
