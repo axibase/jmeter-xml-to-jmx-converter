@@ -13,11 +13,12 @@ WORKDIR /opt/axibase
 RUN apt-get clean && apt-get update && apt-get install -y netcat wget git openjfx openjdk-8-jdk ant
 
 #download jmeter and jmeter converter
-RUN git clone https://github.com/axibase/jmeter-xml-to-jmx-converter.git -b master
+RUN ls -lah && echo "2"  && git clone https://github.com/axibase/jmeter-xml-to-jmx-converter.git -b master
 RUN git clone https://github.com/axibase/jmeter.git -b trunk
 
 #compile jmeter converter
 WORKDIR /opt/axibase/jmeter-xml-to-jmx-converter/src
+
 RUN javac com/axibase/jmeter/Main.java
 
 #build jmeter with ant, download ATSD JDBC driver
