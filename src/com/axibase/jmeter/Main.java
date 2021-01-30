@@ -466,7 +466,7 @@ public class Main {
             return;
         }
         
-        Class.forName("com.axibase.tsd.driver.jdbc.AtsdDriver");
+        //Class.forName("com.axibase.tsd.driver.jdbc.AtsdDriver");
 
         buildQueryLists(args[0]);
         readProperties(args[1]);
