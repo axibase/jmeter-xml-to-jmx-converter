@@ -74,7 +74,7 @@ public class Main {
                 "        <stringProp name=\"checkQuery\">SELECT 1</stringProp>\n" +
                 "        <stringProp name=\"connectionAge\">5000</stringProp>\n" +
                 "        <stringProp name=\"dataSource\">atsd</stringProp>\n" +
-                "        <stringProp name=\"dbUrl\">jdbc:atsd:${atsdURL}:${port};secure=true;trust=true</stringProp>\n" +
+                "        <stringProp name=\"dbUrl\">jdbc:atsd://${atsdURL}:${port};secure=true;trust=true</stringProp>\n" +
                 "        <stringProp name=\"driver\">com.axibase.tsd.driver.jdbc.AtsdDriver</stringProp>\n" +
                 "        <boolProp name=\"keepAlive\">true</boolProp>\n" +
                 "        <stringProp name=\"password\">");
@@ -465,6 +465,8 @@ public class Main {
             System.out.println("Need 2 args -- input filepath, config filepath!");
             return;
         }
+        
+        Class.forName("com.axibase.tsd.driver.jdbc.AtsdDriver");
 
         buildQueryLists(args[0]);
         readProperties(args[1]);
