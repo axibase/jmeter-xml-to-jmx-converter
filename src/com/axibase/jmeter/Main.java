@@ -248,7 +248,7 @@ public class Main {
                     "      <hashTree>\n" +
                     "        <HTTPSamplerProxy guiclass=\"HttpTestSampleGui\" testclass=\"HTTPSamplerProxy\" testname=\"rampup ");
             sb.append(substituteSpecialSymbols(eElement.getElementsByTagName("testID").item(0).getTextContent()).toLowerCase());
-            sb.append("\" enabled=\"true\">\n";
+            sb.append("\" enabled=\"true\">\n");
             if (eElement.getElementsByTagName("payload") != null && eElement.getElementsByTagName("payload").item(0) != null && eElement.getElementsByTagName("payload").item(0).getTextContent() != null) {
 
                 sb.append("          <boolProp name=\"HTTPSampler.postBodyRaw\">true</boolProp>\n" +
@@ -262,7 +262,7 @@ public class Main {
                         "                <stringProp name=\"Argument.metadata\">=</stringProp>\n" +
                         "              </elementProp>\n" +
                         "            </collectionProp>\n" +
-                        "          </elementProp>\n";
+                        "          </elementProp>\n");
             }
 
             sb.append("          <stringProp name=\"HTTPSampler.domain\"></stringProp>\n" +
