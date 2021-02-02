@@ -47,7 +47,7 @@
             </queryText>
             <loops>20</loops>
         </query>
-        <query>
+         <query>
             <testID>fin-2-classes_and_name_like</testID>
             <queryText>
                 <![CDATA[
@@ -56,7 +56,7 @@
             </queryText>
             <loops>20</loops>
         </query>
-        <query>
+         <query>
             <testID>fin-2-classes_and_tag_like</testID>
             <queryText>
                 <![CDATA[
@@ -72,7 +72,7 @@
             <testID>fin-detail-1-symbol-ASC</testID>
             <queryText>
                 <![CDATA[
-                SELECT * FROM atsd_trade 
+                SELECT * FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
 ORDER BY datetime, trade_num
@@ -84,7 +84,7 @@ ORDER BY datetime, trade_num
             <testID>fin-detail-1-symbol-DESC</testID>
             <queryText>
                 <![CDATA[
-                SELECT * FROM atsd_trade 
+                SELECT * FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
 ORDER BY datetime DESC, trade_num DESC
@@ -96,7 +96,7 @@ ORDER BY datetime DESC, trade_num DESC
             <testID>fin-aggr-1m-c-side-filter</testID>
             <queryText>
                 <![CDATA[
-                SELECT time, close() FROM atsd_trade 
+                SELECT time, close() FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP' and side = 'B'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
@@ -108,7 +108,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <testID>fin-aggr-1m-ohlc</testID>
             <queryText>
                 <![CDATA[
-                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
@@ -120,7 +120,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <testID>fin-aggr-1h-ohlc</testID>
             <queryText>
                 <![CDATA[
-                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 hour)
@@ -132,7 +132,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 hour)
             <testID>fin-aggr-1m-ohlc-3-symbols</testID>
             <queryText>
                 <![CDATA[
-                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade 
+                SELECT exchange, class, symbol, datetime, open(), high(), low(), close() FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol IN ('GAZP', 'LKOH', 'SBER')
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
@@ -258,6 +258,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>60</loops>
             <source>https://github.com/axibase/atsd-docs/blob/master/api/sql/examples/select-math.md#mathematical-functions</source>
         </query>
+
+
 
 
         <query>
@@ -1080,6 +1082,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </query>
 
 
+
         <query>
             <testID>Select-all-columns--query-with-series-tags--long</testID>
             <queryText>
@@ -1595,6 +1598,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </query>
 
 
+
         <query>
             <testID>join--derived-series--long</testID>
             <queryText>
@@ -1751,8 +1755,8 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <testID>select-count--disk-used</testID>
             <queryText>
                 <![CDATA[
-                SELECT count(*) 
-                FROM "df.disk_used" 
+                SELECT count(*)
+                FROM "df.disk_used"
                 WHERE datetime >= '2017-06-01T00:00:00Z' AND datetime < '2018-06-01T00:00:00Z'
                 ]]>
             </queryText>
@@ -1942,30 +1946,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>POST</method>
             <loops>20</loops>
         </dataQuery>
-
-        <!-- instrument search -->
-        <dataQuery>
-            <testID>data--fin-instr-search-1</testID>
-            <path>/financial/trades/suggest/instruments?pattern=g&#38;className=&#38;limit=20</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>20</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--fin-instr-search-2</testID>
-            <path>/financial/trades/suggest/instruments?pattern=GA&#38;className=&#38;limit=20</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>20</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--fin-instr-search-4</testID>
-            <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;className=&#38;limit=20</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>20</loops>
-        </dataQuery>
-
         <!-- FINANCE EDITION END -->
         <dataQuery>
             <testID>data--jmeter-ok-count-metric</testID>
@@ -2299,7 +2279,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system = '/dev/md3' &#38;&#38; tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system = '/dev/md3' && tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2356,7 +2336,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2392,7 +2372,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                   "endDate":   "now",
                   "metric": "df.disk_used",
                   "entity": "nurswghbs001",
-                  "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/home'",
+                  "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/home'",
                   "limit": 5
                 }]
                 ]]>
@@ -2411,7 +2391,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2429,7 +2409,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -2451,7 +2431,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2473,7 +2453,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "file_system": "/dev/*",
                 "mount_point": "/boot"
                 },
-                "tagExpression": "tags.file_system LIKE '/dev/*' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system LIKE '/dev/*' && tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -2575,7 +2555,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system = '/dev/md1' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system = '/dev/md1' && tags.mount_point = '/boot'",
                 "limit": 1
                 }]
                 ]]>
@@ -2593,7 +2573,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                 "endDate":   "now",
                 "metric": "df.disk_used",
                 "entity": "nurswghbs001",
-                "tagExpression": "tags.file_system = '/dev/md1' &#38;&#38; tags.mount_point = '/boot'",
+                "tagExpression": "tags.file_system = '/dev/md1' && tags.mount_point = '/boot'",
                 "limit": 20
                 }]
                 ]]>
@@ -3624,8 +3604,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>30</loops>
-        </dataQuery>
-        <dataQuery>
+        </dataQuery><dataQuery>
             <testID>data--chartlab--e0e0be77--1--1</testID>
             <payload>
                 <![CDATA[
@@ -4277,7 +4256,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-count-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4314,7 +4293,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-sum-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4326,7 +4305,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-1-day</testID>
             <payload>
                 <![CDATA[
@@ -4350,7 +4329,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4386,7 +4365,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-perc-75-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4422,7 +4401,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-perc-50_75_90_95_99-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4434,7 +4413,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-day</testID>
             <payload>
                 <![CDATA[
@@ -4458,7 +4437,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--aggregator-count-sum-min-max-avg-perc-50_75_90_95_99-1-year</testID>
             <payload>
                 <![CDATA[
@@ -4483,7 +4462,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
-        
+
         <dataQuery>
             <testID>data-versioned-1-month</testID>
             <payload>
@@ -4494,7 +4473,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data-versioned-3-month</testID>
@@ -4506,7 +4485,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>10</loops>
-        </dataQuery>         
+        </dataQuery>
 
         <dataQuery>
             <testID>data-versioned-6-month</testID>
@@ -4518,13 +4497,13 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <path>/api/v1/series/query</path>
             <method>POST</method>
             <loops>5</loops>
-        </dataQuery>         
+        </dataQuery>
     -->
 
-        <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series. 
+    <!-- Groups of tests for the 'disk_used' metric. 6 entities, 14 series.
          3 months period. Total number of samples is 5 000 000 approximately. -->
 
-        <!-- All raw series for 3 months. -->
+    <!-- All raw series for 3 months. -->
 
         <dataQuery>
             <testID>data--disk_used_test-3-months-all-detail-decimal-asterisk-iso</testID>
@@ -5589,7 +5568,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
                     "smooth": { "type": "AVG", "interval": { "count": 1, "unit": "HOUR" } },
                     "timeFormat": "milliseconds"
-                    }]                
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5606,7 +5585,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
                     "smooth": { "type": "WAVG", "interval": { "count": 1, "unit": "HOUR" } },
                     "timeFormat": "milliseconds"
-                    }]                
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5614,7 +5593,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--cpu_busy-3-months-smooth-WTAVG</testID>
             <payload>
                 <![CDATA[
@@ -5623,7 +5602,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
                     "smooth": { "type": "WTAVG", "interval": { "count": 1, "unit": "HOUR" } },
                     "timeFormat": "milliseconds"
-                    }]                
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5631,7 +5610,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--cpu_busy-3-months-smooth-EMA</testID>
             <payload>
                 <![CDATA[
@@ -5640,7 +5619,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "metric": "mpstat.cpu_busy", "entity": "nurswghbs001",
                     "smooth": { "type": "EMA", "factor": 0.5 },
                     "timeFormat": "milliseconds"
-                    }]                
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5648,7 +5627,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-difference-0</testID>
             <payload>
                 <![CDATA[
@@ -5658,7 +5637,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "downsample": { "difference": 0 },
                     "timeFormat": "milliseconds",
                     "seriesLimit": 5
-                    }]                 
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5666,7 +5645,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+         <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
             <payload>
                 <![CDATA[
@@ -5676,7 +5655,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "downsample": { "ratio": 1.05 },
                     "timeFormat": "milliseconds",
                     "seriesLimit": 5
-                    }]                
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5684,7 +5663,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+          <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-downsample-ratio-1.05</testID>
             <payload>
                 <![CDATA[
@@ -5694,7 +5673,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
                     "downsample": { "algorithm": "INTERPOLATE", "ratio": 1.05 },
                     "timeFormat": "milliseconds",
                     "seriesLimit": 5
-                    }]                  
+                    }]
                 ]]>
             </payload>
             <path>/api/v1/series/query</path>
@@ -5702,7 +5681,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+          <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period-limit-seriesLimit</testID>
             <payload>
                 <![CDATA[
@@ -5755,7 +5734,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
 
-        <dataQuery>
+          <dataQuery>
             <testID>data--disk_used_decimal_test-3-months-group-period-seriesLimit</testID>
             <payload>
                 <![CDATA[
@@ -5963,130 +5942,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>POST</method>
             <loops>10</loops>
         </dataQuery>
-
-
-        <!-- entity search -->
-        <dataQuery>
-            <testID>data--entity-search-docker-1</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-docker-2</testID>
-            <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-docker-3</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-docker-4</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-
-        <dataQuery>
-            <testID>data--entity-search-fin-1</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-2</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-3</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-4</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-5</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-6</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-7</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-8</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-9</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-10</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-11</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-12</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
-            <testID>data--entity-search-fin-13</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-
         <!--Raw trades export-->
         <dataQuery>
             <testID>gh-tsd-1054-raw-1</testID>
