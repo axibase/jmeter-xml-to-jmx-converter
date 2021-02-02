@@ -3,7 +3,7 @@ cd /opt/axibase/tmp/
 
 #download fresh copy of a .xml file with test-plan
 rm -rf jmeter-xml-to-jmx-converter
-git clone https://github.com/axibase/jmeter-xml-to-jmx-converter.git -b $1
+git clone https://github.com/axibase/jmeter-xml-to-jmx-converter.git -b $1 --depth 1
 
 #make .jmx file from .xml
 mv jmeter-xml-to-jmx-converter/input.xml /opt/axibase/input.xml
