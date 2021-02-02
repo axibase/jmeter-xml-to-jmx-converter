@@ -195,6 +195,7 @@ public class Main {
                 "          <collectionProp name=\"Arguments.arguments\"/>\n" +
                 "        </elementProp>\n" +
                 "        <stringProp name=\"HTTPSampler.domain\">${atsdURL}</stringProp>\n" +
+                "        <stringProp name=\"HTTPSampler.implementation\">Java</stringProp>\n" +
                 "        <stringProp name=\"HTTPSampler.port\">${port}</stringProp>\n" +
                 "        <stringProp name=\"HTTPSampler.connect_timeout\"></stringProp>\n" +
                 "        <stringProp name=\"HTTPSampler.response_timeout\"></stringProp>\n" +
