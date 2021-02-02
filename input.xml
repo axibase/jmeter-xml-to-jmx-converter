@@ -6103,22 +6103,15 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
-            <testID>gh-tsd-1054-raw-2</testID>
+            <testID>gh-tsd-1054-raw-3</testID>
             <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-05</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
-            <testID>gh-tsd-1054-raw-3</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04T07:00:00.572695Z&#38;endDate=2021-01-04T07:00:00.5727696Z&#38;exchange=moex</path>
-            <method>GET</method>
-            <payload></payload>
-            <loops>10</loops>
-        </dataQuery>
-        <dataQuery>
             <testID>gh-tsd-1054-raw-4</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=previous_working_day&#38;endDate=current_working_day&#38;exchange=moex&#38;workdayCalendar=moex</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04T07:00:00.572695Z&#38;endDate=2021-01-04T07:00:00.5727696Z&#38;exchange=moex</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6132,7 +6125,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-raw-6</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01 00:00:00&#38;endDate=2021-01-29 00:00:00&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
+            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01 00:00:00&#38;endDate=2021-01-10 00:00:00&#38;exchange=moex&#38;timezone=Europe/Moscow</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6215,7 +6208,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-12</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6247,6 +6240,6 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
-        </dataQuery>        
+        </dataQuery>
     </dataQueries>
 </test>
