@@ -1889,6 +1889,150 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
 
     <dataQueries>
         <!-- FINANCE EDITION START -->
+
+	<!-- instrument search -->
+        <dataQuery>
+            <testID>data--fin-instr-search-1</testID>
+            <path>/financial/trades/suggest/instruments?pattern=g&#38;className=&#38;limit=20</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-instr-search-2</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GA&#38;className=&#38;limit=20</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-instr-search-4</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;className=&#38;limit=20</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>20</loops>
+        </dataQuery>
+        <!-- entity search -->
+        <dataQuery>
+            <testID>data--entity-search-docker-1</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-docker-2</testID>
+            <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-docker-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-docker-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-1</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-2</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-5</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-6</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-7</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-8</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-9</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-10</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-11</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-12</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-13</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>        
+        
         <dataQuery>
             <testID>data--fin-detail-1-symbol-ASC</testID>
             <payload>
