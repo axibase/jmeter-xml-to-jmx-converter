@@ -1,39 +1,7 @@
 <test>
-    <SQLqueries>
-        <!-- FINANCE EDITION START -->
-        <!-- instruments -->
-        <query>
-            <testID>fin-1-symbol</testID>
-            <queryText>
-                <![CDATA[
-                SELECT entity FROM atsd_entity WHERE tags.symbol  = 'GAZP'
-                ]]>
-            </queryText>
-            <loops>20</loops>
-        </query>
-        
-    </SQLqueries>
 
     <dataQueries>
-
-        <dataQuery>
-            <testID>data--fin-detail-1-symbol-ASC</testID>
-            <payload>
-                <![CDATA[
-                {
-                    "entity": "gazp_[tqbr]",
-                    "metric": "trade_price",
-                    "startDate": "2020-08-20T00:00:00.000Z",
-                    "endDate":   "2020-08-27T00:00:00.000Z"
-                }
-                ]]>
-            </payload>
-            <path>/api/v1/series/query</path>
-            <method>POST</method>
-            <loops>20</loops>
-        </dataQuery>
-
-        <!-- instrument search -->
+	<!-- instrument search -->
         <dataQuery>
             <testID>data--fin-instr-search-1</testID>
             <path>/financial/trades/suggest/instruments?pattern=g&#38;className=&#38;limit=20</path>
@@ -41,7 +9,21 @@
             <payload></payload>
             <loops>20</loops>
         </dataQuery>
- 
+        <dataQuery>
+            <testID>data--fin-instr-search-2</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GA&#38;className=&#38;limit=20</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>20</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--fin-instr-search-4</testID>
+            <path>/financial/trades/suggest/instruments?pattern=GAZP&#38;className=&#38;limit=20</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>20</loops>
+        </dataQuery>
+        <!-- entity search -->
         <dataQuery>
             <testID>data--entity-search-docker-1</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'image'</path>
@@ -49,7 +31,27 @@
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
- 
+        <dataQuery>
+            <testID>data--entity-search-docker-2</testID>
+            <path>/api/v1/entities?addInsertTime=true&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-docker-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-docker-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.docker-type = 'container' AND tags.status != 'deleted' AND tags.docker-host = 'nurswghbs001'&#38;limit=-1</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-1</testID>
             <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'</path>
@@ -57,11 +59,86 @@
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
-
-        <!--Raw trades export-->
         <dataQuery>
-            <testID>gh-tsd-1054-raw-1</testID>
-            <path>/api/v1/trades?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-05&#38;exchange=moex</path>
+            <testID>data--entity-search-fin-2</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code = 'TQBR'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-3</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-4</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-5</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE 's*_[*]' and tags.class_code IN ('TQBR', 'TQCB', 'TQOB')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-6</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-7</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code IN ('TQBR', 'TQCB', 'TQOB') and name LIKE 's*_[*]'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-8</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-9</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin = 'NL0009805522'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-10</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.isin LIKE 'NL*'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-11</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol = 'GAZP'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-12</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.symbol LIKE '*GAZ*'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>data--entity-search-fin-13</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
