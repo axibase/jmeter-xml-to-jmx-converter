@@ -130,7 +130,7 @@
         </dataQuery>            
         <dataQuery>
             <testID>data--entity-search-fin-15</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=versionDate 	&gt; '2020-12-03' and versionDate &lt; '2020-12-04'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=versionDate &#62; '2020-12-03' and versionDate &#60; '2020-12-04'</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -144,11 +144,18 @@
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-17</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=createdDate 	&gt; '2020-12-03T14:30:00Z' and createdDate &lt; '2020-12-03T14:30:02Z'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=createdDate &#62; '2020-12-03T14:30:00Z' and createdDat &#60; '2020-12-03T14:30:02Z'</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery> 	    
- 
+        <dataQuery>
+            <testID>data--entity-search-fin-18</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[tqbr]'</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery> 
+
     </dataQueries>
 </test>
