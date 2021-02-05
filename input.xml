@@ -76,6 +76,7 @@
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
 ORDER BY datetime, trade_num
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -88,6 +89,7 @@ ORDER BY datetime, trade_num
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
 ORDER BY datetime DESC, trade_num DESC
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -100,6 +102,7 @@ ORDER BY datetime DESC, trade_num DESC
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP' and side = 'B'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -112,6 +115,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -124,6 +128,7 @@ GROUP BY exchange, class, symbol, PERIOD(1 minute)
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 hour)
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -136,6 +141,118 @@ GROUP BY exchange, class, symbol, PERIOD(1 hour)
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol IN ('GAZP', 'LKOH', 'SBER')
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
 GROUP BY exchange, class, symbol, PERIOD(1 minute)
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-aggr-1d-c</testID>
+            <queryText>
+                <![CDATA[
+                SELECT time, close() FROM atsd_trade
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-09-07T00:00:00.000Z' EXCL
+GROUP BY exchange, class, symbol, PERIOD(1 DAY)
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+
+
+        <query>
+            <testID>fin-detail-1-symbol-sessionN-side</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM atsd_trade
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2021-01-20' AND '2021-01-27' EXCL
+AND session = 'N' AND side = 'S'
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-detail-1-symbol-sessionLE</testID>
+            <queryText>
+                <![CDATA[
+                SELECT * FROM atsd_trade
+WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
+AND datetime BETWEEN '2021-01-20' AND '2021-01-27' EXCL
+AND session IN ('L', 'E')
+WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        
+        <!-- atsd_session_summary -->
+        <query>
+            <testID>fin-session-1</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT datetime, class, symbol, valtoday, numtrades, type, stage
+                    FROM atsd_session_summary 
+                    WHERE datetime BETWEEN '2021-01-28 00:00:00' AND '2021-01-29 00:00:00' EXCL 
+                    AND class = 'TQBR' AND symbol = 'GAZP'
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-session-2</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT *
+                    FROM atsd_session_summary 
+                    WHERE datetime BETWEEN '2021-01-28 00:00:00' AND '2021-01-29 00:00:00' EXCL 
+                    AND class = 'TQBR' AND symbol = 'GAZP'
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-session-3</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT datetime, class, symbol, valtoday, numtrades, type, stage
+                    FROM atsd_session_summary 
+                    WHERE datetime BETWEEN '2021-01-01 00:00:00' AND '2021-02-01 00:00:00' EXCL
+                    AND class = 'TQBR' AND symbol = 'GAZP'
+                    AND type = 'Day' AND stage = 'N'
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-session-4</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT datetime, class, symbol, valtoday, numtrades, type, stage
+                    FROM atsd_session_summary 
+                    WHERE datetime BETWEEN '2021-01-01 00:00:00' AND '2021-02-01 00:00:00' EXCL
+                    AND class = 'TQBR' AND symbol LIKE 'G%'
+                    AND type = 'Day' AND stage = 'N'
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-session-5</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT datetime, class, symbol, valtoday, numtrades, type, stage
+                    FROM atsd_session_summary 
+                    WHERE datetime BETWEEN '2021-01-01 00:00:00' AND '2021-02-01 00:00:00' EXCL
+                    AND symbol = 'GAZP'
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+                    ORDER BY class, symbol, datetime
                 ]]>
             </queryText>
             <loops>20</loops>
