@@ -75,8 +75,8 @@
                 SELECT * FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
-ORDER BY datetime, trade_num
 WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+ORDER BY datetime, trade_num
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -88,8 +88,8 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 SELECT * FROM atsd_trade
 WHERE exchange = 'moex' AND class = 'TQBR' AND symbol = 'GAZP'
 AND datetime BETWEEN '2020-08-20T00:00:00.000Z' AND '2020-08-27T00:00:00.000Z' EXCL
-ORDER BY datetime DESC, trade_num DESC
 WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
+ORDER BY datetime DESC, trade_num DESC
                 ]]>
             </queryText>
             <loops>20</loops>
