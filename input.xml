@@ -2144,7 +2144,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>
         <dataQuery>
             <testID>data--entity-search-fin-13</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name LIKE '*Газ*'&#38;tags=name</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.name%20LIKE%20%27%2A%D0%93%D0%B0%D0%B7%2A%27&#38;tags=name</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -2184,7 +2184,21 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
             <payload></payload>
             <loops>10</loops>
         </dataQuery> 	     
-        
+        <dataQuery>
+            <testID>data--entity-search-fin-19</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]'&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery> 
+        <dataQuery>
+            <testID>data--entity-search-fin-19</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code != ''&#38;tags=*</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>        
+
         <dataQuery>
             <testID>data--fin-detail-1-symbol-ASC</testID>
             <payload>
