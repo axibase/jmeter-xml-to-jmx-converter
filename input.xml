@@ -65,6 +65,45 @@
             </queryText>
             <loops>20</loops>
         </query>
+        <query>
+            <testID>fin-tqbr-like-class</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code LIKE 'TQBR'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>      
+        <query>
+            <testID>fin-tqbr-sec_def</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code = 'TQBR' AND SEC_DEF.symbol = 'GAZP'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-tqbr-stat</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity, STAT.last FROM atsd_entity WHERE tags.class_code = 'TQBR' AND STAT.last > 10000 AND tags.symbol LIKE 'T%'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+        <query>
+            <testID>fin-tqbr-prevdate</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT entity, date_format(WORKDAY(current_working_day, 2), 'yyyyMMdd') AS t2_date, STAT.prevdate
+                    FROM atsd_entity 
+                    WHERE tags.class_code = 'TQBR' AND tags.mat_date IS NULL AND SEC_DEF.settldate > date_format(now-7*day, 'yyyyMMdd')
+                    AND (STAT.prevdate IS NULL OR SEC_DEF.settldate != t2_date)
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>          
         <!-- end instruments -->
 
         <!-- trades -->
