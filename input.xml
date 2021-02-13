@@ -2225,14 +2225,14 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery> 	     
         <dataQuery>
             <testID>data--entity-search-fin-19</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]'</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=name LIKE '*_[*]'&#38;limit=95000</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery> 
         <dataQuery>
             <testID>data--entity-search-fin-20</testID>
-            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code != ''</path>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code != ''&#38;limit=95000</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
