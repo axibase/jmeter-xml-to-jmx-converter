@@ -100,7 +100,8 @@
                     FROM atsd_entity 
                     WHERE tags.class_code = 'TQBR' AND tags.mat_date IS NULL AND SEC_DEF.settldate > date_format(now-7*day, 'yyyyMMdd')
                     AND (STAT.prevdate IS NULL OR SEC_DEF.settldate != t2_date)
-                    AND IS_WORKDAY(now, 'moex', 'Europe/Moscow')
+                    AND IS_WORKDAY(now)
+                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
                 ]]>
             </queryText>
             <loops>20</loops>
