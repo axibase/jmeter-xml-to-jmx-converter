@@ -92,20 +92,7 @@
             </queryText>
             <loops>20</loops>
         </query>
-        <query>
-            <testID>fin-tqbr-prevdate</testID>
-            <queryText>
-                <![CDATA[
-                    SELECT entity, date_format(WORKDAY(current_working_day, 2), 'yyyyMMdd') AS t2_date, STAT.prevdate
-                    FROM atsd_entity 
-                    WHERE tags.class_code = 'TQBR' AND tags.mat_date IS NULL AND SEC_DEF.settldate > date_format(now-7*day, 'yyyyMMdd')
-                    AND (STAT.prevdate IS NULL OR SEC_DEF.settldate != t2_date)
-                    AND IS_WORKDAY(now)
-                    WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
-                ]]>
-            </queryText>
-            <loops>20</loops>
-        </query>          
+         
         <!-- end instruments -->
 
         <!-- trades -->
@@ -298,7 +285,66 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
             </queryText>
             <loops>20</loops>
         </query>
+        <query>
+            <testID>fin-summary-regex-5y</testID>
+            <queryText>
+                <![CDATA[
+                SELECT symbol, LAST(close) AS last_close, MAX(high) AS ath, date_format(LAST(datetime), 'yyyy-MM-dd') AS last_close_date, date_format(MAX_VALUE_TIME(high), 'yyyy-MM-dd') AS ath_date, date_format(FIRST(time), 'yyyy-MM-dd') AS first_date 
+                FROM atsd_session_summary
+                WHERE datetime BETWEEN '2015-01-01' AND '2020-01-01' EXCL
+                AND exchange = 'QUIK'
+                AND class = 'STOCK_USA'
+                AND (symbol REGEX '^A.*|^B.*')
+                GROUP BY symbol WITH TIMEZONE='UTC'
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query> 
+        <query>
+            <testID>fin-trade-ent_group</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT symbol, datetime, open(), high(), low(), close(), entity.tags.name
+                    FROM atsd_trade
+                    WHERE datetime BETWEEN '2021-02-15' AND '2021-03-01' EXCL
+                    AND IS_ENTITY_IN_GROUP(TO_ENTITY(symbol, class), 'us-etf')
+                    GROUP BY exchange, class, symbol, PERIOD(1 DAY)
+                    WITH TIMEZONE = 'US/Eastern', WORKDAY_CALENDAR = 'nyse'
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query> 
+        <query>
+            <testID>fin-trade-tag-name</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT symbol, datetime, open(), high(), low(), close(), entity.tags.name
+                    FROM atsd_trade
+                    WHERE datetime BETWEEN '2021-02-15' AND '2021-03-01' EXCL
+                    AND class = 'STOCK_USA' AND (UPPER(entity.tags.name) LIKE '%ISH%' OR UPPER(entity.tags.name) LIKE '%MSCI%')
+                    GROUP BY exchange, class, symbol, PERIOD(1 DAY)
+                    WITH TIMEZONE = 'US/Eastern', WORKDAY_CALENDAR = 'nyse'
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query> 
+        <query>
+            <testID>fin-summary-ent_group</testID>
+            <queryText>
+                <![CDATA[
+                    SELECT symbol, max(high), entity.tags.name
+                    FROM atsd_session_summary
+                    WHERE datetime BETWEEN '2021-02-01' AND '2021-03-01' EXCL
+                    AND IS_ENTITY_IN_GROUP(TO_ENTITY(symbol, class), 'us-etf')
+                    GROUP BY exchange, class, symbol
+                    WITH TIMEZONE = 'US/Eastern', WORKDAY_CALENDAR = 'nyse'
+                ]]>
+            </queryText>
+            <loops>10</loops>
+        </query>
+
         <!-- FINANCE EDITION END -->
+
         <query>
             <testID>Top-10-cities-by-PNI-deaths</testID>
             <queryText>
