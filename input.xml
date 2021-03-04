@@ -42,7 +42,7 @@
             <testID>fin-2-classes</testID>
             <queryText>
                 <![CDATA[
-                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT')
+                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT') AND creationTime < 1614613889869
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -51,7 +51,7 @@
             <testID>fin-2-classes_and_name_like</testID>
             <queryText>
                 <![CDATA[
-                SELECT entity FROM atsd_entity WHERE name LIKE '%_[%]' AND tags.class_code IN('TQBR', 'SPBFUT')
+                SELECT entity FROM atsd_entity WHERE name LIKE '%_[%]' AND tags.class_code IN('TQBR', 'SPBFUT') AND creationTime < 1614613889869
                 ]]>
             </queryText>
             <loops>20</loops>
@@ -60,7 +60,7 @@
             <testID>fin-2-classes_and_tag_like</testID>
             <queryText>
                 <![CDATA[
-                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT') AND tags.symbol LIKE 'G%Z%'
+                SELECT entity FROM atsd_entity WHERE tags.class_code IN('TQBR', 'SPBFUT') AND tags.symbol LIKE 'G%Z%' AND creationTime < 1614613889869
                 ]]>
             </queryText>
             <loops>20</loops>
