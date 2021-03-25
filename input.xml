@@ -2285,7 +2285,13 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
             <payload></payload>
             <loops>10</loops>
         </dataQuery>                
-
+        <dataQuery>
+            <testID>data--entity-search-fin-21</testID>
+            <path>/api/v1/entities?addInsertTime=false&#38;expression=tags.class_code != '' and tags.class_code NOT IN ('SPBOPT', 'STOCK_USA', 'TQCB', 'SBPXM')</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
         <dataQuery>
             <testID>data--fin-detail-1-symbol-ASC</testID>
             <payload>
