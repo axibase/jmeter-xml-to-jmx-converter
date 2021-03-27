@@ -92,7 +92,25 @@
             </queryText>
             <loops>20</loops>
         </query>
-         
+        <query>
+            <testID>fin-security-list</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tags.symbol, tags.class_code, tags.scale, tags.lot, tags.list_level, tags.mat_date, stat.settledate1, tags.primary FROM atsd_entity WHERE tags.class_code IN ('TQBR', 'TQIF', 'TQTF', 'TQOB', 'EQOB', 'TQQI', 'FQBR', 'TQPI') AND tags.scale != '' ORDER BY tags.symbol, STAT.settledate1 DESC, tags.mat_date, creationTime DESC
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>        
+        <query>
+            <testID>fin-security-list-nostat</testID>
+            <queryText>
+                <![CDATA[
+                SELECT tags.symbol, tags.class_code, tags.scale, tags.lot, tags.list_level, tags.mat_date, tags.primary FROM atsd_entity WHERE tags.class_code IN ('TQBR', 'TQIF', 'TQTF', 'TQOB', 'EQOB', 'TQQI', 'FQBR', 'TQPI') AND tags.scale != '' ORDER BY tags.symbol, tags.mat_date, creationTime DESC
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>
+
         <!-- end instruments -->
 
         <!-- trades -->
