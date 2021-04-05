@@ -39,6 +39,15 @@
             <loops>20</loops>
         </query>
         <query>
+            <testID>fin-tqbr-class-not-null</testID>
+            <queryText>
+                <![CDATA[
+                SELECT entity FROM atsd_entity WHERE tags.class_code IS NOT NULL AND tags.class_code = 'TQBR'
+                ]]>
+            </queryText>
+            <loops>20</loops>
+        </query>        
+        <query>
             <testID>fin-2-classes</testID>
             <queryText>
                 <![CDATA[
