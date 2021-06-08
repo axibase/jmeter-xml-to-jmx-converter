@@ -6526,5 +6526,37 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
+
+        <!-- volume bars -->
+        <dataQuery>
+            <testID>fin-bars-vol-1</testID>
+            <path>/api/v1/bars/volume?barSize=1000000&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-05&#38;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-bars-vol-2</testID>
+            <path>/api/v1/bars/volume?dailyBarsCount=50&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-05&#38;timezone=Europe/Moscow</path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>   
+        <dataQuery>
+            <testID>fin-bars-amount-1</testID>
+            <path>/api/v1/bars/amount?barSize=1000000000&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-04&#38;timezone=Europe/Moscow&#38;statistics=amount,volume,count,vwap
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>              
+        <dataQuery>
+            <testID>fin-bars-amount-2</testID>
+            <path>/api/v1/bars/amount?dailyBarsCount=10&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-04&#38;timezone=Europe/Moscow&#38;statistics=amount,volume,count,vwap
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery> 
     </dataQueries>
 </test>
