@@ -6571,6 +6571,23 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
-        </dataQuery> 
+        </dataQuery>
+        <!-- fracdiff -->
+        <dataQuery>
+            <testID>fin-fracdiff-auto-d</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0&amp;startDate=now%20-%201*year&amp;endDate=now&amp;statistic=CLOSE&amp;period=2%20hour
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-fracdiff-manual-d</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0.6&amp;startDate=now%20-%201*year&amp;endDate=now&amp;statistic=CLOSE&amp;period=2%20hour
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
     </dataQueries>
 </test>
