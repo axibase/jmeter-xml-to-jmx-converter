@@ -6575,7 +6575,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         <!-- fracdiff -->
         <dataQuery>
             <testID>fin-fracdiff-auto-d</testID>
-            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0&amp;startDate=now%20-%201*year&amp;endDate=now&amp;statistic=CLOSE&amp;period=2%20hour
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0&amp;startDate=2020-01-01&amp;endDate=2020-06-01&amp;statistic=CLOSE&amp;period=6%20hour
             </path>
             <method>GET</method>
             <payload></payload>
@@ -6583,7 +6583,39 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>
         <dataQuery>
             <testID>fin-fracdiff-manual-d</testID>
-            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0.6&amp;startDate=now%20-%201*year&amp;endDate=now&amp;statistic=CLOSE&amp;period=2%20hour
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0.6&amp;startDate=2020-01-01&amp;endDate=2020-06-01&amp;statistic=CLOSE&amp;period=6%20hour
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-fracdiff-auto-d-2</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0&amp;startDate=2020-01-01&amp;endDate=2020-02-01&amp;statistic=CLOSE&amp;period=10%20minute
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-fracdiff-manual-d-2</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0.6&amp;startDate=2020-01-01&amp;endDate=2020-02-01&amp;statistic=CLOSE&amp;period=10%20minute
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-fracdiff-auto-d-3</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0&amp;startDate=2020-01-01&amp;endDate=2020-01-08&amp;statistic=CLOSE&amp;period=10%20second
+            </path>
+            <method>GET</method>
+            <payload></payload>
+            <loops>10</loops>
+        </dataQuery>
+        <dataQuery>
+            <testID>fin-fracdiff-manual-d-3</testID>
+            <path>/api/v1/fracdiff?symbol=GAZP&amp;class=TQBR&amp;d=0.6&amp;startDate=2020-01-01&amp;endDate=2020-01-08&amp;statistic=CLOSE&amp;period=10%20second
             </path>
             <method>GET</method>
             <payload></payload>
