@@ -6425,7 +6425,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-2</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;exchange=moex&#38;;timezone=Europe/Moscow&#38;period=1 DAY&#38;fields=AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6459,7 +6459,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-7</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;fields=AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6486,42 +6486,42 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-11</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01%2000:00:00&#38;endDate=2021-01-29%2000:00:00&#38;timezone=Europe/Moscow&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-01%2000:00:00&#38;endDate=2021-01-29%2000:00:00&#38;timezone=Europe/Moscow&#38;fields=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-12</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;fields=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-13</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-11&#38;timezone=Europe/Moscow&#38;period=1 DAY&#38;fields=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-14</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 HOUR&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 HOUR&#38;fields=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-15</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND&#38;statistics=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND&#38;fields=OPEN,HIGH,LOW,CLOSE,VOLUME,COUNT,VWAP,AMOUNT</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
         </dataQuery>
         <dataQuery>
             <testID>gh-tsd-1054-ohlcv-16</testID>
-            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND&#38;statistics=VWAP</path>
+            <path>/api/v1/ohlcv?symbol=GAZP&#38;class=TQBR&#38;startDate=2021-01-04&#38;endDate=2021-01-06&#38;timezone=Europe/Moscow&#38;period=1 SECOND&#38;fields=VWAP</path>
             <method>GET</method>
             <payload></payload>
             <loops>10</loops>
@@ -6558,7 +6558,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>   
         <dataQuery>
             <testID>fin-bars-amount-1</testID>
-            <path>/api/v1/bars/amount?barSize=1000000000&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-08&#38;timezone=Europe/Moscow&#38;statistics=amount,volume,count,vwap
+            <path>/api/v1/bars/amount?barSize=1000000000&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-08&#38;timezone=Europe/Moscow&#38;fields=amount,volume,count,vwap
             </path>
             <method>GET</method>
             <payload></payload>
@@ -6566,7 +6566,7 @@ WITH TIMEZONE = 'Europe/Moscow', WORKDAY_CALENDAR = 'moex'
         </dataQuery>              
         <dataQuery>
             <testID>fin-bars-amount-2</testID>
-            <path>/api/v1/bars/amount?dailyBarsCount=10&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-08&#38;timezone=Europe/Moscow&#38;statistics=amount,volume,count,vwap
+            <path>/api/v1/bars/amount?dailyBarsCount=10&#38;symbol=GAZP&#38;class=TQBR&#38;startDate=2021-06-01&#38;endDate=2021-06-08&#38;timezone=Europe/Moscow&#38;fields=amount,volume,count,vwap
             </path>
             <method>GET</method>
             <payload></payload>
